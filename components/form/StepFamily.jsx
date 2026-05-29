@@ -251,8 +251,12 @@ export default function StepFamily({ data, setData, errors }) {
           <button
             type="button"
             onClick={() => {
-              handleFieldChange("biradariSkip", !data.biradariSkip);
-              if (!data.biradariSkip) handleFieldChange("biradari", "");
+              const updated = {
+                ...data,
+                biradariSkip: !data.biradariSkip,
+                biradari: !data.biradariSkip ? "" : data.biradari
+              };
+              setData(updated);
             }}
             className={`h-[56px] px-5 rounded-2xl border text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
               data.biradariSkip

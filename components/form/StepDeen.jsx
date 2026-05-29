@@ -126,9 +126,12 @@ export default function StepDeen({ data, setData, errors }) {
                 key={q.id}
                 type="button"
                 onClick={() => {
-                  handleFieldChange("quran", q.id);
-                  if (q.id === "hafiz") handleFieldChange("hafiz", true);
-                  else handleFieldChange("hafiz", false);
+                  const updated = {
+                    ...data,
+                    quran: q.id,
+                    hafiz: q.id === "hafiz"
+                  };
+                  setData(updated);
                 }}
                 className={`p-5 rounded-2xl border text-left flex items-start gap-4 transition-all duration-300 cursor-pointer ${
                   isSelected

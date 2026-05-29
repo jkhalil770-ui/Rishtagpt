@@ -186,7 +186,7 @@ export default function FormPage() {
             animate={shake ? { x: [-6, 6, -4, 4, 0] } : {}}
             transition={{ duration: 0.4 }}
           >
-            <GlassCard className="p-6 sm:p-10 border-gold/20 shadow-2xl relative bg-[#0C1226]/80 overflow-hidden">
+            <GlassCard className="p-6 sm:p-10 border-gold/20 shadow-2xl relative bg-[#0C1226]/80 overflow-visible">
               <AnimatePresence mode="wait" custom={step}>
                 <motion.div
                   key={step}
