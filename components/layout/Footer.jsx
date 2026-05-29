@@ -11,7 +11,7 @@ export default function Footer() {
 
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
         {/* Left Column: Brand & Tagline */}
-        <div className="md:col-span-5 flex flex-col items-start">
+        <div className="md:col-span-4 flex flex-col items-start">
           <Link href="/" className="flex items-center gap-2.5 no-underline group cursor-pointer">
             {/* Crescent Star Small Logo replaced with actual brand logo */}
             <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-[#070b16]/70 border border-gold/30 text-gold overflow-hidden p-0.5 transition-all duration-300 group-hover:scale-105">
@@ -30,8 +30,8 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Center Column: Quick Navigation Links */}
-        <div className="md:col-span-3 flex flex-col items-start">
+        {/* Center-Left Column: Quick Navigation Links */}
+        <div className="md:col-span-2 flex flex-col items-start">
           <h4 className="text-xs uppercase tracking-widest font-bold text-text-primary mb-4">
             Navigation
           </h4>
@@ -48,13 +48,31 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Right Column: Community & Support */}
-        <div className="md:col-span-4 flex flex-col items-start">
+        {/* Center-Right Column: Legal & Safety Guidelines */}
+        <div className="md:col-span-3 flex flex-col items-start">
           <h4 className="text-xs uppercase tracking-widest font-bold text-text-primary mb-4">
-            Community Support
+            Safety & Legal
+          </h4>
+          <div className="flex flex-col gap-2.5 text-[13.5px] text-text-muted">
+            <Link href="/rules" className="hover:text-gold-light transition-colors no-underline">
+              Safety Rules
+            </Link>
+            <Link href="/privacy" className="hover:text-gold-light transition-colors no-underline">
+              Privacy Policy
+            </Link>
+            <Link href="/terms" className="hover:text-gold-light transition-colors no-underline">
+              Terms &amp; Conditions
+            </Link>
+          </div>
+        </div>
+
+        {/* Right Column: Community & Support */}
+        <div className="md:col-span-3 flex flex-col items-start">
+          <h4 className="text-xs uppercase tracking-widest font-bold text-text-primary mb-4">
+            Community
           </h4>
           <p className="text-[12.5px] text-text-muted leading-relaxed mb-4">
-            Join our exclusive WhatsApp community for helpful tips on matching profiles.
+            Join our exclusive WhatsApp community for matchmaking tips.
           </p>
           <div className="flex items-center gap-2">
             <button
