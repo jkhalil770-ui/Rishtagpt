@@ -66,7 +66,7 @@ export default function HeroSection() {
         animate="visible"
         className="relative z-10 w-full max-w-4xl flex flex-col items-center text-center mt-12 md:mt-20"
       >
-        {/* Animated Crescent Moon Medallion */}
+        {/* Animated Crescent Moon Medallion with brand logo in the center */}
         <motion.div
           style={{ x: mouseOffset.x, y: mouseOffset.y }}
           animate={{
@@ -81,23 +81,18 @@ export default function HeroSection() {
             rotate: { duration: 10, ease: "easeInOut", repeat: Infinity },
             filter: { duration: 4, ease: "easeInOut", repeat: Infinity },
           }}
-          className="w-20 h-20 md:w-24 md:h-24 flex items-center justify-center text-gold cursor-pointer mb-6"
+          className="w-20 h-20 md:w-24 md:h-24 flex items-center justify-center text-gold cursor-pointer mb-6 relative"
         >
-          <svg viewBox="0 0 100 100" className="w-full h-full fill-none stroke-current" strokeWidth="1.8">
+          {/* Concentric rings in background */}
+          <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full fill-none stroke-current" strokeWidth="1.8">
             <circle cx="50" cy="50" r="46" opacity="0.4" />
             <circle cx="50" cy="50" r="40" strokeDasharray="3 3" opacity="0.6" />
-            <path
-              d="M66 50 a18 18 0 1 1 -25 -16.5 a14.5 14.5 0 0 0 25 16.5 z"
-              fill="url(#goldGrad)"
-              stroke="none"
-            />
-            <defs>
-              <linearGradient id="goldGrad" x1="10%" x2="90%" y1="0%" y2="100%">
-                <stop offset="0%" stopColor="#E6C56A" />
-                <stop offset="100%" stopColor="#8a6f24" />
-              </linearGradient>
-            </defs>
           </svg>
+
+          {/* R brand logo at the center of concentric rings */}
+          <div className="w-10 h-10 md:w-11 md:h-11 flex items-center justify-center bg-[#070b16]/90 rounded-full border border-gold/45 shadow-[0_0_20px_rgba(201,168,76,0.3)] overflow-hidden p-1.5 relative z-10 transition-transform duration-300 hover:scale-105">
+            <img src="/assets/logo.png" alt="RishtaGPT Logo" className="w-full h-full object-contain" />
+          </div>
         </motion.div>
 
         {/* Small Tagline */}
