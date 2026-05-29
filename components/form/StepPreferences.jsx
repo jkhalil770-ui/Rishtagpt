@@ -1,6 +1,7 @@
 "use client";
 
-import { ChevronDown, Smile, Globe, Edit, RefreshCw } from "lucide-react";
+import { Globe } from "lucide-react";
+import CustomSelect from "../ui/CustomSelect";
 
 const TRAITS = [
   "Calm", "Caring", "Ambitious", "Funny", "Homely", "Responsible",
@@ -154,20 +155,12 @@ export default function StepPreferences({ data, setData, errors }) {
         <label className="text-xs uppercase tracking-widest font-bold text-text-muted block mb-2">
           Partner Minimum Education
         </label>
-        <div className="relative">
-          <select
-            value={data.partnerEduMin || "No Preference"}
-            onChange={(e) => handleFieldChange("partnerEduMin", e.target.value)}
-            className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-5 py-4 text-[15.5px] text-text-primary outline-none appearance-none cursor-pointer focus:border-gold/70 focus:bg-gold-dim"
-          >
-            {MIN_QUALIFICATIONS.map((qual) => (
-              <option key={qual} value={qual} className="bg-bg-secondary text-text-primary">
-                {qual}
-              </option>
-            ))}
-          </select>
-          <ChevronDown size={16} className="absolute right-5 top-1/2 -translate-y-1/2 text-gold pointer-events-none" />
-        </div>
+        <CustomSelect
+          value={data.partnerEduMin || "No Preference"}
+          onChange={(val) => handleFieldChange("partnerEduMin", val)}
+          options={MIN_QUALIFICATIONS}
+          placeholder="No Preference"
+        />
       </div>
 
       {/* 5. Bio Style Selector Card Grid */}

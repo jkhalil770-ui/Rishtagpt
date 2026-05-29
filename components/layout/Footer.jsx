@@ -13,14 +13,9 @@ export default function Footer() {
         {/* Left Column: Brand & Tagline */}
         <div className="md:col-span-5 flex flex-col items-start">
           <Link href="/" className="flex items-center gap-2.5 no-underline group cursor-pointer">
-            <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-gold-dim border border-gold/30 text-gold">
-              <svg viewBox="0 0 100 100" className="w-4.5 h-4.5 fill-none stroke-current" strokeWidth="2.5">
-                <path
-                  d="M66 50 a18 18 0 1 1 -25 -16.5 a14.5 14.5 0 0 0 25 16.5 z"
-                  fill="currentColor"
-                  stroke="none"
-                />
-              </svg>
+            {/* Crescent Star Small Logo replaced with actual brand logo */}
+            <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-[#070b16]/70 border border-gold/30 text-gold overflow-hidden p-0.5 transition-all duration-300 group-hover:scale-105">
+              <img src="/assets/logo.png" alt="RishtaGPT Logo" className="w-full h-full object-contain" />
             </div>
             <span className="font-display font-semibold text-[19px] bg-gradient-to-r from-text-primary to-gold-light bg-clip-text text-transparent">
               RishtaGPT

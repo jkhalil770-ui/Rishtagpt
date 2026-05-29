@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronDown, Briefcase, Landmark } from "lucide-react";
+import CustomSelect from "../ui/CustomSelect";
 
 const DEGREES = [
   "Matric / O-Levels",
@@ -28,25 +28,13 @@ export default function StepCareer({ data, setData, errors }) {
         <label className="text-xs uppercase tracking-widest font-bold text-text-muted block mb-2">
           Highest Degree / Taleem
         </label>
-        <div className="relative">
-          <select
-            value={data.degree || ""}
-            onChange={(e) => handleFieldChange("degree", e.target.value)}
-            className={`w-full bg-white/[0.03] border rounded-2xl px-5 py-4 text-[15.5px] text-text-primary outline-none appearance-none cursor-pointer transition-all duration-300 focus:border-gold/70 focus:bg-gold-dim ${
-              errors.degree ? "border-rose/55" : "border-white/10"
-            }`}
-          >
-            <option value="" disabled className="bg-bg-secondary text-text-muted">
-              — Select Education —
-            </option>
-            {DEGREES.map((d) => (
-              <option key={d} value={d} className="bg-bg-secondary text-text-primary">
-                {d}
-              </option>
-            ))}
-          </select>
-          <ChevronDown size={16} className="absolute right-5 top-1/2 -translate-y-1/2 text-gold pointer-events-none" />
-        </div>
+        <CustomSelect
+          value={data.degree || ""}
+          onChange={(val) => handleFieldChange("degree", val)}
+          options={DEGREES}
+          placeholder="— Select Education —"
+          error={errors.degree}
+        />
         {errors.degree && (
           <span className="text-[11.5px] text-rose font-semibold mt-1.5 block">
             {errors.degree}

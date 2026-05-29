@@ -1,6 +1,7 @@
 "use client";
 
-import { ChevronDown, Home, Shield } from "lucide-react";
+import { Shield } from "lucide-react";
+import CustomSelect from "../ui/CustomSelect";
 
 const PARENT_STATUSES = ["Alive", "Retired", "Late"];
 const MOTHER_STATUSES = ["Housewife", "Working", "Late"];
@@ -43,25 +44,13 @@ export default function StepFamily({ data, setData, errors }) {
           <label className="text-xs uppercase tracking-widest font-bold text-text-muted block mb-2">
             Father Status
           </label>
-          <div className="relative">
-            <select
-              value={data.fatherStatus || ""}
-              onChange={(e) => handleFieldChange("fatherStatus", e.target.value)}
-              className={`w-full bg-white/[0.03] border rounded-2xl px-5 py-4 text-[15.5px] text-text-primary outline-none appearance-none cursor-pointer focus:border-gold/70 focus:bg-gold-dim ${
-                errors.fatherStatus ? "border-rose/55" : "border-white/10"
-              }`}
-            >
-              <option value="" disabled className="bg-bg-secondary text-text-muted">
-                — Select Status —
-              </option>
-              {PARENT_STATUSES.map((s) => (
-                <option key={s} value={s} className="bg-bg-secondary text-text-primary">
-                  {s}
-                </option>
-              ))}
-            </select>
-            <ChevronDown size={16} className="absolute right-5 top-1/2 -translate-y-1/2 text-gold pointer-events-none" />
-          </div>
+          <CustomSelect
+            value={data.fatherStatus || ""}
+            onChange={(val) => handleFieldChange("fatherStatus", val)}
+            options={PARENT_STATUSES}
+            placeholder="— Select Status —"
+            error={errors.fatherStatus}
+          />
           {errors.fatherStatus && (
             <span className="text-[11.5px] text-rose font-semibold mt-1.5 block">
               {errors.fatherStatus}
@@ -74,25 +63,13 @@ export default function StepFamily({ data, setData, errors }) {
           <label className="text-xs uppercase tracking-widest font-bold text-text-muted block mb-2">
             Mother Status
           </label>
-          <div className="relative">
-            <select
-              value={data.motherStatus || ""}
-              onChange={(e) => handleFieldChange("motherStatus", e.target.value)}
-              className={`w-full bg-white/[0.03] border rounded-2xl px-5 py-4 text-[15.5px] text-text-primary outline-none appearance-none cursor-pointer focus:border-gold/70 focus:bg-gold-dim ${
-                errors.motherStatus ? "border-rose/55" : "border-white/10"
-              }`}
-            >
-              <option value="" disabled className="bg-bg-secondary text-text-muted">
-                — Select Status —
-              </option>
-              {MOTHER_STATUSES.map((s) => (
-                <option key={s} value={s} className="bg-bg-secondary text-text-primary">
-                  {s}
-                </option>
-              ))}
-            </select>
-            <ChevronDown size={16} className="absolute right-5 top-1/2 -translate-y-1/2 text-gold pointer-events-none" />
-          </div>
+          <CustomSelect
+            value={data.motherStatus || ""}
+            onChange={(val) => handleFieldChange("motherStatus", val)}
+            options={MOTHER_STATUSES}
+            placeholder="— Select Status —"
+            error={errors.motherStatus}
+          />
           {errors.motherStatus && (
             <span className="text-[11.5px] text-rose font-semibold mt-1.5 block">
               {errors.motherStatus}

@@ -124,8 +124,11 @@ export default function GeneratingAnimation({ active, onFinished }) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6 }}
-          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-radial-gradient from-[#0f1629] to-[#0A0F1E]"
+          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-gradient-to-br from-[#050814] via-[#0b1021] to-[#050814]"
         >
+          {/* Glowing Ambient Glow Bloom */}
+          <div className="absolute w-[50vw] h-[50vw] rounded-full bg-gold/5 blur-[120px] pointer-events-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0" />
+
           {/* Spars Canvas overlay */}
           <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none z-[1] mix-blend-screen" />
 
@@ -153,17 +156,11 @@ export default function GeneratingAnimation({ active, onFinished }) {
             />
 
             {/* Glowing inner core */}
-            <div className="absolute inset-8 rounded-full bg-gold/15 blur-xl" />
+            <div className="absolute inset-8 rounded-full bg-gold/20 blur-xl" />
 
-            {/* Center Crescent Logo */}
-            <div className="relative z-20 w-16 h-16 text-gold animate-pulse">
-              <svg viewBox="0 0 100 100" className="w-full h-full fill-none stroke-current" strokeWidth="2.2">
-                <path
-                  d="M66 50 a18 18 0 1 1 -25 -16.5 a14.5 14.5 0 0 0 25 16.5 z"
-                  fill="currentColor"
-                  stroke="none"
-                />
-              </svg>
+            {/* Center Crescent Logo replaced with actual brand logo */}
+            <div className="relative z-20 w-16 h-16 flex items-center justify-center bg-[#070b16]/80 rounded-full border border-gold/40 shadow-[0_0_30px_rgba(201,168,76,0.35)] overflow-hidden p-2 animate-pulse">
+              <img src="/assets/logo.png" alt="RishtaGPT Logo" className="w-full h-full object-contain" />
             </div>
           </div>
 
@@ -187,15 +184,15 @@ export default function GeneratingAnimation({ active, onFinished }) {
             AI PROCESSING ENGINE
           </span>
 
-          {/* Fake Progress Bar */}
-          <div className="relative z-10 w-48 h-[3px] bg-white/[0.08] rounded-full overflow-hidden mt-8 shadow-inner">
+          {/* Fake Progress Bar with glassmorphic upgrades */}
+          <div className="relative z-10 w-64 h-[5px] bg-white/[0.04] border border-white/5 rounded-full overflow-hidden mt-8 shadow-[inset_0_1px_3px_rgba(0,0,0,0.4)]">
             <motion.div
-              className="absolute inset-y-0 left-0 bg-gradient-to-r from-gold-light via-gold to-gold-light rounded-full"
+              className="absolute inset-y-0 left-0 bg-gradient-to-r from-gold-light via-gold to-gold-light rounded-full shadow-[0_0_10px_rgba(201,168,76,0.4)]"
               style={{ width: `${progress}%` }}
               transition={{ duration: 0.2 }}
             />
           </div>
-          <span className="relative z-10 text-[11.5px] font-bold text-gold-light mt-3 num">
+          <span className="relative z-10 text-[12px] font-bold text-gold-light mt-3.5 tracking-wider num font-display">
             {Math.round(progress)}%
           </span>
 

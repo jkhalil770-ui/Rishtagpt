@@ -1,12 +1,18 @@
 "use client";
 
-import { ChevronDown, BookOpen, Heart } from "lucide-react";
+import { BookOpen } from "lucide-react";
+import CustomSelect from "../ui/CustomSelect";
 
 const MASLAKS = [
   { group: "Sunni", items: ["Sunni (Barelvi)", "Sunni (Deobandi)", "Sunni (Ahle Hadith / Salafi)", "Sunni (General)"] },
   { group: "Shia", items: ["Shia (Ithna Ashari / 12ver)", "Shia (Ismaili)", "Shia (Bohra)", "Shia (General)"] },
   { group: "Other", items: ["Prefer not to mention"] }
 ];
+
+const formattedMaslaks = MASLAKS.flatMap((group) => [
+  { label: group.group, isHeader: true },
+  ...group.items.map((item) => ({ label: item, value: item }))
+]);
 
 const PRAYERS = [
   { id: "5waqt", title: "5 Waqt Baaqaida", sub: "Regularly observes 5 times namaz" },
@@ -51,29 +57,13 @@ export default function StepDeen({ data, setData, errors }) {
         <label className="text-xs uppercase tracking-widest font-bold text-text-muted block mb-2">
           Maslak / Sect
         </label>
-        <div className="relative">
-          <select
-            value={data.maslak || ""}
-            onChange={(e) => handleFieldChange("maslak", e.target.value)}
-            className={`w-full bg-white/[0.03] border rounded-2xl px-5 py-4 text-[15.5px] text-text-primary outline-none appearance-none cursor-pointer transition-all duration-300 focus:border-gold/70 focus:bg-gold-dim ${
-              errors.maslak ? "border-rose/55" : "border-white/10"
-            }`}
-          >
-            <option value="" disabled className="bg-bg-secondary text-text-muted">
-              — Select Maslak —
-            </option>
-            {MASLAKS.map((group) => (
-              <optgroup key={group.group} label={group.group} className="bg-bg-secondary text-text-muted font-bold">
-                {group.items.map((m) => (
-                  <option key={m} value={m} className="bg-bg-secondary text-text-primary">
-                    {m}
-                  </option>
-                ))}
-              </optgroup>
-            ))}
-          </select>
-          <ChevronDown size={16} className="absolute right-5 top-1/2 -translate-y-1/2 text-gold pointer-events-none" />
-        </div>
+        <CustomSelect
+          value={data.maslak || ""}
+          onChange={(val) => handleFieldChange("maslak", val)}
+          options={formattedMaslaks}
+          placeholder="— Select Maslak —"
+          error={errors.maslak}
+        />
         {errors.maslak && (
           <span className="text-[11.5px] text-rose font-semibold mt-1.5 block">
             {errors.maslak}
@@ -172,23 +162,12 @@ export default function StepDeen({ data, setData, errors }) {
           <label className="text-xs uppercase tracking-widest font-bold text-text-muted block mb-2">
             Hijab / Parda Preference
           </label>
-          <div className="relative">
-            <select
-              value={data.hijab || ""}
-              onChange={(e) => handleFieldChange("hijab", e.target.value)}
-              className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-5 py-4 text-[15.5px] text-text-primary outline-none appearance-none cursor-pointer focus:border-gold/70 focus:bg-gold-dim"
-            >
-              <option value="" disabled className="bg-bg-secondary text-text-muted">
-                — Select Hijab/Parda —
-              </option>
-              {PARDA_OPTIONS.map((p) => (
-                <option key={p} value={p} className="bg-bg-secondary text-text-primary">
-                  {p}
-                </option>
-              ))}
-            </select>
-            <ChevronDown size={16} className="absolute right-5 top-1/2 -translate-y-1/2 text-gold pointer-events-none" />
-          </div>
+          <CustomSelect
+            value={data.hijab || ""}
+            onChange={(val) => handleFieldChange("hijab", val)}
+            options={PARDA_OPTIONS}
+            placeholder="— Select Hijab/Parda —"
+          />
         </div>
       )}
 
@@ -197,25 +176,13 @@ export default function StepDeen({ data, setData, errors }) {
         <label className="text-xs uppercase tracking-widest font-bold text-text-muted block mb-2">
           Partner's Deen Preference
         </label>
-        <div className="relative">
-          <select
-            value={data.partnerDeen || ""}
-            onChange={(e) => handleFieldChange("partnerDeen", e.target.value)}
-            className={`w-full bg-white/[0.03] border rounded-2xl px-5 py-4 text-[15.5px] text-text-primary outline-none appearance-none cursor-pointer transition-all duration-300 focus:border-gold/70 focus:bg-gold-dim ${
-              errors.partnerDeen ? "border-rose/55" : "border-white/10"
-            }`}
-          >
-            <option value="" disabled className="bg-bg-secondary text-text-muted">
-              — Select Partner Preference —
-            </option>
-            {DEEN_PREFS.map((pref) => (
-              <option key={pref} value={pref} className="bg-bg-secondary text-text-primary">
-                {pref}
-              </option>
-            ))}
-          </select>
-          <ChevronDown size={16} className="absolute right-5 top-1/2 -translate-y-1/2 text-gold pointer-events-none" />
-        </div>
+        <CustomSelect
+          value={data.partnerDeen || ""}
+          onChange={(val) => handleFieldChange("partnerDeen", val)}
+          options={DEEN_PREFS}
+          placeholder="— Select Partner Preference —"
+          error={errors.partnerDeen}
+        />
         {errors.partnerDeen && (
           <span className="text-[11.5px] text-rose font-semibold mt-1.5 block">
             {errors.partnerDeen}

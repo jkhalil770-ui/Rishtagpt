@@ -105,14 +105,8 @@ export default function Home() {
               </button>
 
               {/* Icon */}
-              <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-gold-dim border border-gold/30 text-gold shrink-0">
-                <svg viewBox="0 0 100 100" className="w-6 h-6 fill-none stroke-current" strokeWidth="2.2">
-                  <path
-                    d="M66 50 a18 18 0 1 1 -25 -16.5 a14.5 14.5 0 0 0 25 16.5 z"
-                    fill="currentColor"
-                    stroke="none"
-                  />
-                </svg>
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-[#070b16]/70 border border-gold/30 text-gold shrink-0 overflow-hidden p-1">
+                <img src="/assets/logo.png" alt="RishtaGPT Logo" className="w-full h-full object-contain" />
               </div>
 
               <div className="flex-1 min-w-0 pr-4">

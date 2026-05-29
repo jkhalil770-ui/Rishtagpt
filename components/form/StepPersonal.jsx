@@ -1,7 +1,8 @@
 "use client";
 
 import { useRef } from "react";
-import { Camera, Trash2, ChevronDown } from "lucide-react";
+import { Camera, Trash2 } from "lucide-react";
+import CustomSelect from "../ui/CustomSelect";
 
 const HEIGHTS = [
   "4'8\"", "4'9\"", "4'10\"", "4'11\"", "5'0\"", "5'1\"", "5'2\"", "5'3\"", "5'4\"",
@@ -156,25 +157,13 @@ export default function StepPersonal({ data, setData, errors }) {
           <label className="text-xs uppercase tracking-widest font-bold text-text-muted block mb-2">
             Height / Qad
           </label>
-          <div className="relative">
-            <select
-              value={data.height || ""}
-              onChange={(e) => handleTextChange("height", e.target.value)}
-              className={`w-full bg-white/[0.03] border rounded-2xl px-5 py-4 text-[15.5px] text-text-primary outline-none transition-all duration-300 focus:border-gold/70 focus:bg-gold-dim appearance-none cursor-pointer ${
-                errors.height ? "border-rose/55" : "border-white/10"
-              }`}
-            >
-              <option value="" disabled className="bg-bg-secondary text-text-muted">
-                — Select Height —
-              </option>
-              {HEIGHTS.map((h) => (
-                <option key={h} value={h} className="bg-bg-secondary text-text-primary">
-                  {h}
-                </option>
-              ))}
-            </select>
-            <ChevronDown size={16} className="absolute right-5 top-1/2 -translate-y-1/2 text-gold pointer-events-none" />
-          </div>
+          <CustomSelect
+            value={data.height || ""}
+            onChange={(val) => handleTextChange("height", val)}
+            options={HEIGHTS}
+            placeholder="— Select Height —"
+            error={errors.height}
+          />
           {errors.height && (
             <span className="text-[11.5px] text-rose font-semibold mt-1.5 block">
               {errors.height}
@@ -274,23 +263,12 @@ export default function StepPersonal({ data, setData, errors }) {
         <label className="text-xs uppercase tracking-widest font-bold text-text-muted block mb-2">
           Complexion <span className="text-text-muted/50 font-medium">(Optional)</span>
         </label>
-        <div className="relative">
-          <select
-            value={data.complexion || ""}
-            onChange={(e) => handleTextChange("complexion", e.target.value)}
-            className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-5 py-4 text-[15.5px] text-text-primary outline-none transition-all duration-300 focus:border-gold/70 focus:bg-gold-dim appearance-none cursor-pointer"
-          >
-            <option value="" className="bg-bg-secondary text-text-muted">
-              Prefer not to mention
-            </option>
-            {COMPLEXIONS.map((c) => (
-              <option key={c} value={c} className="bg-bg-secondary text-text-primary">
-                {c}
-              </option>
-            ))}
-          </select>
-          <ChevronDown size={16} className="absolute right-5 top-1/2 -translate-y-1/2 text-gold pointer-events-none" />
-        </div>
+        <CustomSelect
+          value={data.complexion || ""}
+          onChange={(val) => handleTextChange("complexion", val)}
+          options={COMPLEXIONS}
+          placeholder="Prefer not to mention"
+        />
       </div>
     </div>
   );
