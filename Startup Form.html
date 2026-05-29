@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Startup Onboarding — Marhaba Traders</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&family=Noto+Nastaliq+Urdu:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--iv:#FEFCF7;--pa:#F5F1E6;--ob:#0C0906;--ob2:#150F09;--gd:#C9A84C;--gd2:#E8D07A;--gdd:#8A6A1A;--gp:rgba(201,168,76,.08);--gb:rgba(201,168,76,.22);--ink:#1C1812;--cr:#EDE8DC;--mt:#6E6455;--mtd:#9E9282;--se:'Cormorant Garamond',Georgia,serif;--sa:'DM Sans',system-ui,sans-serif;--ur:'Noto Nastaliq Urdu',serif;--r:10px;--sh:0 8px 32px rgba(0,0,0,.08);--max:940px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}body{background:var(--iv);color:var(--ink);font-family:var(--sa);-webkit-font-smoothing:antialiased;min-height:100vh;scrollbar-width:none;-ms-overflow-style:none}
+a{color:inherit;text-decoration:none}button{cursor:pointer;border:none;background:none;font-family:var(--sa)}
+::-webkit-scrollbar{display:none}
+/* NAV */
+.nav{background:rgba(254,252,247,.96);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--gb);position:sticky;top:0;z-index:100;box-shadow:0 2px 16px rgba(0,0,0,.05)}
+.ni{display:flex;align-items:center;justify-content:space-between;height:60px;max-width:var(--max);margin:0 auto;padding:0 24px}
+.nl{display:flex;align-items:center;gap:10px}
+.nm{width:30px;height:30px;background:var(--gd);color:var(--ob);display:grid;place-items:center;font-weight:800;font-size:11px;letter-spacing:.5px;border-radius:6px;flex-shrink:0}
+.nb{font-family:var(--se);font-size:16px;font-weight:600}.nb span{color:var(--gd)}
+.bk{font-size:12.5px;color:var(--mt);display:flex;align-items:center;gap:5px;padding:6px 12px;border:1px solid var(--gb);border-radius:40px;transition:all .2s}
+.bk:hover{color:var(--gdd);border-color:var(--gd);background:var(--gp)}
+/* HERO HEADER */
+.ph{background:var(--ob);padding:44px 24px 36px;text-align:center;position:relative;overflow:hidden}
+.ph::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gd),var(--gd2),transparent)}
+.ph::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.03) 1px,transparent 1px);background-size:44px 44px;pointer-events:none}
+.ph-in{max-width:var(--max);margin:0 auto;position:relative;z-index:1}
+.ph h1{font-family:var(--se);font-size:clamp(26px,4vw,42px);font-weight:600;color:var(--cr);margin-bottom:4px}
+.ph h1 em{font-style:italic;color:var(--gd)}
+.ph-ur{font-family:var(--ur);font-size:clamp(14px,2vw,18px);color:var(--gd);direction:rtl;display:block;margin-top:6px;line-height:1.8}
+.ph p{font-size:13.5px;color:var(--mtd);margin-top:10px;line-height:1.6}
+/* TABS */
+.tab-wrap{max-width:var(--max);margin:24px auto 0;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tb{padding:18px 20px;border-radius:var(--r);border:1.5px solid rgba(28,24,18,.10);background:#fff;cursor:pointer;text-align:left;transition:all .28s;position:relative;overflow:hidden}
+.tb.act{border-color:var(--gd);background:#fff;box-shadow:0 0 0 3px rgba(201,168,76,.12),var(--sh)}
+.tb.act::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gd),var(--gd2))}
+.tb:not(.act):hover{border-color:var(--gb);transform:translateY(-2px);box-shadow:var(--sh)}
+.tb-ico{width:34px;height:34px;border-radius:8px;background:var(--pa);display:grid;place-items:center;margin-bottom:10px;transition:background .28s;color:var(--gdd)}
+.tb.act .tb-ico{background:rgba(201,168,76,.14);color:var(--gdd)}
+.tb-en{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:2px}
+.tb.act .tb-en{color:var(--gdd)}
+.tb-ur{font-family:var(--ur);font-size:12px;color:var(--mt);direction:rtl;text-align:right;display:block;line-height:1.65}
+.tb.act .tb-ur{color:var(--gd)}
+.tb-sub{font-size:11px;color:var(--mt);margin-top:4px}
+/* FORM AREA */
+.fa{max-width:var(--max);margin:20px auto 60px;padding:0 24px}
+/* form inner styles used by React components */
+.f-card{background:#fff;border:1.5px solid rgba(28,24,18,.08);border-radius:var(--r);padding:22px 24px;margin-bottom:14px;box-shadow:0 1px 4px rgba(0,0,0,.04);transition:box-shadow .2s}
+.f-card:hover{box-shadow:var(--sh)}
+.f-sh{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid rgba(28,24,18,.06)}
+.f-dot{width:7px;height:7px;border-radius:50%;background:var(--gd);flex-shrink:0}
+.f-title{font-size:13.5px;font-weight:700;color:var(--ink)}
+.f-sub{font-size:12px;color:var(--mt);margin-top:2px}
+.f-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.f-full{grid-column:1/-1}
+.f-label{font-size:12.5px;font-weight:600;color:var(--ink);margin-bottom:5px;line-height:1.3}
+.f-ur{font-family:var(--ur);font-size:11px;color:var(--mt);direction:rtl;text-align:right;display:block;line-height:1.7;margin-top:1px}
+.req{color:#ef4444;margin-left:2px}
+.f-inp{width:100%;padding:10px 13px;border:1.5px solid rgba(28,24,18,.10);border-radius:8px;font-size:13px;font-family:var(--sa);background:#fff;color:var(--ink);transition:all .2s;outline:none}
+.f-inp:focus{border-color:var(--gd);box-shadow:0 0 0 3px rgba(201,168,76,.12);background:#fffdf7}
+.f-inp::placeholder{color:rgba(110,100,85,.45)}
+.f-ta{resize:vertical;min-height:88px}
+.f-sel{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%236E6455' stroke-width='2'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:32px;cursor:pointer}
+.f-up{display:flex;align-items:center;gap:10px;cursor:pointer;padding:11px 14px;border:2px dashed rgba(201,168,76,.4);border-radius:8px;background:rgba(201,168,76,.04);transition:all .2s}
+.f-up:hover{border-color:var(--gd);background:rgba(201,168,76,.08)}
+.f-up-t{font-size:12.5px;color:var(--gdd);font-weight:500}
+.f-up-s{font-size:11px;color:var(--mtd);margin-top:1px}
+.f-file{display:flex;align-items:center;justify-content:space-between;padding:7px 11px;background:rgba(201,168,76,.08);border:1px solid var(--gb);border-radius:6px;margin-top:5px}
+.f-fn{font-size:12px;color:var(--gdd);word-break:break-all}
+.f-rm{background:transparent;padding:0 0 0 8px;color:var(--mtd);font-size:18px;line-height:1;cursor:pointer}
+.f-rm:hover{color:#ef4444}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:4px}
+.chip{padding:5px 12px;border-radius:40px;border:1.5px solid rgba(28,24,18,.10);font-size:12px;font-weight:500;color:var(--mt);cursor:pointer;transition:all .18s;background:#fff}
+.chip.on{border-color:var(--gd);background:rgba(201,168,76,.10);color:var(--gdd);font-weight:600}
+.chip:hover:not(.on){border-color:var(--gb);color:var(--ink)}
+.legal-row{border:1px solid rgba(28,24,18,.08);border-radius:8px;padding:12px 14px;background:#fff;margin-bottom:4px;transition:border-color .2s}
+.legal-row:hover{border-color:var(--gb)}
+.ls-btn{padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;cursor:pointer;transition:all .18s;border:1.5px solid rgba(28,24,18,.10);background:#fff;color:var(--mt);display:inline-flex;align-items:center;gap:4px}
+.ls-btn.exists{border-color:#16a34a;background:#f0fdf4;color:#16a34a;font-weight:700}
+.ls-btn.missing{border-color:#dc2626;background:#fef2f2;color:#dc2626;font-weight:700}
+.ls-btn.na{border-color:#6b7280;background:#f9fafb;color:#6b7280;font-weight:700}
+.agree-row{display:flex;align-items:flex-start;gap:10px;cursor:pointer;padding:11px 14px;border-radius:8px;border:1.5px solid rgba(28,24,18,.08);background:#fff;transition:all .18s}
+.agree-row.checked{border-color:#16a34a;background:#f0fdf4}
+.agree-row input{margin-top:2px;flex-shrink:0;accent-color:#16a34a}
+.agree-txt{font-size:13px;color:var(--mt);line-height:1.6}
+.agree-row.checked .agree-txt{color:#15803d}
+/* PROGRESS */
+.prog-bar{height:5px;background:rgba(28,24,18,.08);border-radius:3px;overflow:hidden;margin-bottom:12px}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--gd),var(--gd2));border-radius:3px;transition:width .4s cubic-bezier(.2,.8,.2,1)}
+.steps-scroll{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;margin-bottom:16px;scrollbar-width:none}
+.steps-scroll::-webkit-scrollbar{display:none}
+.step-pill{flex-shrink:0;padding:4px 11px;border-radius:20px;font-size:11px;font-weight:500;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:4px;border:1.5px solid rgba(28,24,18,.08);background:#fff;color:var(--mt)}
+.step-pill.active{border-color:var(--gd);background:rgba(201,168,76,.10);color:var(--gdd);font-weight:700}
+.step-pill.done{border-color:#16a34a;background:#f0fdf4;color:#15803d}
+/* BUTTONS */
+.btn-gd{background:var(--gd);color:var(--ob);padding:11px 26px;border-radius:40px;font-size:13.5px;font-weight:600;letter-spacing:.3px;transition:all .25s;display:inline-flex;align-items:center;gap:7px}
+.btn-gd:hover{background:var(--gd2);transform:translateY(-1px);box-shadow:0 8px 24px rgba(201,168,76,.35)}
+.btn-out{border:1.5px solid var(--gb);color:var(--ink);padding:10px 22px;border-radius:40px;font-size:13.5px;font-weight:500;transition:all .25s;display:inline-flex;align-items:center;gap:7px;background:#fff}
+.btn-out:hover{border-color:var(--gd);background:var(--gp)}
+.btn-dark{background:var(--ob);color:var(--cr);padding:11px 26px;border-radius:40px;font-size:13.5px;font-weight:600;display:inline-flex;align-items:center;gap:7px;transition:all .25s}
+.btn-dark:hover{background:var(--ob2);transform:translateY(-1px)}
+.nav-btns{display:flex;justify-content:space-between;align-items:center;margin-top:8px;padding-top:4px}
+/* DONE STATE */
+.done-card{text-align:center;padding:3rem 1rem;background:#fff;border:1.5px solid rgba(28,24,18,.08);border-radius:var(--r);margin-top:16px}
+.done-ico{width:64px;height:64px;border-radius:50%;background:#f0fdf4;border:2px solid #86efac;display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+/* HEADER summary row */
+.form-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;padding:12px 16px;background:#fff;border:1px solid var(--gb);border-radius:var(--r);background:linear-gradient(135deg,rgba(201,168,76,.05),rgba(201,168,76,.02))}
+.form-meta-l{font-family:var(--se);font-size:18px;font-weight:600;color:var(--ob)}
+.form-meta-r{font-size:12px;color:var(--mt)}
+@media(max-width:640px){.f-grid{grid-template-columns:1fr}.tab-wrap{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="ni">
+    <a class="nl" href="Marhaba Traders.html">
+              <svg width="32" height="32" viewBox="0 0 40 40">
+          <defs>
+            <linearGradient id="sfBg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1a3480"/><stop offset="100%" stop-color="#2563EB"/></linearGradient>
+            <linearGradient id="sfGd" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#B45309"/><stop offset="50%" stop-color="#F59E0B"/><stop offset="100%" stop-color="#B45309"/></linearGradient>
+          </defs>
+          <rect width="40" height="40" rx="10" fill="url(#sfBg)"/>
+          <rect x="1" y="1" width="38" height="38" rx="9.5" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="1"/>
+          <path d="M9.5 27 L9.5 13.5 L20 22.5 L30.5 13.5 L30.5 27" stroke="white" stroke-width="2.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="9" y="30" width="22" height="2.5" rx="1.25" fill="url(#sfGd)"/>
+          <circle cx="9.5" cy="13.5" r="1.8" fill="url(#sfGd)"/>
+          <circle cx="30.5" cy="13.5" r="1.8" fill="url(#sfGd)"/>
+          <circle cx="20" cy="22.5" r="1.8" fill="url(#sfGd)"/>
+        </svg>
+      <span class="nb">Marhaba <span>Traders</span></span>
+    </a>
+    <a class="bk" href="Marhaba Traders.html">← Main Site</a>
+  </div>
+</nav>
+
+<div class="ph">
+  <div class="ph-in">
+    <h1>Startup <em>Onboarding</em></h1>
+    <span class="ph-ur">اسٹارٹ اپ رجسٹریشن فارم · Lahore, Pakistan · 03719222195</span>
+    <p>Complete your profile to begin your investor-readiness journey with Marhaba Traders &amp; Capbridge</p>
+  </div>
+</div>
+
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel">
+const {useState,useRef}=React;
+const UF='"Noto Nastaliq Urdu",serif';
+
+const UR={"Full Name":"پورا نام","Email Address":"ای میل","WhatsApp":"واٹس ایپ","LinkedIn URL":"لنکڈان","Your Role":"آپ کا عہدہ","Founder Full Name":"بانی کا پورا نام","CNIC / Passport Number":"شناختی کارڈ نمبر","Founder Role":"بانی کا کردار","Your Equity %":"آپ کا حصہ فیصد","Co-Founder Details":"شریک بانی کی تفصیل","Company Name":"کمپنی کا نام","Startup Name":"اسٹارٹ اپ کا نام","Industry":"صنعت","Startup Stage":"اسٹارٹ اپ مرحلہ","Country":"ملک","Team Size":"ٹیم کا حجم","Funding Goal (PKR)":"فنڈنگ ہدف","Company Website":"ویب سائٹ","Registered Address":"رجسٹرڈ پتہ","Brand Name (if different)":"برانڈ نام","Problem Statement":"مسئلے کا بیان","Solution Description":"حل کی تفصیل","Unique Selling Proposition":"منفرد پیشکش","Business Model":"کاروباری ماڈل","Revenue Streams":"آمدنی کے ذرائع","Pricing Structure":"قیمت کا ڈھانچہ","Customer Acquisition Method":"گاہک حصول کا طریقہ","Sales Cycle":"فروخت کا دور","Customer Type":"گاہک کی قسم","TAM (Total Addressable Market)":"کل قابل رسائی بازار","SAM (Serviceable Addressable Market)":"قابل خدمت بازار","SOM (Serviceable Obtainable Market)":"قابل حصول بازار","Market CAGR %":"بازار کی سالانہ ترقی","Market Research Sources":"تحقیقی ذرائع","Top Competitors":"مدمقابل کمپنیاں","Customer Pain Points":"گاہک کے مسائل","Geographic Market":"جغرافیائی بازار","Product Description":"پروڈکٹ کی تفصیل","Demo Link":"ڈیمو لنک","Product / App Link":"پروڈکٹ لنک","Development Stage":"ترقی کا مرحلہ","Product Type":"پروڈکٹ کی قسم","Tech Stack":"ٹیک اسٹیک","Key Features":"اہم خصوصیات","12-Month Roadmap":"12 ماہ کا منصوبہ","Monthly Revenue (PKR)":"ماہانہ آمدنی","Annual Revenue (PKR)":"سالانہ آمدنی","Gross Margin %":"مجموعی منافع","Monthly Burn Rate (PKR)":"ماہانہ اخراجات","Runway (months)":"رن وے (مہینے)","COGS Breakdown":"لاگت کی تفصیل","P&L Statement Status":"منافع و نقصان کی صورتحال","Revenue Projections Status":"آمدنی کی پیش گوئی","Bank Statements Status":"بینک اسٹیٹمنٹ کی صورتحال","Total Users":"کل صارفین","Paying Customers":"ادائیگی کرنے والے گاہک","Customer Acquisition Cost — CAC (PKR)":"گاہک حصول کی لاگت","Customer Lifetime Value — LTV (PKR)":"گاہک کی کل قدر","Monthly Churn %":"ماہانہ چھوڑنے کی شرح","Monthly Retention %":"برقراری کی شرح","MoM Growth %":"ماہ بہ ماہ ترقی","DAU / MAU":"روزانہ / ماہانہ صارفین","NPS Score":"NPS اسکور","Key Clients / Partners":"بڑے کلائنٹس","Key Milestones":"اہم کامیابیاں","Founder Background":"بانی کا پس منظر","Co-Founder Background":"شریک بانی کا پس منظر","Education":"تعلیمی پس منظر","Work Experience":"کام کا تجربہ","Advisors / Board":"مشیران / بورڈ","Team Structure":"ٹیم کا ڈھانچہ","Open Roles / Skill Gaps":"خالی عہدے / ہنر کی کمی","Amount Raising (PKR)":"مطلوبہ سرمایہ","Equity Offered %":"پیش کردہ حصہ فیصد","Pre-Money Valuation (PKR)":"ویلیوایشن","Investment Instrument":"سرمایہ کاری کا ذریعہ","Use of Funds":"فنڈز کا استعمال","Existing Investors":"موجودہ سرمایہ کار","Previous Rounds":"پچھلے راؤنڈز","Grants / Awards":"گرانٹس اور ایوارڈز","Exit Strategy":"خروج کی حکمت عملی","Expected Returns (3–5yr)":"متوقع منافع","Direct Competitors":"براہ راست حریف","Indirect Competitors":"بالواسطہ حریف","Competitive Advantage":"مسابقتی فائدہ","Positioning Statement":"پوزیشننگ بیان","Moat / Defensibility":"برتری اور دفاع","Business Risks":"کاروباری خطرات","Regulatory Risks":"قانونی خطرات","Technical Risks":"تکنیکی خطرات","Team Risks":"ٹیم کے خطرات","Market Risks":"بازار کے خطرات","Risk Mitigation Plans":"خطرات کا حل","SECP Certificate":"ایس ای سی پی سرٹیفکیٹ","MOA / Articles of Association":"میمورنڈم و آرٹیکلز","NTN Certificate":"این ٹی این سرٹیفکیٹ","Sales Tax Registration":"سیلز ٹیکس رجسٹریشن","PSEB Registration":"پی ایس ای بی رجسٹریشن","Sector License":"سیکٹر لائسنس","Shareholders Agreement":"حصص دار معاہدہ","Founder Vesting Agreement":"وسٹنگ معاہدہ","Business Bank Account":"کاروباری بینک اکاؤنٹ","Registered Office Proof":"دفتر کا ثبوت","Services Needed":"مطلوبہ خدمات","Urgency":"فوری ضرورت","How Did You Find Us?":"ہمارے بارے میں کیسے جانا","About Your Startup":"اسٹارٹ اپ کے بارے میں"};
+
+const IND=["FinTech","HealthTech","EdTech","AgriTech","SaaS / AI","E-Commerce","Logistics","CleanTech","PropTech","Cybersecurity","Fashion Tech","Construction Tech","Other"];
+const STG=["Idea / Pre-Revenue","MVP / Early Traction","Seed Stage","Series A","Growth Stage"];
+const INS=["Equity","Convertible Note","SAFE","Revenue Share","Flexible"];
+
+/* SVG Icons */
+const UpIco=()=><svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/></svg>;
+const XIco=()=><svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>;
+const ChkIco=()=><svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>;
+const ChrIco=()=><svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>;
+const ChlIco=()=><svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>;
+const PpIco=()=><svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l8.57-8.57A4 4 0 1118 8.84l-8.59 8.57a2 2 0 01-2.83-2.83l8.49-8.48"/></svg>;
+
+/* BiLabel */
+function BiLabel({en,required}){
+  const ur=UR[en];
+  return <div style={{marginBottom:6}}>
+    <div style={{fontSize:12.5,fontWeight:600,color:'#1C1812',lineHeight:1.4}}>{en}{required&&<span className="req">*</span>}</div>
+    {ur&&<div style={{fontSize:11,color:'#6E6455',direction:'rtl',textAlign:'right',fontFamily:UF,lineHeight:1.7,marginTop:1}}>{ur}</div>}
+  </div>;
+}
+
+/* UploadField */
+function UploadField({def,val,onChange}){
+  const ref=useRef(null);const files=val||[];
+  const onF=e=>{onChange([...files,...Array.from(e.target.files).map(f=>f.name)]);e.target.value='';};
+  const rm=i=>onChange(files.filter((_,x)=>x!==i));
+  return <div>
+    <div className="f-up" onClick={()=>ref.current?.click()}>
+      <UpIco/>
+      <div><div className="f-up-t">{def.ph||'Click to upload / فائل اپلوڈ کریں'}</div>{def.ac&&<div className="f-up-s">Accepted: {def.ac}</div>}</div>
+    </div>
+    <input ref={ref} type="file" style={{display:'none'}} onChange={onF} multiple={def.multi!==false} accept={def.ac||'.pdf,.doc,.docx'}/>
+    {files.length>0&&<div style={{marginTop:6,display:'flex',flexDirection:'column',gap:4}}>
+      {files.map((f,i)=><div key={i} className="f-file"><span style={{display:'flex',alignItems:'center',gap:6}}><PpIco/><span className="f-fn">{f}</span></span><button className="f-rm" onClick={()=>rm(i)}><XIco/></button></div>)}
+    </div>}
+  </div>;
+}
+
+/* LegalField */
+function LegalField({def,val,onChange}){
+  const v=val||{};const ref=useRef(null);
+  const ur=UR[def.en];
+  const onF=e=>{const f=e.target.files[0];if(f)onChange({...v,fn:f.name});};
+  const STATUS=[['Exists','exists'],['Missing','missing'],['N/A','na']];
+  return <div className="legal-row">
+    <div style={{marginBottom:8}}>
+      <div style={{fontSize:13,fontWeight:600,color:'#1C1812'}}>{def.en}</div>
+      {ur&&<div style={{fontSize:11,color:'#6E6455',direction:'rtl',textAlign:'right',fontFamily:UF,lineHeight:1.6}}>{ur}</div>}
+    </div>
+    <div style={{display:'flex',alignItems:'center',gap:8,flexWrap:'wrap'}}>
+      <div style={{display:'flex',gap:5}}>
+        {STATUS.map(([o,cls])=><button key={o} type="button" onClick={()=>onChange({...v,s:v.s===o?null:o})} className={`ls-btn${v.s===o?' '+cls:''}`}>
+          {o==='Exists'&&<ChkIco/>}{o==='Missing'&&<XIco/>}{o}
+        </button>)}
+      </div>
+      <div className="f-up" style={{padding:'4px 12px',fontSize:12,display:'inline-flex',gap:6}} onClick={()=>ref.current?.click()}>
+        <UpIco/><span style={{fontSize:12,color:'#8A6A1A'}}>{v.fn||'Upload / اپلوڈ'}</span>
+      </div>
+      <input ref={ref} type="file" style={{display:'none'}} onChange={onF} accept=".pdf,.jpg,.png,.doc,.docx"/>
+    </div>
+  </div>;
+}
+
+/* Field dispatcher */
+function Field({def,val,onChange}){
+  const base={width:'100%',padding:'10px 13px',border:'1.5px solid rgba(28,24,18,.10)',borderRadius:8,fontSize:13,background:'#fff',fontFamily:'inherit',color:'#1C1812',outline:'none',transition:'border-color .2s'};
+  if(def.type==='up')return <UploadField def={def} val={val} onChange={onChange}/>;
+  if(def.type==='legal')return <LegalField def={def} val={val} onChange={onChange}/>;
+  if(['text','email','tel','url'].includes(def.type))
+    return <input type={def.type} className="f-inp" placeholder={def.ph||''} value={val||''} onChange={e=>onChange(e.target.value)}/>;
+  if(def.type==='ta')
+    return <textarea className="f-inp f-ta" placeholder={def.ph||''} value={val||''} onChange={e=>onChange(e.target.value)} rows={3}/>;
+  if(def.type==='sel')
+    return <select className="f-inp f-sel" value={val||''} onChange={e=>onChange(e.target.value)}>
+      <option value="">Select... / منتخب کریں</option>
+      {(def.opts||[]).map(o=><option key={o}>{o}</option>)}
+    </select>;
+  if(def.type==='chips'){
+    const sel=val||[];
+    return <div className="chips">{(def.opts||[]).map(o=>{const on=sel.includes(o);return<button key={o} type="button" className={`chip${on?' on':''}`} onClick={()=>onChange(on?sel.filter(s=>s!==o):[...sel,o])}>{o}</button>;})}</div>;
+  }
+  if(def.type==='agree')
+    return <label className={`agree-row${val?' checked':''}`}>
+      <input type="checkbox" checked={val||false} onChange={e=>onChange(e.target.checked)}/>
+      <span className="agree-txt">{def.en}</span>
+    </label>;
+  return null;
+}
+
+/* Grid layout */
+function Grid({fields,fd,upd}){
+  return <div className="f-grid">
+    {fields.map(f=>{
+      const full=['ta','chips','legal','up','agree'].includes(f.type);
+      return <div key={f.id} className={full?'f-full':''}>
+        {!['agree','legal'].includes(f.type)&&<BiLabel en={f.en} required={f.req}/>}
+        <Field def={f} val={fd[f.id]} onChange={v=>upd(f.id,v)}/>
+      </div>;
+    })}
+  </div>;
+}
+
+/* Success screen */
+function Done({onReset}){
+  return <div className="done-card">
+    <div className="done-ico"><svg width="32" height="32" fill="none" stroke="#16a34a" strokeWidth="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+    <h3 style={{fontFamily:'"Cormorant Garamond",serif',fontSize:24,color:'#15803d',marginBottom:6}}>Submitted Successfully</h3>
+    <p style={{fontFamily:UF,fontSize:15,color:'#16a34a',direction:'rtl',margin:'0 0 6px'}}>کامیابی سے جمع ہوگیا</p>
+    <p style={{color:'#6E6455',fontSize:13,marginBottom:20}}>Marhaba Traders / Capbridge will review your submission and contact you within 48 hours.<br/>03719222195 · Lahore, Pakistan</p>
+    <button onClick={onReset} className="btn-out">Submit Another</button>
+  </div>;
+}
+
+/* Simple section form (Quick Signup) */
+function SectionForm({sections,fd,setFd,title,urTitle,desc}){
+  const [done,setDone]=useState(false);
+  const upd=(id,v)=>setFd(p=>({...p,[id]:v}));
+  if(done)return <Done onReset={()=>setDone(false)}/>;
+  return <div>
+    <div className="form-meta">
+      <span className="form-meta-l">{title}</span>
+      <span className="form-meta-r">{desc}</span>
+    </div>
+    {sections.map(s=><div key={s.sec} className="f-card">
+      <div className="f-sh"><div className="f-dot"></div><div><div className="f-title">{s.sec}</div></div></div>
+      <Grid fields={s.fields} fd={fd} upd={upd}/>
+    </div>)}
+    <div style={{display:'flex',justifyContent:'flex-end',marginTop:6}}>
+      <button onClick={()=>setDone(true)} className="btn-dark">Submit Profile &nbsp;<ChrIco/></button>
+    </div>
+  </div>;
+}
+
+/* Multi-step form (Full Profile) */
+function StepForm({sections,fd,setFd,title,urTitle,desc}){
+  const [step,setStep]=useState(0);const [done,setDone]=useState(false);
+  const total=sections.length;
+  const upd=(id,v)=>setFd(p=>({...p,[id]:v}));
+  const sec=sections[step];
+  if(done)return <Done onReset={()=>{setDone(false);setStep(0);}}/>;
+  return <div>
+    <div className="form-meta">
+      <span className="form-meta-l">{title}</span>
+      <span className="form-meta-r">Stage {step+1} of {total} · {Math.round(((step+1)/total)*100)}% complete</span>
+    </div>
+    <div className="prog-bar"><div className="prog-fill" style={{width:`${((step+1)/total)*100}%`}}></div></div>
+    <div className="steps-scroll">
+      {sections.map((s,i)=><button key={i} type="button" onClick={()=>setStep(i)} className={`step-pill${i===step?' active':i<step?' done':''}`}>
+        {i<step&&<ChkIco/>}{i+1}. {s.title}
+      </button>)}
+    </div>
+    <div className="f-card">
+      <div className="f-sh">
+        <div className="f-dot"></div>
+        <div><div className="f-title">{sec.title}</div>{sec.sub&&<div className="f-sub">{sec.sub}</div>}</div>
+      </div>
+      <Grid fields={sec.fields} fd={fd} upd={upd}/>
+    </div>
+    <div className="nav-btns">
+      <button onClick={()=>setStep(s=>Math.max(0,s-1))} disabled={step===0} className="btn-out" style={{opacity:step===0?.35:1}}>
+        <ChlIco/> Back
+      </button>
+      {step<total-1
+        ?<button onClick={()=>setStep(s=>s+1)} className="btn-gd">Next <ChrIco/></button>
+        :<button onClick={()=>setDone(true)} className="btn-dark">Submit Full Profile <ChrIco/></button>
+      }
+    </div>
+  </div>;
+}
+
+/* ── FIELD DATA ────────────────────────────────────── */
+const STARTUP_BASIC=[
+  {sec:'Founder Details / بانی کی تفصیلات',fields:[
+    {id:'s1',en:'Full Name',type:'text',req:true,ph:'Muhammad Ali Khan'},
+    {id:'s2',en:'Email Address',type:'email',req:true,ph:'yourname@email.com'},
+    {id:'s3',en:'WhatsApp',type:'tel',ph:'+92 300 0000000'},
+    {id:'s4',en:'LinkedIn URL',type:'url',ph:'linkedin.com/in/yourprofile'},
+    {id:'s5',en:'Your Role',type:'sel',opts:['CEO / Founder','Co-Founder CTO','Co-Founder COO','Other']},
+  ]},
+  {sec:'Company Details / کمپنی کی تفصیلات',fields:[
+    {id:'s6',en:'Company Name',type:'text',req:true},
+    {id:'s7',en:'Industry',type:'sel',opts:IND},
+    {id:'s8',en:'Startup Stage',type:'sel',opts:STG},
+    {id:'s9',en:'Country',type:'text',ph:'Pakistan'},
+    {id:'s10',en:'Team Size',type:'sel',opts:['1–3','4–10','11–25','26–50','50+']},
+    {id:'s11',en:'Funding Goal (PKR)',type:'text',ph:'e.g. 50 Lakhs'},
+    {id:'s12',en:'Company Website',type:'url',ph:'https://yourwebsite.com'},
+  ]},
+  {sec:'Services Required / مطلوبہ خدمات',fields:[
+    {id:'s13',en:'Services Needed',type:'chips',opts:['Investor-Ready Profile','Pitch Deck','Financial Model','Market Research','Legal Structuring','Branding & Website','Investor Outreach','Full Package']},
+    {id:'s14',en:'Urgency',type:'sel',opts:['Within 2 weeks','Within 1 month','1–3 months','Just exploring']},
+    {id:'s15',en:'How Did You Find Us?',type:'sel',opts:['LinkedIn','Founder Referral','Social Media','Google Search','Event / Conference','Other']},
+    {id:'s16',en:'About Your Startup',type:'ta',ph:'Brief description — what your startup does and what you need most...'},
+  ]},
+  {sec:'Document Uploads / دستاویزات اپلوڈ کریں',fields:[
+    {id:'su1',en:'Pitch Deck (PDF / PPT)',type:'up',ac:'.pdf,.pptx',ph:'پچ ڈیک اپلوڈ کریں / Upload your pitch deck'},
+    {id:'su2',en:'Company Registration Certificate',type:'up',ac:'.pdf,.jpg,.png',ph:'رجسٹریشن سرٹیفکیٹ / Upload registration certificate'},
+    {id:'su3',en:'Any Other Supporting Document',type:'up',ac:'.pdf,.doc,.docx,.jpg,.png',ph:'کوئی اور دستاویز / Any other document'},
+  ]},
+];
+
+const FULL_STARTUP=[
+  {title:'Founder & Company Info',sub:'Stage 1 — بانی اور کمپنی کی بنیادی معلومات',fields:[
+    {id:'p1',en:'Founder Full Name',type:'text',req:true},{id:'p2',en:'CNIC / Passport Number',type:'text',req:true},
+    {id:'p3',en:'Email Address',type:'email',req:true},{id:'p4',en:'WhatsApp',type:'tel'},
+    {id:'p5',en:'LinkedIn URL',type:'url'},{id:'p6',en:'Founder Role',type:'text',ph:'CEO / CTO / COO'},
+    {id:'p7',en:'Your Equity %',type:'text',ph:'e.g. 55%'},{id:'p8',en:'Co-Founder Details',type:'ta',ph:'Name — Role — Equity % for each co-founder'},
+    {id:'p9',en:'Startup Name',type:'text',req:true},{id:'p10',en:'Brand Name (if different)',type:'text'},
+    {id:'p11',en:'Company Website',type:'url'},{id:'p12',en:'Registered Address',type:'text'},
+    {id:'p13',en:'Industry',type:'sel',opts:IND},{id:'p14',en:'Startup Stage',type:'sel',opts:STG},
+    {id:'p15',en:'Team Size',type:'text',ph:'e.g. 6 full-time, 2 part-time'},
+  ]},
+  {title:'Legal Structure',sub:'Stage 2 — قانونی ڈھانچہ',fields:[
+    {id:'l1',en:'SECP Certificate',type:'legal'},{id:'l2',en:'MOA / Articles of Association',type:'legal'},
+    {id:'l3',en:'NTN Certificate',type:'legal'},{id:'l4',en:'Sales Tax Registration',type:'legal'},
+    {id:'l5',en:'PSEB Registration',type:'legal'},{id:'l6',en:'Sector License',type:'legal'},
+    {id:'l7',en:'Shareholders Agreement',type:'legal'},{id:'l8',en:'Founder Vesting Agreement',type:'legal'},
+    {id:'l9',en:'Business Bank Account',type:'legal'},{id:'l10',en:'Registered Office Proof',type:'legal'},
+  ]},
+  {title:'Business Fundamentals',sub:'Stage 3 — کاروباری بنیادیں',fields:[
+    {id:'b1',en:'Problem Statement',type:'ta',req:true,ph:'What specific problem does your startup solve?'},
+    {id:'b2',en:'Solution Description',type:'ta',ph:'How exactly do you solve it?'},
+    {id:'b3',en:'Unique Selling Proposition',type:'ta',ph:'What makes you different from every alternative?'},
+    {id:'b4',en:'Business Model',type:'sel',opts:['SaaS / Subscription','Marketplace','E-Commerce','Service / Consulting','Freemium','B2B Enterprise','B2C Direct','B2B2C','Hardware + Software','Other']},
+    {id:'b5',en:'Revenue Streams',type:'ta',ph:'List all ways you generate revenue'},
+    {id:'b6',en:'Pricing Structure',type:'ta',ph:'How do you price your product?'},
+    {id:'b7',en:'Customer Acquisition Method',type:'ta',ph:'How do you acquire customers?'},
+    {id:'b8',en:'Sales Cycle',type:'sel',opts:['Same day','1–7 days','1–4 weeks','1–3 months','3–6 months','6+ months']},
+    {id:'b9',en:'Customer Type',type:'sel',opts:['B2B','B2C','B2B2C','Government','Mixed']},
+  ]},
+  {title:'Market Research',sub:'Stage 4 — مارکیٹ ریسرچ',fields:[
+    {id:'m1',en:'TAM (Total Addressable Market)',type:'text',ph:'e.g. $2.5 Billion'},
+    {id:'m2',en:'SAM (Serviceable Addressable Market)',type:'text',ph:'e.g. $400 Million'},
+    {id:'m3',en:'SOM (Serviceable Obtainable Market)',type:'text',ph:'e.g. $25 Million'},
+    {id:'m4',en:'Market CAGR %',type:'text',ph:'e.g. 23% annually'},
+    {id:'m5',en:'Market Research Sources',type:'ta',ph:'Statista, World Bank, GSMA, custom research...'},
+    {id:'m6',en:'Top Competitors',type:'ta',ph:'Name and brief description of each competitor'},
+    {id:'m7',en:'Customer Pain Points',type:'ta',ph:'Top 3 pain points your customers face'},
+    {id:'m8',en:'Geographic Market',type:'text',ph:'e.g. Pakistan initially, GCC expansion Year 2'},
+  ]},
+  {title:'Product Information',sub:'Stage 5 — پروڈکٹ کی معلومات + اسکرین شاٹس اپلوڈ',fields:[
+    {id:'pr1',en:'Product Description',type:'ta',req:true,ph:'Detailed description of your product / service'},
+    {id:'pr2',en:'Demo Link',type:'url',ph:'Live app / video demo / prototype link'},
+    {id:'pr3',en:'Product / App Link',type:'url',ph:'Website or app store link'},
+    {id:'pr4',en:'Development Stage',type:'sel',opts:['Concept / Wireframes','Prototype / MVP','Beta Testing','Live — Early Users','Live — Scaling']},
+    {id:'pr5',en:'Product Type',type:'sel',opts:['Web App','Mobile App iOS','Mobile App Android','Both Platforms','SaaS Platform','Hardware','Hardware + Software','Marketplace','API / B2B Tool']},
+    {id:'pr6',en:'Tech Stack',type:'text',ph:'e.g. React, Node.js, PostgreSQL, AWS'},
+    {id:'pr7',en:'Key Features',type:'ta',ph:'List your top 5–7 product features'},
+    {id:'pr8',en:'12-Month Roadmap',type:'ta',ph:'Key milestones and features planned'},
+    {id:'pr9',en:'Product Screenshots / Demo Video',type:'up',ac:'.jpg,.png,.pdf,.mp4,.zip',ph:'اسکرین شاٹس یا ڈیمو ویڈیو اپلوڈ کریں / Upload screenshots or demo'},
+  ]},
+  {title:'Financial Structure',sub:'Stage 6 — مالی ڈھانچہ + مالی دستاویزات اپلوڈ',fields:[
+    {id:'f1',en:'Monthly Revenue (PKR)',type:'text',ph:'e.g. 8,50,000'},{id:'f2',en:'Annual Revenue (PKR)',type:'text'},
+    {id:'f3',en:'Gross Margin %',type:'text',ph:'e.g. 68%'},{id:'f4',en:'Monthly Burn Rate (PKR)',type:'text'},
+    {id:'f5',en:'Runway (months)',type:'text'},{id:'f6',en:'COGS Breakdown',type:'ta',ph:'Hosting, salaries, raw materials, logistics...'},
+    {id:'f7',en:'P&L Statement Status',type:'sel',opts:['Ready to share','Needs cleanup','Partially available','Not prepared']},
+    {id:'f8',en:'Revenue Projections Status',type:'sel',opts:['Complete 3-year model ready','Rough estimates only','Not prepared']},
+    {id:'f9',en:'Bank Statements Status',type:'sel',opts:['Last 12 months available','Last 6 months','Partial','Not available']},
+    {id:'fu1',en:'P&L Statement Upload',type:'up',ac:'.pdf,.xlsx,.xls',ph:'منافع و نقصان بیان اپلوڈ کریں / Upload P&L statement'},
+    {id:'fu2',en:'Bank Statements Upload',type:'up',ac:'.pdf,.zip',ph:'بینک اسٹیٹمنٹس اپلوڈ کریں / Upload last 12 months'},
+    {id:'fu3',en:'Financial Projections Upload',type:'up',ac:'.xlsx,.xls,.pdf',ph:'مالی پیش گوئی اپلوڈ کریں / Upload 3-year financial model'},
+  ]},
+  {title:'Traction & Metrics',sub:'Stage 7 — کارکردگی اور اعداد و شمار',fields:[
+    {id:'t1',en:'Total Users',type:'text'},{id:'t2',en:'Paying Customers',type:'text'},
+    {id:'t3',en:'Customer Acquisition Cost — CAC (PKR)',type:'text'},{id:'t4',en:'Customer Lifetime Value — LTV (PKR)',type:'text'},
+    {id:'t5',en:'Monthly Churn %',type:'text'},{id:'t6',en:'Monthly Retention %',type:'text'},
+    {id:'t7',en:'MoM Growth %',type:'text'},{id:'t8',en:'DAU / MAU',type:'text',ph:'e.g. 32%'},
+    {id:'t9',en:'NPS Score',type:'text'},{id:'t10',en:'Key Clients / Partners',type:'ta'},
+    {id:'t11',en:'Key Milestones',type:'ta'},
+  ]},
+  {title:'Team Structure',sub:'Stage 8 — ٹیم کا ڈھانچہ + CVs اپلوڈ',fields:[
+    {id:'tm1',en:'Founder Background',type:'ta',ph:'Education, previous companies, key achievements'},
+    {id:'tm2',en:'Co-Founder Background',type:'ta',ph:'Education, experience, role'},
+    {id:'tm3',en:'Education',type:'ta',ph:'Team degrees, universities, certifications'},
+    {id:'tm4',en:'Work Experience',type:'ta',ph:'Relevant industry and startup experience'},
+    {id:'tm5',en:'Advisors / Board',type:'ta',ph:'Name — Background — Role in company'},
+    {id:'tm6',en:'Team Structure',type:'ta',ph:'Who does what — key roles and responsibilities'},
+    {id:'tm7',en:'Open Roles / Skill Gaps',type:'ta',ph:'What key positions are you hiring for?'},
+    {id:'tmu1',en:'Founder CV / Resume',type:'up',ac:'.pdf,.doc,.docx',ph:'بانی کا CV اپلوڈ کریں / Upload founder resume'},
+    {id:'tmu2',en:'Co-Founder CV / Resume',type:'up',ac:'.pdf,.doc,.docx',ph:'شریک بانی کا CV / Upload co-founder resume'},
+  ]},
+  {title:'Investment Structure',sub:'Stage 9 — سرمایہ کاری کا ڈھانچہ + پچ ڈیک',fields:[
+    {id:'i1',en:'Amount Raising (PKR)',type:'text',req:true,ph:'e.g. 75 Lakhs'},
+    {id:'i2',en:'Equity Offered %',type:'text',ph:'e.g. 15%'},
+    {id:'i3',en:'Pre-Money Valuation (PKR)',type:'text',ph:'e.g. 4.25 Crore'},
+    {id:'i4',en:'Investment Instrument',type:'sel',opts:INS},
+    {id:'i5',en:'Use of Funds',type:'ta',ph:'e.g. 40% product dev, 35% sales & marketing, 25% operations'},
+    {id:'i6',en:'Existing Investors',type:'ta',ph:'Name — Amount invested — % held'},
+    {id:'i7',en:'Previous Rounds',type:'ta',ph:'Date — Amount — Type — Investor name'},
+    {id:'i8',en:'Grants / Awards',type:'ta',ph:'SMEDA, Ignite, LUMS incubator grants...'},
+    {id:'i9',en:'Exit Strategy',type:'sel',opts:['Strategic Acquisition','IPO','Management Buyout','Secondary Sale','Not yet defined']},
+    {id:'i10',en:'Expected Returns (3–5yr)',type:'text',ph:'e.g. 3–5x return within 4 years'},
+    {id:'iu1',en:'Investor Pitch Deck',type:'up',ac:'.pdf,.pptx',ph:'پچ ڈیک اپلوڈ کریں / Upload investor pitch deck'},
+  ]},
+  {title:'Competitive Landscape',sub:'Stage 10 — مسابقتی منظرنامہ',fields:[
+    {id:'c1',en:'Direct Competitors',type:'ta',ph:'Name — website — brief description of each'},
+    {id:'c2',en:'Indirect Competitors',type:'ta',ph:'Alternatives customers currently use'},
+    {id:'c3',en:'Competitive Advantage',type:'ta',ph:'Why you win against each competitor'},
+    {id:'c4',en:'Positioning Statement',type:'ta',ph:'We are the only [X] that [Y] for [Z]'},
+    {id:'c5',en:'Moat / Defensibility',type:'ta',ph:'Network effects, proprietary data, IP, switching costs...'},
+  ]},
+  {title:'Risk Documentation',sub:'Stage 11 — خطرات کی دستاویزات',fields:[
+    {id:'r1',en:'Business Risks',type:'ta',ph:'e.g. Revenue concentration, market timing'},
+    {id:'r2',en:'Regulatory Risks',type:'ta',ph:'e.g. SBP licensing changes, data privacy laws'},
+    {id:'r3',en:'Technical Risks',type:'ta',ph:'e.g. Scalability, cybersecurity, tech debt'},
+    {id:'r4',en:'Team Risks',type:'ta',ph:'e.g. Key person dependency, hiring gaps'},
+    {id:'r5',en:'Market Risks',type:'ta',ph:'e.g. Economic downturn, competitor funding'},
+    {id:'r6',en:'Risk Mitigation Plans',type:'ta',ph:'Specific plan for managing each risk listed above'},
+  ]},
+];
+
+/* ── APP ──────────────────────────────────────────── */
+function App(){
+  const [tab,setTab]=useState(0);
+  const [fd1,setFd1]=useState({});
+  const [fd2,setFd2]=useState({});
+  const TABS=[
+    {en:'Quick Startup Signup',ur:'فوری اندراج',sub:'4 sections · ~15 minutes',ico:<svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>},
+    {en:'Full 11-Stage Profile',ur:'مکمل پروفائل',sub:'11 stages · all documents · ~60 minutes',ico:<svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>},
+  ];
+  return <>
+    <div className="tab-wrap">
+      {TABS.map((t,i)=><button key={i} className={`tb${tab===i?' act':''}`} onClick={()=>setTab(i)}>
+        <div className="tb-ico">{t.ico}</div>
+        <div className="tb-en">{t.en}</div>
+        <span className="tb-ur">{t.ur}</span>
+        <div className="tb-sub">{t.sub}</div>
+      </button>)}
+    </div>
+    <div className="fa">
+      {tab===0&&<SectionForm sections={STARTUP_BASIC} fd={fd1} setFd={setFd1} title="Startup Quick Signup" urTitle="اسٹارٹ اپ فوری رجسٹریشن" desc="Basic intake — Marhaba Traders will follow up within 24 hours"/>}
+      {tab===1&&<StepForm sections={FULL_STARTUP} fd={fd2} setFd={setFd2} title="Full Startup Profile" urTitle="مکمل اسٹارٹ اپ پروفائل" desc="Complete 11-section investor-ready profile with all documents"/>}
+    </div>
+  </>;
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>

@@ -1,0 +1,420 @@
+================================================================================
+  MARHABA TRADERS
+  Address : Lahore, Punjab, Pakistan
+  Phone   : 03719222195
+  Tagline : "We build the structure, story, and systems that get you funded."
+================================================================================
+
+COMPLETE INVESTOR REQUIREMENTS & OPERATIONS LIST (IN ORDER)
+
+This is the proper investor-side operational structure.
+
+Goal:
+
+verify investor legitimacy
+understand investment behavior
+match investors correctly
+protect startup confidentiality
+maintain deal-flow quality
+
+This system helps Marhaba Traders build:
+
+investor trust
+structured operations
+curated networks
+long-term relationships
+STAGE 1 — BASIC INVESTOR IDENTITY
+
+Collect basic investor information first.
+
+Required Items
+Full Name
+Country of Residence
+Nationality
+Email Address
+WhatsApp Number
+LinkedIn Profile
+Company / Organization Name
+Position / Designation
+Personal Website (if any)
+WHY THIS MATTERS
+
+This verifies:
+
+investor identity
+professional background
+credibility
+communication channel
+IF MISSING — MARHABA TRADERS HELPS WITH
+profile setup guidance
+investor profile organization
+LinkedIn optimization suggestions
+STAGE 2 — INVESTOR VERIFICATION
+
+Confirm investor legitimacy.
+
+Required Items
+CNIC / Passport Copy
+Business Registration (if company)
+LinkedIn Verification
+Investment History
+Existing Portfolio Companies
+Source of Funds Declaration
+Investor References (optional)
+WHY THIS MATTERS
+
+Protects:
+
+startups
+confidential information
+Marhaba Traders reputation
+
+Avoids:
+
+fake investors
+data collectors
+time wasters
+IF MISSING — MARHABA TRADERS HELPS WITH
+verification guidance
+onboarding assistance
+profile completion support
+STAGE 3 — INVESTMENT PROFILE
+
+Understand investor behavior.
+
+Required Items
+Investor Type
+Investment Experience
+Startup Investment Experience
+Years of Investing
+Preferred Startup Stages
+Preferred Industries
+Geography Preferences
+Ticket Size Range
+Risk Appetite
+Investment Timeline
+INVESTOR TYPES
+
+Examples:
+
+Angel Investor
+Family Office
+VC Fund
+Strategic Investor
+Operator Investor
+Syndicate Investor
+Corporate Investor
+WHY THIS MATTERS
+
+Marhaba Traders must know:
+
+who fits which startup
+investment behavior
+investment capacity
+
+Wrong matching destroys trust.
+
+IF MISSING — MARHABA TRADERS HELPS WITH
+investor preference structuring
+investment profile setup
+onboarding guidance
+STAGE 4 — INDUSTRY & MARKET PREFERENCES
+
+Understand where investor wants exposure.
+
+Required Items
+Preferred Sectors
+Industries Avoided
+Preferred Business Models
+Preferred Startup Geography
+Interest in Pakistan Market
+International Expansion Interest
+Technology Preferences
+ESG / Impact Investing Preferences
+WHY THIS MATTERS
+
+Example:
+Do NOT send:
+
+fintech startup
+to
+healthcare-only investor
+
+Investor matching must feel curated.
+
+IF MISSING — MARHABA TRADERS HELPS WITH
+preference clarification
+market exposure guidance
+startup category education
+STAGE 5 — CAPITAL STRUCTURE
+
+Understand investment capacity.
+
+Required Items
+Minimum Ticket Size
+Maximum Ticket Size
+Average Investment Size
+Preferred Ownership %
+Follow-On Investment Capability
+Investment Frequency
+Solo vs Syndicate Preference
+Preferred Investment Instrument
+INVESTMENT INSTRUMENTS
+
+Examples:
+
+Equity
+SAFE
+Convertible Note
+Revenue Share
+WHY THIS MATTERS
+
+This prevents:
+
+unrealistic introductions
+mismatched expectations
+wasted meetings
+IF MISSING — MARHABA TRADERS HELPS WITH
+startup investment education
+investment structure explanation
+investment process guidance
+STAGE 6 — INVESTMENT DECISION PROCESS
+
+Understand how investor makes decisions.
+
+Required Items
+Average Decision Time
+Internal Approval Process
+Due Diligence Requirements
+Required Documents Before Investment
+Meeting Preferences
+Communication Preferences
+Frequency of Startup Updates Desired
+WHY THIS MATTERS
+
+Some investors:
+
+decide in days
+
+Others:
+
+require months
+
+Marhaba Traders must manage founder expectations correctly.
+
+IF MISSING — MARHABA TRADERS HELPS WITH
+process clarification
+communication structuring
+startup-investor coordination
+STAGE 7 — DUE DILIGENCE REQUIREMENTS
+
+Understand what investor needs before investing.
+
+Required Items
+Legal Requirements
+Financial Review Requirements
+Product Validation Requirements
+Founder Interview Requirements
+Customer Validation Requirements
+Technical Audit Requirements
+Market Research Requirements
+WHY THIS MATTERS
+
+Marhaba Traders prepares startups accordingly before introductions.
+
+IF MISSING — MARHABA TRADERS HELPS WITH
+due diligence preparation
+document organization
+founder readiness support
+STAGE 8 — INVESTOR NETWORK POSITIONING
+
+Understand strategic value investor brings.
+
+Required Items
+Operational Expertise
+Industry Connections
+International Network
+Mentorship Interest
+Board Participation Interest
+Strategic Partnership Ability
+Hiring Network Access
+Distribution Network Access
+WHY THIS MATTERS
+
+Some investors provide:
+
+money only
+
+Others provide:
+
+strategic leverage
+
+Strategic investors are extremely valuable.
+
+IF MISSING — MARHABA TRADERS HELPS WITH
+investor positioning
+network mapping
+strategic profiling
+STAGE 9 — NDA & CONFIDENTIALITY
+
+Protect startup information.
+
+Required Items
+NDA Agreement
+Confidentiality Acceptance
+Data Usage Agreement
+Investor Access Policy Acceptance
+WHY THIS MATTERS
+
+Startups share:
+
+financials
+IP
+strategy
+customer data
+
+Confidentiality is critical.
+
+STAGE 10 — INVESTOR DASHBOARD SETUP
+
+Prepare operational workflow.
+
+Required Items
+Investor Dashboard Account
+Notification Preferences
+Deal Flow Preferences
+Startup Tracking Preferences
+Meeting Scheduling Access
+DASHBOARD FEATURES
+
+Investors should access:
+
+curated startups
+startup summaries
+meeting requests
+deal tracking
+due diligence folders
+IF MISSING — MARHABA TRADERS HELPS WITH
+dashboard onboarding
+workflow walkthrough
+profile setup
+STAGE 11 — DEAL FLOW MATCHING
+
+Start curated introductions.
+
+Required Items
+Startup Match Preferences
+Preferred Raise Size
+Preferred Growth Metrics
+Preferred Revenue Stage
+Preferred Team Composition
+Preferred Moat Type
+MATCHING FACTORS
+
+Marhaba Traders matches based on:
+
+industry
+geography
+ticket size
+stage
+growth
+founder quality
+risk profile
+WHY THIS MATTERS
+
+Bad matching destroys:
+
+investor trust
+founder trust
+Marhaba Traders reputation
+STAGE 12 — MEETING MANAGEMENT
+
+Coordinate founder-investor interactions.
+
+Required Items
+Meeting Availability
+Preferred Meeting Format
+Meeting Preparation Requirements
+Follow-Up Expectations
+Investor Feedback Notes
+MARHABA TRADERS RESPONSIBILITIES
+
+Coordinate:
+
+schedules
+founder prep
+investor briefs
+follow-ups
+feedback collection
+STAGE 13 — DUE DILIGENCE OPERATIONS
+
+Manage post-interest workflow.
+
+Required Items
+Data Room Access
+Financial Review Process
+Founder Q&A Sessions
+Legal Review
+Product Demo Sessions
+Customer Reference Calls
+MARHABA TRADERS RESPONSIBILITIES
+
+Support:
+
+founder preparation
+data room management
+communication
+process organization
+STAGE 14 — DEAL TRACKING
+
+Track investment process professionally.
+
+Required Items
+Investor Interest Status
+Meeting Completion Status
+Due Diligence Stage
+Negotiation Stage
+Investment Probability
+Expected Close Timeline
+PIPELINE STAGES
+Investor contacted
+Interested
+Meeting booked
+Due diligence
+Negotiation
+Deal closed
+Rejected
+STAGE 15 — LONG-TERM INVESTOR RELATIONSHIP MANAGEMENT
+
+Maintain long-term trust.
+
+Required Items
+Monthly Updates
+Ecosystem Reports
+Startup Performance Updates
+Follow-On Investment Opportunities
+Investor Feedback
+Referral Opportunities
+MARHABA TRADERS RESPONSIBILITIES
+
+Maintain:
+
+communication
+trust
+quality deal flow
+professionalism
+transparency
+FINAL GOAL
+
+INPUT:
+Scattered investor interest
+
+↓
+
+PROCESS:
+Verification + profiling + matching + relationship management
+
+↓
+
+OUTPUT:
+Trusted curated investor ecosystem

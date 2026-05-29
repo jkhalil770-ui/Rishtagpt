@@ -1,0 +1,36 @@
+{
+  "name": "RishtaGPT — AI Rishta Bio Generator",
+  "short_name": "RishtaGPT",
+  "description": "Generate dignified, culturally-grounded rishta bios in Urdu, Roman Urdu, and English powered by Gemini AI.",
+  "start_url": "./RishtaGPT.html",
+  "display": "standalone",
+  "background_color": "#0A0F1E",
+  "theme_color": "#0A0F1E",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "assets/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

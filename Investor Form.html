@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Investor Onboarding — Marhaba Traders</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&family=Noto+Nastaliq+Urdu:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--iv:#FEFCF7;--pa:#F5F1E6;--ob:#0C0906;--ob2:#150F09;--gd:#C9A84C;--gd2:#E8D07A;--gdd:#8A6A1A;--gp:rgba(201,168,76,.08);--gb:rgba(201,168,76,.22);--ink:#1C1812;--cr:#EDE8DC;--mt:#6E6455;--mtd:#9E9282;--se:'Cormorant Garamond',Georgia,serif;--sa:'DM Sans',system-ui,sans-serif;--ur:'Noto Nastaliq Urdu',serif;--r:10px;--sh:0 8px 32px rgba(0,0,0,.08);--max:940px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}body{background:var(--iv);color:var(--ink);font-family:var(--sa);-webkit-font-smoothing:antialiased;min-height:100vh;scrollbar-width:none;-ms-overflow-style:none}
+a{color:inherit;text-decoration:none}button{cursor:pointer;border:none;background:none;font-family:var(--sa)}
+::-webkit-scrollbar{display:none}
+.nav{background:rgba(254,252,247,.96);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--gb);position:sticky;top:0;z-index:100;box-shadow:0 2px 16px rgba(0,0,0,.05)}
+.ni{display:flex;align-items:center;justify-content:space-between;height:60px;max-width:var(--max);margin:0 auto;padding:0 24px}
+.nl{display:flex;align-items:center;gap:10px}
+.nm{width:30px;height:30px;background:var(--gd);color:var(--ob);display:grid;place-items:center;font-weight:800;font-size:11px;letter-spacing:.5px;border-radius:6px;flex-shrink:0}
+.nb{font-family:var(--se);font-size:16px;font-weight:600}.nb span{color:var(--gd)}
+.bk{font-size:12.5px;color:var(--mt);display:flex;align-items:center;gap:5px;padding:6px 12px;border:1px solid var(--gb);border-radius:40px;transition:all .2s}
+.bk:hover{color:var(--gdd);border-color:var(--gd);background:var(--gp)}
+.ph{background:var(--ob);padding:44px 24px 36px;text-align:center;position:relative;overflow:hidden}
+.ph::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gd),var(--gd2),transparent)}
+.ph::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.03) 1px,transparent 1px);background-size:44px 44px;pointer-events:none}
+.ph-in{max-width:var(--max);margin:0 auto;position:relative;z-index:1}
+.ph h1{font-family:var(--se);font-size:clamp(26px,4vw,42px);font-weight:600;color:var(--cr);margin-bottom:4px}
+.ph h1 em{font-style:italic;color:var(--gd)}
+.ph-ur{font-family:var(--ur);font-size:clamp(14px,2vw,18px);color:var(--gd);direction:rtl;display:block;margin-top:6px;line-height:1.8}
+.ph p{font-size:13.5px;color:var(--mtd);margin-top:10px;line-height:1.6}
+.tab-wrap{max-width:var(--max);margin:24px auto 0;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tb{padding:18px 20px;border-radius:var(--r);border:1.5px solid rgba(28,24,18,.10);background:#fff;cursor:pointer;text-align:left;transition:all .28s;position:relative;overflow:hidden}
+.tb.act{border-color:var(--gd);background:#fff;box-shadow:0 0 0 3px rgba(201,168,76,.12),var(--sh)}
+.tb.act::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gd),var(--gd2))}
+.tb:not(.act):hover{border-color:var(--gb);transform:translateY(-2px);box-shadow:var(--sh)}
+.tb-ico{width:34px;height:34px;border-radius:8px;background:var(--pa);display:grid;place-items:center;margin-bottom:10px;transition:background .28s;color:var(--gdd)}
+.tb.act .tb-ico{background:rgba(201,168,76,.14)}
+.tb-en{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:2px}
+.tb.act .tb-en{color:var(--gdd)}
+.tb-ur{font-family:var(--ur);font-size:12px;color:var(--mt);direction:rtl;text-align:right;display:block;line-height:1.65}
+.tb.act .tb-ur{color:var(--gd)}
+.tb-sub{font-size:11px;color:var(--mt);margin-top:4px}
+.fa{max-width:var(--max);margin:20px auto 60px;padding:0 24px}
+.f-card{background:#fff;border:1.5px solid rgba(28,24,18,.08);border-radius:var(--r);padding:22px 24px;margin-bottom:14px;box-shadow:0 1px 4px rgba(0,0,0,.04);transition:box-shadow .2s}
+.f-card:hover{box-shadow:var(--sh)}
+.f-sh{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid rgba(28,24,18,.06)}
+.f-dot{width:7px;height:7px;border-radius:50%;background:var(--gd);flex-shrink:0}
+.f-title{font-size:13.5px;font-weight:700;color:var(--ink)}
+.f-sub{font-size:12px;color:var(--mt);margin-top:2px}
+.f-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.f-full{grid-column:1/-1}
+.f-inp{width:100%;padding:10px 13px;border:1.5px solid rgba(28,24,18,.10);border-radius:8px;font-size:13px;font-family:var(--sa);background:#fff;color:var(--ink);transition:all .2s;outline:none}
+.f-inp:focus{border-color:var(--gd);box-shadow:0 0 0 3px rgba(201,168,76,.12);background:#fffdf7}
+.f-inp::placeholder{color:rgba(110,100,85,.45)}
+.f-ta{resize:vertical;min-height:88px}
+.f-sel{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%236E6455' stroke-width='2'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:32px;cursor:pointer}
+.f-up{display:flex;align-items:center;gap:10px;cursor:pointer;padding:11px 14px;border:2px dashed rgba(201,168,76,.4);border-radius:8px;background:rgba(201,168,76,.04);transition:all .2s}
+.f-up:hover{border-color:var(--gd);background:rgba(201,168,76,.08)}
+.f-up-t{font-size:12.5px;color:var(--gdd);font-weight:500}
+.f-up-s{font-size:11px;color:var(--mtd);margin-top:1px}
+.f-file{display:flex;align-items:center;justify-content:space-between;padding:7px 11px;background:rgba(201,168,76,.08);border:1px solid var(--gb);border-radius:6px;margin-top:5px}
+.f-fn{font-size:12px;color:var(--gdd);word-break:break-all}
+.f-rm{background:transparent;padding:0 0 0 8px;color:var(--mtd);font-size:18px;line-height:1;cursor:pointer}
+.f-rm:hover{color:#ef4444}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:4px}
+.chip{padding:5px 12px;border-radius:40px;border:1.5px solid rgba(28,24,18,.10);font-size:12px;font-weight:500;color:var(--mt);cursor:pointer;transition:all .18s;background:#fff}
+.chip.on{border-color:var(--gd);background:rgba(201,168,76,.10);color:var(--gdd);font-weight:600}
+.chip:hover:not(.on){border-color:var(--gb);color:var(--ink)}
+.legal-row{border:1px solid rgba(28,24,18,.08);border-radius:8px;padding:12px 14px;background:#fff;margin-bottom:4px;transition:border-color .2s}
+.legal-row:hover{border-color:var(--gb)}
+.ls-btn{padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;cursor:pointer;transition:all .18s;border:1.5px solid rgba(28,24,18,.10);background:#fff;color:var(--mt);display:inline-flex;align-items:center;gap:4px}
+.ls-btn.exists{border-color:#16a34a;background:#f0fdf4;color:#16a34a;font-weight:700}
+.ls-btn.missing{border-color:#dc2626;background:#fef2f2;color:#dc2626;font-weight:700}
+.ls-btn.na{border-color:#6b7280;background:#f9fafb;color:#6b7280;font-weight:700}
+.agree-row{display:flex;align-items:flex-start;gap:10px;cursor:pointer;padding:11px 14px;border-radius:8px;border:1.5px solid rgba(28,24,18,.08);background:#fff;transition:all .18s}
+.agree-row.checked{border-color:#16a34a;background:#f0fdf4}
+.agree-row input{margin-top:2px;flex-shrink:0;accent-color:#16a34a}
+.agree-txt{font-size:13px;color:var(--mt);line-height:1.6}
+.agree-row.checked .agree-txt{color:#15803d}
+.prog-bar{height:5px;background:rgba(28,24,18,.08);border-radius:3px;overflow:hidden;margin-bottom:12px}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--gd),var(--gd2));border-radius:3px;transition:width .4s cubic-bezier(.2,.8,.2,1)}
+.steps-scroll{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;margin-bottom:16px;scrollbar-width:none}
+.steps-scroll::-webkit-scrollbar{display:none}
+.step-pill{flex-shrink:0;padding:4px 11px;border-radius:20px;font-size:11px;font-weight:500;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:4px;border:1.5px solid rgba(28,24,18,.08);background:#fff;color:var(--mt)}
+.step-pill.active{border-color:var(--gd);background:rgba(201,168,76,.10);color:var(--gdd);font-weight:700}
+.step-pill.done{border-color:#16a34a;background:#f0fdf4;color:#15803d}
+.btn-gd{background:var(--gd);color:var(--ob);padding:11px 26px;border-radius:40px;font-size:13.5px;font-weight:600;letter-spacing:.3px;transition:all .25s;display:inline-flex;align-items:center;gap:7px}
+.btn-gd:hover{background:var(--gd2);transform:translateY(-1px);box-shadow:0 8px 24px rgba(201,168,76,.35)}
+.btn-out{border:1.5px solid var(--gb);color:var(--ink);padding:10px 22px;border-radius:40px;font-size:13.5px;font-weight:500;transition:all .25s;display:inline-flex;align-items:center;gap:7px;background:#fff}
+.btn-out:hover{border-color:var(--gd);background:var(--gp)}
+.btn-dark{background:var(--ob);color:var(--cr);padding:11px 26px;border-radius:40px;font-size:13.5px;font-weight:600;display:inline-flex;align-items:center;gap:7px;transition:all .25s}
+.btn-dark:hover{background:var(--ob2);transform:translateY(-1px)}
+.nav-btns{display:flex;justify-content:space-between;align-items:center;margin-top:8px;padding-top:4px}
+.done-card{text-align:center;padding:3rem 1rem;background:#fff;border:1.5px solid rgba(28,24,18,.08);border-radius:var(--r);margin-top:16px}
+.done-ico{width:64px;height:64px;border-radius:50%;background:#f0fdf4;border:2px solid #86efac;display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+.form-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;padding:12px 16px;background:#fff;border:1px solid var(--gb);border-radius:var(--r);background:linear-gradient(135deg,rgba(201,168,76,.05),rgba(201,168,76,.02))}
+.form-meta-l{font-family:var(--se);font-size:18px;font-weight:600;color:var(--ob)}
+.form-meta-r{font-size:12px;color:var(--mt)}
+.req{color:#ef4444;margin-left:2px}
+.nda-notice{background:rgba(201,168,76,.06);border:1px solid var(--gb);border-radius:var(--r);padding:16px 18px;margin-bottom:14px}
+.nda-notice h4{font-family:var(--se);font-size:17px;font-weight:600;color:var(--ob);margin-bottom:6px}
+.nda-notice p{font-size:13px;color:var(--mt);line-height:1.6}
+.nda-ur{font-family:var(--ur);font-size:13px;color:var(--gd);direction:rtl;display:block;margin-top:6px}
+@media(max-width:640px){.f-grid{grid-template-columns:1fr}.tab-wrap{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="ni">
+    <a class="nl" href="Marhaba Traders.html">
+              <svg width="32" height="32" viewBox="0 0 40 40">
+          <defs>
+            <linearGradient id="ifBg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1a3480"/><stop offset="100%" stop-color="#2563EB"/></linearGradient>
+            <linearGradient id="ifGd" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#B45309"/><stop offset="50%" stop-color="#F59E0B"/><stop offset="100%" stop-color="#B45309"/></linearGradient>
+          </defs>
+          <rect width="40" height="40" rx="10" fill="url(#ifBg)"/>
+          <rect x="1" y="1" width="38" height="38" rx="9.5" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="1"/>
+          <path d="M9.5 27 L9.5 13.5 L20 22.5 L30.5 13.5 L30.5 27" stroke="white" stroke-width="2.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="9" y="30" width="22" height="2.5" rx="1.25" fill="url(#ifGd)"/>
+          <circle cx="9.5" cy="13.5" r="1.8" fill="url(#ifGd)"/>
+          <circle cx="30.5" cy="13.5" r="1.8" fill="url(#ifGd)"/>
+          <circle cx="20" cy="22.5" r="1.8" fill="url(#ifGd)"/>
+        </svg>
+      <span class="nb">Marhaba <span>Traders</span></span>
+    </a>
+    <a class="bk" href="Marhaba Traders.html">← Main Site</a>
+  </div>
+</nav>
+
+<div class="ph">
+  <div class="ph-in">
+    <h1>Investor <em>Onboarding</em></h1>
+    <span class="ph-ur">سرمایہ کار رجسٹریشن فارم · Lahore, Pakistan · 03719222195</span>
+    <p>Join the Marhaba Traders / Capbridge investor network — curated deal flow, verified startups, professional introductions</p>
+  </div>
+</div>
+
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel">
+const {useState,useRef}=React;
+const UF='"Noto Nastaliq Urdu",serif';
+
+const UR={"Full Name":"پورا نام","Email Address":"ای میل","WhatsApp":"واٹس ایپ","LinkedIn URL":"لنکڈان","Country of Residence":"رہائش کا ملک","Nationality":"قومیت","Organization":"ادارہ / کمپنی","Designation":"عہدہ","Website":"ویب سائٹ","Investor Type":"سرمایہ کار کی قسم","Years of Experience":"سرمایہ کاری کا تجربہ","Startup Investing Experience":"اسٹارٹ اپ سرمایہ کاری","Preferred Stages":"پسندیدہ مراحل","Risk Appetite":"خطرہ مول لینا","Investment Horizon":"سرمایہ کاری کا دورانیہ","Preferred Sectors":"پسندیدہ شعبے","Sectors to Avoid":"نا پسندیدہ شعبے","Business Model Preference":"پسندیدہ کاروباری ماڈل","Geography Preference":"جغرافیائی ترجیح","Pakistan Market Interest":"پاکستان میں دلچسپی","ESG Preference":"ESG ترجیح","Min Ticket Size (PKR)":"کم از کم ٹکٹ","Max Ticket Size (PKR)":"زیادہ سے زیادہ ٹکٹ","Average Ticket Size (PKR)":"اوسط ٹکٹ","Target Ownership %":"ہدف حصہ فیصد","Follow-On Investing":"فالو آن سرمایہ کاری","Deals Per Year":"سالانہ ڈیلز","Solo or Syndicate":"سولو یا سنڈیکیٹ","Preferred Instrument":"پسندیدہ ذریعہ","Decision Timeline":"فیصلہ کا وقت","Approval Process":"منظوری کا عمل","DD Requirements":"ڈیو ڈیلیجنس ضروریات","Required Documents":"مطلوبہ دستاویزات","Meeting Format":"ملاقات کا طریقہ","Communication Style":"رابطے کا طریقہ","Update Frequency":"اپڈیٹ کی تعدد","Operational Expertise":"آپریشنل مہارت","Industry Connections":"صنعتی رابطے","Global Network":"عالمی نیٹ ورک","Mentorship":"رہنمائی","Board Interest":"بورڈ میں دلچسپی","Hiring Access":"ملازمت رسائی","Distribution Access":"تقسیم رسائی","Preferred Round Size":"پسندیدہ فنڈنگ سائز","Min Traction Required":"کم از کم ترقی","Revenue Stage":"آمدنی کا مرحلہ","Team Requirements":"ٹیم کی ضروریات","Moat Preference":"پسندیدہ برتری","Deal Breakers":"ناقابل قبول شرائط","Investment History":"سرمایہ کاری کی تاریخ","Portfolio Companies":"پورٹ فولیو کمپنیاں","Source of Funds":"فنڈز کا ذریعہ","References":"حوالہ جات","How Did You Find Us?":"ہمارے بارے میں کیسے جانا"};
+
+const IND=["FinTech","HealthTech","EdTech","AgriTech","SaaS / AI","E-Commerce","Logistics","CleanTech","PropTech","Cybersecurity","Fashion Tech","Construction Tech","Other"];
+const ITP=["Angel Investor","Family Office","VC Fund","Strategic Investor","Operator Investor","Syndicate Investor","Corporate Investor","HNI"];
+const INS=["Equity","Convertible Note","SAFE","Revenue Share","Flexible"];
+
+const UpIco=()=><svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/></svg>;
+const XIco=()=><svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>;
+const ChkIco=()=><svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>;
+const ChrIco=()=><svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>;
+const ChlIco=()=><svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>;
+const PpIco=()=><svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l8.57-8.57A4 4 0 1118 8.84l-8.59 8.57a2 2 0 01-2.83-2.83l8.49-8.48"/></svg>;
+
+function BiLabel({en,required}){
+  const ur=UR[en];
+  return <div style={{marginBottom:6}}>
+    <div style={{fontSize:12.5,fontWeight:600,color:'#1C1812',lineHeight:1.4}}>{en}{required&&<span className="req">*</span>}</div>
+    {ur&&<div style={{fontSize:11,color:'#6E6455',direction:'rtl',textAlign:'right',fontFamily:UF,lineHeight:1.7,marginTop:1}}>{ur}</div>}
+  </div>;
+}
+
+function UploadField({def,val,onChange}){
+  const ref=useRef(null);const files=val||[];
+  const onF=e=>{onChange([...files,...Array.from(e.target.files).map(f=>f.name)]);e.target.value='';};
+  const rm=i=>onChange(files.filter((_,x)=>x!==i));
+  return <div>
+    <div className="f-up" onClick={()=>ref.current?.click()}><UpIco/>
+      <div><div className="f-up-t">{def.ph||'Click to upload / فائل اپلوڈ کریں'}</div>{def.ac&&<div className="f-up-s">Accepted: {def.ac}</div>}</div>
+    </div>
+    <input ref={ref} type="file" style={{display:'none'}} onChange={onF} multiple={def.multi!==false} accept={def.ac||'.pdf,.doc,.docx'}/>
+    {files.length>0&&<div style={{marginTop:6,display:'flex',flexDirection:'column',gap:4}}>
+      {files.map((f,i)=><div key={i} className="f-file"><span style={{display:'flex',alignItems:'center',gap:6}}><PpIco/><span className="f-fn">{f}</span></span><button className="f-rm" onClick={()=>rm(i)}><XIco/></button></div>)}
+    </div>}
+  </div>;
+}
+
+function Field({def,val,onChange}){
+  if(def.type==='up')return <UploadField def={def} val={val} onChange={onChange}/>;
+  if(['text','email','tel','url'].includes(def.type))
+    return <input type={def.type} className="f-inp" placeholder={def.ph||''} value={val||''} onChange={e=>onChange(e.target.value)}/>;
+  if(def.type==='ta')
+    return <textarea className="f-inp f-ta" placeholder={def.ph||''} value={val||''} onChange={e=>onChange(e.target.value)} rows={3}/>;
+  if(def.type==='sel')
+    return <select className="f-inp f-sel" value={val||''} onChange={e=>onChange(e.target.value)}>
+      <option value="">Select... / منتخب کریں</option>
+      {(def.opts||[]).map(o=><option key={o}>{o}</option>)}
+    </select>;
+  if(def.type==='chips'){
+    const sel=val||[];
+    return <div className="chips">{(def.opts||[]).map(o=>{const on=sel.includes(o);return<button key={o} type="button" className={`chip${on?' on':''}`} onClick={()=>onChange(on?sel.filter(s=>s!==o):[...sel,o])}>{o}</button>;})}</div>;
+  }
+  if(def.type==='agree')
+    return <label className={`agree-row${val?' checked':''}`}>
+      <input type="checkbox" checked={val||false} onChange={e=>onChange(e.target.checked)}/>
+      <span className="agree-txt">{def.en}</span>
+    </label>;
+  return null;
+}
+
+function Grid({fields,fd,upd}){
+  return <div className="f-grid">
+    {fields.map(f=>{
+      const full=['ta','chips','up','agree'].includes(f.type);
+      return <div key={f.id} className={full?'f-full':''}>
+        {f.type!=='agree'&&<BiLabel en={f.en} required={f.req}/>}
+        <Field def={f} val={fd[f.id]} onChange={v=>upd(f.id,v)}/>
+      </div>;
+    })}
+  </div>;
+}
+
+function Done({onReset}){
+  return <div className="done-card">
+    <div className="done-ico"><svg width="32" height="32" fill="none" stroke="#16a34a" strokeWidth="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+    <h3 style={{fontFamily:'"Cormorant Garamond",serif',fontSize:24,color:'#15803d',marginBottom:6}}>Application Received</h3>
+    <p style={{fontFamily:UF,fontSize:15,color:'#16a34a',direction:'rtl',margin:'0 0 6px'}}>درخواست موصول ہوگئی</p>
+    <p style={{color:'#6E6455',fontSize:13,marginBottom:8}}>Marhaba Traders / Capbridge team will review your investor profile and verify your information within 48 hours.</p>
+    <p style={{color:'#8A6A1A',fontSize:13,fontWeight:600,marginBottom:20}}>📞 03719222195 · 📍 Lahore, Punjab, Pakistan</p>
+    <button onClick={onReset} className="btn-out">Submit Another</button>
+  </div>;
+}
+
+function SectionForm({sections,fd,setFd,title,desc}){
+  const [done,setDone]=useState(false);
+  const upd=(id,v)=>setFd(p=>({...p,[id]:v}));
+  if(done)return <Done onReset={()=>setDone(false)}/>;
+  return <div>
+    <div className="form-meta"><span className="form-meta-l">{title}</span><span className="form-meta-r">{desc}</span></div>
+    {sections.map(s=><div key={s.sec} className="f-card">
+      <div className="f-sh"><div className="f-dot"></div><div><div className="f-title">{s.sec}</div></div></div>
+      <Grid fields={s.fields} fd={fd} upd={upd}/>
+    </div>)}
+    <div style={{display:'flex',justifyContent:'flex-end',marginTop:6}}>
+      <button onClick={()=>setDone(true)} className="btn-dark">Submit Profile &nbsp;<ChrIco/></button>
+    </div>
+  </div>;
+}
+
+function StepForm({sections,fd,setFd,title,desc}){
+  const [step,setStep]=useState(0);const [done,setDone]=useState(false);
+  const total=sections.length;
+  const upd=(id,v)=>setFd(p=>({...p,[id]:v}));
+  const sec=sections[step];
+  if(done)return <Done onReset={()=>{setDone(false);setStep(0);}}/>;
+  return <div>
+    <div className="form-meta"><span className="form-meta-l">{title}</span><span className="form-meta-r">Stage {step+1} of {total} · {Math.round(((step+1)/total)*100)}% complete</span></div>
+    <div className="prog-bar"><div className="prog-fill" style={{width:`${((step+1)/total)*100}%`}}></div></div>
+    <div className="steps-scroll">
+      {sections.map((s,i)=><button key={i} type="button" onClick={()=>setStep(i)} className={`step-pill${i===step?' active':i<step?' done':''}`}>
+        {i<step&&<ChkIco/>}{i+1}. {s.title}
+      </button>)}
+    </div>
+    <div className="f-card">
+      <div className="f-sh"><div className="f-dot"></div><div><div className="f-title">{sec.title}</div>{sec.sub&&<div className="f-sub">{sec.sub}</div>}</div></div>
+      <Grid fields={sec.fields} fd={fd} upd={upd}/>
+    </div>
+    <div className="nav-btns">
+      <button onClick={()=>setStep(s=>Math.max(0,s-1))} disabled={step===0} className="btn-out" style={{opacity:step===0?.35:1}}><ChlIco/> Back</button>
+      {step<total-1?<button onClick={()=>setStep(s=>s+1)} className="btn-gd">Next <ChrIco/></button>
+        :<button onClick={()=>setDone(true)} className="btn-dark">Submit Investor Profile <ChrIco/></button>}
+    </div>
+  </div>;
+}
+
+/* ── INVESTOR FIELD DATA ────────────────────────── */
+const INVESTOR_BASIC=[
+  {sec:'Personal Details / ذاتی تفصیلات',fields:[
+    {id:'i1',en:'Full Name',type:'text',req:true},{id:'i2',en:'Email Address',type:'email',req:true},
+    {id:'i3',en:'WhatsApp',type:'tel'},{id:'i4',en:'LinkedIn URL',type:'url'},
+    {id:'i5',en:'Country of Residence',type:'text'},{id:'i6',en:'Nationality',type:'text'},
+  ]},
+  {sec:'Professional Background / پیشہ ورانہ پس منظر',fields:[
+    {id:'i7',en:'Organization',type:'text'},{id:'i8',en:'Designation',type:'text'},
+    {id:'i9',en:'Investor Type',type:'sel',opts:ITP},
+    {id:'i10',en:'Years of Experience',type:'sel',opts:['Just starting','1–3 years','3–7 years','7–15 years','15+ years']},
+  ]},
+  {sec:'Investment Preferences / سرمایہ کاری کی ترجیحات',fields:[
+    {id:'i11',en:'Preferred Sectors',type:'chips',opts:[...IND,'Open to All']},
+    {id:'i12',en:'Preferred Stages',type:'chips',opts:['Pre-Seed','Seed','Series A','Growth','All Stages']},
+    {id:'i13',en:'Min Ticket Size (PKR)',type:'text',ph:'e.g. 25 Lakhs'},
+    {id:'i14',en:'Max Ticket Size (PKR)',type:'text',ph:'e.g. 2 Crore'},
+    {id:'i15',en:'Preferred Instrument',type:'sel',opts:INS},
+    {id:'i16',en:'How Did You Find Us?',type:'sel',opts:['LinkedIn','Referral','Social Media','Google','Event','Other']},
+  ]},
+  {sec:'Identity Verification / شناخت کی تصدیق',fields:[
+    {id:'iu1',en:'CNIC / Passport Copy',type:'up',ac:'.pdf,.jpg,.png',ph:'شناختی کارڈ یا پاسپورٹ اپلوڈ کریں / Upload clear scan of CNIC or passport',multi:false},
+    {id:'iu2',en:'Business Registration (if applicable)',type:'up',ac:'.pdf,.jpg,.png',ph:'کاروباری رجسٹریشن اپلوڈ کریں / Upload if investing as a company',multi:false},
+  ]},
+];
+
+const FULL_INVESTOR=[
+  {title:'Investor Identity',sub:'Stage 1 — سرمایہ کار کی بنیادی معلومات',fields:[
+    {id:'ip1',en:'Full Name',type:'text',req:true},{id:'ip2',en:'Country of Residence',type:'text'},
+    {id:'ip3',en:'Nationality',type:'text'},{id:'ip4',en:'Email Address',type:'email',req:true},
+    {id:'ip5',en:'WhatsApp',type:'tel'},{id:'ip6',en:'LinkedIn URL',type:'url'},
+    {id:'ip7',en:'Organization',type:'text'},{id:'ip8',en:'Designation',type:'text'},{id:'ip9',en:'Website',type:'url'},
+  ]},
+  {title:'Verification & Background',sub:'Stage 2 — تصدیق اور شناخت + دستاویزات اپلوڈ کریں',fields:[
+    {id:'iv1',en:'CNIC / Passport Copy',type:'up',ac:'.pdf,.jpg,.png',multi:false,ph:'شناختی کارڈ یا پاسپورٹ اپلوڈ کریں / Upload clear scan of CNIC or passport'},
+    {id:'iv2',en:'Business Registration Document',type:'up',ac:'.pdf,.jpg,.png',multi:false,ph:'کاروباری رجسٹریشن اپلوڈ کریں / Upload business registration if corporate'},
+    {id:'iv3',en:'Investment History',type:'ta',ph:'Previous startup investments — company, year, amount invested'},
+    {id:'iv4',en:'Portfolio Companies',type:'ta',ph:'Companies you currently hold equity in'},
+    {id:'iv5',en:'Source of Funds',type:'sel',opts:['Personal Savings','Business Profits','Family Office','Fund Capital','Syndicate Pool','Prefer Not to Disclose']},
+    {id:'iv6',en:'References',type:'ta',ph:'1–2 references who can vouch for your investment history (optional)'},
+  ]},
+  {title:'Investment Profile',sub:'Stage 3 — سرمایہ کاری کا پروفائل',fields:[
+    {id:'ii1',en:'Investor Type',type:'sel',opts:ITP},
+    {id:'ii2',en:'Years of Experience',type:'sel',opts:['Just starting','1–3 years','3–7 years','7–15 years','15+ years']},
+    {id:'ii3',en:'Startup Investing Experience',type:'sel',opts:['No prior startup investments','1–3 years','3–7 years','7+ years']},
+    {id:'ii4',en:'Preferred Stages',type:'chips',opts:['Pre-Seed','Seed','Series A','Series B+','All Stages']},
+    {id:'ii5',en:'Risk Appetite',type:'sel',opts:['Conservative (revenue required)','Moderate (some traction required)','Aggressive (early stage OK)','Very Aggressive (concept OK)']},
+    {id:'ii6',en:'Investment Horizon',type:'sel',opts:['1–2 years','3–5 years','5–7 years','7+ years (patient capital)']},
+  ]},
+  {title:'Sector & Market Preferences',sub:'Stage 4 — شعبے اور بازار کی ترجیحات',fields:[
+    {id:'sp1',en:'Preferred Sectors',type:'chips',opts:[...IND,'Open to All']},
+    {id:'sp2',en:'Sectors to Avoid',type:'ta',ph:'Industries or business types you will not invest in'},
+    {id:'sp3',en:'Business Model Preference',type:'chips',opts:['SaaS / Subscription','Marketplace','B2B Enterprise','B2C Consumer','Hardware + Software','Impact / ESG','All Models']},
+    {id:'sp4',en:'Geography Preference',type:'chips',opts:['Pakistan only','Pakistan + GCC','Pakistan + South Asia','Global','Anywhere']},
+    {id:'sp5',en:'Pakistan Market Interest',type:'sel',opts:['Primary focus','Strong interest','Moderate interest','Opportunistic only']},
+    {id:'sp6',en:'ESG Preference',type:'sel',opts:['Primary mandate — impact focus','Strong preference','Nice to have','No preference']},
+  ]},
+  {title:'Capital Structure',sub:'Stage 5 — سرمائے کا ڈھانچہ',fields:[
+    {id:'cs1',en:'Min Ticket Size (PKR)',type:'text',ph:'e.g. 25 Lakhs'},{id:'cs2',en:'Max Ticket Size (PKR)',type:'text',ph:'e.g. 2 Crore'},
+    {id:'cs3',en:'Average Ticket Size (PKR)',type:'text'},{id:'cs4',en:'Target Ownership %',type:'text',ph:'e.g. 5–15%'},
+    {id:'cs5',en:'Follow-On Investing',type:'sel',opts:['Yes — regularly follow on','Yes — selectively','Unlikely','No']},
+    {id:'cs6',en:'Deals Per Year',type:'sel',opts:['1–2 deals','3–5 deals','5–10 deals','10+ deals']},
+    {id:'cs7',en:'Solo or Syndicate',type:'sel',opts:['Solo investor only','Prefer solo, open to syndicate','Prefer syndicate','Flexible']},
+    {id:'cs8',en:'Preferred Instrument',type:'sel',opts:INS},
+  ]},
+  {title:'Decision Process',sub:'Stage 6 — فیصلہ سازی کا عمل',fields:[
+    {id:'dp1',en:'Decision Timeline',type:'sel',opts:['Under 1 week','2–4 weeks','1–2 months','2–4 months','4+ months']},
+    {id:'dp2',en:'Approval Process',type:'sel',opts:['Self-deciding','Family discussion required','Investment Committee (IC)','LP approval required','Board approval required']},
+    {id:'dp3',en:'DD Requirements',type:'ta',ph:'What do you need to see before committing? e.g. audited financials, product demo, reference calls'},
+    {id:'dp4',en:'Required Documents',type:'ta',ph:'List all documents you need before investing'},
+    {id:'dp5',en:'Meeting Format',type:'sel',opts:['In-person only','Video call preferred','Either is fine','Start with email / teaser']},
+    {id:'dp6',en:'Communication Style',type:'sel',opts:['Email','WhatsApp','Phone calls','Email then call','Flexible']},
+    {id:'dp7',en:'Update Frequency',type:'sel',opts:['Monthly updates','Quarterly updates','Semi-annually','Major events only','No preference']},
+  ]},
+  {title:'Strategic Value',sub:'Stage 7 — سرمائے سے ہٹ کر آپ کی قدر',fields:[
+    {id:'sv1',en:'Operational Expertise',type:'ta',ph:'Industries and business functions where you can actively add value'},
+    {id:'sv2',en:'Industry Connections',type:'ta',ph:'Key networks you can open — corporate, banks, government, etc.'},
+    {id:'sv3',en:'Global Network',type:'ta',ph:'Countries and organizations you have access to internationally'},
+    {id:'sv4',en:'Mentorship',type:'sel',opts:['Yes — active mentor / regular guidance','Occasionally when needed','No — capital only']},
+    {id:'sv5',en:'Board Interest',type:'sel',opts:['Board seat preferred','Advisory role OK','Observer seat only','No involvement preferred']},
+    {id:'sv6',en:'Hiring Access',type:'ta',ph:'Can you help portfolio companies hire key talent?'},
+    {id:'sv7',en:'Distribution Access',type:'ta',ph:'Can you open customer or distribution channels for portfolio startups?'},
+  ]},
+  {title:'Deal Flow Preferences',sub:'Stage 8 — آپ کس طرح کے اسٹارٹ اپ دیکھنا چاہتے ہیں',fields:[
+    {id:'df1',en:'Preferred Round Size',type:'text',ph:'e.g. Total round size PKR 50 Lakhs – 1.5 Crore'},
+    {id:'df2',en:'Min Traction Required',type:'ta',ph:'e.g. 10% MoM growth, 6+ months runway, paying customers'},
+    {id:'df3',en:'Revenue Stage',type:'sel',opts:['Pre-revenue OK','Some revenue required','Min PKR 1L MRR','Min PKR 5L MRR','Min PKR 15L MRR','Must be profitable']},
+    {id:'df4',en:'Team Requirements',type:'ta',ph:'e.g. Technical co-founder required, full-time founders only'},
+    {id:'df5',en:'Moat Preference',type:'chips',opts:['Network Effects','Proprietary IP / Patent','Exclusive Partnerships','Data Advantage','Brand / Community','Regulatory License','No preference']},
+    {id:'df6',en:'Deal Breakers',type:'ta',ph:'What automatically disqualifies a startup from your consideration?'},
+  ]},
+  {title:'NDA & Confidentiality',sub:'Stage 9 — رازداری اور شرائط کی قبولیت',fields:[
+    {id:'nda1',en:'I will maintain full confidentiality of all startup information shared by Marhaba Traders / Capbridge',type:'agree'},
+    {id:'nda2',en:'I understand that startup financials, IP, and strategy are shared under strict NDA terms',type:'agree'},
+    {id:'nda3',en:'I will not contact any Marhaba Traders / Capbridge startup directly without prior coordination',type:'agree'},
+    {id:'nda4',en:'I will not share startup information with any third party without prior written consent',type:'agree'},
+    {id:'nda5',en:'I understand Marhaba Traders / Capbridge curates deal flow and not every startup will match my criteria',type:'agree'},
+    {id:'nda6',en:'I commit to providing structured written feedback after every startup introduction',type:'agree'},
+  ]},
+];
+
+/* ── APP ─────────────────────────────────────────── */
+function App(){
+  const [tab,setTab]=useState(0);
+  const [fd1,setFd1]=useState({});
+  const [fd2,setFd2]=useState({});
+  const TABS=[
+    {en:'Quick Investor Signup',ur:'فوری سرمایہ کار اندراج',sub:'4 sections · ~10 minutes',ico:<svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>},
+    {en:'Full 9-Stage Profile',ur:'مکمل سرمایہ کار پروفائل',sub:'9 stages · KYC + preferences + NDA · ~40 minutes',ico:<svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>},
+  ];
+  return <>
+    <div className="tab-wrap">
+      {TABS.map((t,i)=><button key={i} className={`tb${tab===i?' act':''}`} onClick={()=>setTab(i)}>
+        <div className="tb-ico">{t.ico}</div>
+        <div className="tb-en">{t.en}</div>
+        <span className="tb-ur">{t.ur}</span>
+        <div className="tb-sub">{t.sub}</div>
+      </button>)}
+    </div>
+    <div className="fa">
+      {tab===0&&<SectionForm sections={INVESTOR_BASIC} fd={fd1} setFd={setFd1} title="Investor Quick Signup" desc="Basic intake — Marhaba Traders will verify and onboard you within 48 hours"/>}
+      {tab===1&&<>
+        <div className="nda-notice">
+          <h4>Investor Confidentiality Notice</h4>
+          <p>All startup information shared through Marhaba Traders / Capbridge is strictly confidential. Your profile will be reviewed and verified before any startup introductions are made.</p>
+          <span className="nda-ur">تمام معلومات مکمل رازداری کے ساتھ رکھی جائیں گی</span>
+        </div>
+        <StepForm sections={FULL_INVESTOR} fd={fd2} setFd={setFd2} title="Full Investor Profile" desc="9-stage registration with KYC, preferences, and NDA"/>
+      </>}
+    </div>
+  </>;
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>

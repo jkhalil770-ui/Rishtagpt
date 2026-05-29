@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:api.anthropic.com)",
+      "PowerShell(Start-Process powershell -ArgumentList \"-NoExit\", \"-Command\", \"Set-Location 'C:\\\\Users\\\\Qadri Laptop\\\\Downloads\\\\rishtagpt'; npx --yes serve -p 8765 .\" -WindowStyle Normal)",
+      "PowerShell(Start-Process \"http://localhost:8765/RishtaGPT%20Desktop%20Preview.html\")",
+      "PowerShell(Set-Location \"C:\\\\Users\\\\Qadri Laptop\\\\Downloads\\\\rishtagpt-app\"; Get-ChildItem \"node_modules\\\\.bin\\\\\" | Where-Object { $_.Name -match \"tailwind\" })",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(find \"/mnt/c/Users/Qadri Laptop\" -name \"*.png\" -newer \"/mnt/c/Users/Qadri Laptop/Downloads/rishtagpt-app/vite.config.js\" 2>/dev/null | head -20)",
+      "mcp__Claude_in_Chrome__tabs_context_mcp"
+    ]
+  }
+}

@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marhaba Traders — Startup Investment Portfolio | Lahore, Pakistan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+/* ─── VARIABLES ─────────────────────────────────── */
+:root {
+  --bg: #080d17;
+  --bg2: #0e1523;
+  --card: #121e30;
+  --card2: #19253a;
+  --gold: #c9a84c;
+  --gold2: #e8c56d;
+  --gold-dim: rgba(201,168,76,.15);
+  --gold-border: rgba(201,168,76,.25);
+  --text: #edf2ff;
+  --muted: #6b7fa0;
+  --muted2: #8a9ab8;
+  --teal: #2dd4bf;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --mono: 'Bebas Neue', sans-serif;
+  --r: 10px;
+  --r2: 6px;
+  --shadow: 0 8px 32px rgba(0,0,0,.4);
+  --glow: 0 0 30px rgba(201,168,76,.12);
+}
+/* ─── RESET ─────────────────────────────────────── */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;border:none;background:none;font-family:var(--sans)}
+
+/* ─── SCROLLBAR ─────────────────────────────────── */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--gold-border);border-radius:2px}
+
+/* ─── NAV ───────────────────────────────────────── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5%;height:68px;display:flex;align-items:center;justify-content:space-between;background:rgba(8,13,23,.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(201,168,76,.12)}
+.nav-logo{display:flex;align-items:center;gap:12px}
+.nav-logo .monogram{width:38px;height:38px;background:var(--gold);color:#080d17;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:17px;letter-spacing:1px;border-radius:var(--r2)}
+.nav-logo .brand{font-family:var(--serif);font-size:17px;font-weight:600;letter-spacing:.5px}
+.nav-logo .brand span{color:var(--gold)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:13px;font-weight:500;color:var(--muted2);letter-spacing:.5px;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{display:flex;align-items:center;gap:10px}
+.nav-phone{font-size:13px;font-weight:500;color:var(--gold);letter-spacing:.5px;border:1px solid var(--gold-border);padding:7px 16px;border-radius:40px;transition:all .2s}
+.nav-phone:hover{background:var(--gold-dim)}
+.nav-btn{background:var(--gold);color:#080d17;padding:8px 20px;border-radius:40px;font-size:13px;font-weight:600;letter-spacing:.5px;transition:all .2s}
+.nav-btn:hover{background:var(--gold2);transform:translateY(-1px)}
+
+/* ─── HERO ──────────────────────────────────────── */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 5% 80px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 40%, rgba(201,168,76,.06) 0%, transparent 70%);pointer-events:none}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.04) 1px, transparent 1px),linear-gradient(90deg, rgba(201,168,76,.04) 1px, transparent 1px);background-size:60px 60px;pointer-events:none}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.hero-eyebrow::before{content:'';width:32px;height:1px;background:var(--gold)}
+.hero h1{font-family:var(--serif);font-size:clamp(42px,6vw,82px);font-weight:600;line-height:1.1;letter-spacing:-.5px;margin-bottom:16px;max-width:780px}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero-sub{font-size:16px;color:var(--muted2);max-width:520px;line-height:1.7;margin-bottom:40px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:70px}
+.btn-primary{background:var(--gold);color:#080d17;padding:14px 32px;border-radius:40px;font-size:14px;font-weight:600;letter-spacing:.5px;transition:all .25s;display:inline-block}
+.btn-primary:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,.3)}
+.btn-secondary{border:1px solid var(--gold-border);color:var(--text);padding:14px 32px;border-radius:40px;font-size:14px;font-weight:500;transition:all .25s;display:inline-block}
+.btn-secondary:hover{background:var(--gold-dim);border-color:var(--gold)}
+.hero-stats{display:flex;gap:0;border:1px solid rgba(201,168,76,.18);border-radius:var(--r);overflow:hidden;background:rgba(18,30,48,.6);backdrop-filter:blur(12px);width:fit-content}
+.hero-stat{padding:20px 32px;border-right:1px solid rgba(201,168,76,.12);text-align:center}
+.hero-stat:last-child{border-right:none}
+.hero-stat .num{font-family:var(--mono);font-size:28px;letter-spacing:1px;color:var(--gold);display:block}
+.hero-stat .lbl{font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--muted);display:block;margin-top:2px}
+
+/* ─── SECTION COMMONS ───────────────────────────── */
+section{padding:100px 5%}
+.sec-head{margin-bottom:56px}
+.sec-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.sec-eyebrow::before{content:'';width:24px;height:1px;background:var(--gold)}
+.sec-title{font-family:var(--serif);font-size:clamp(32px,4vw,52px);font-weight:600;line-height:1.15;letter-spacing:-.3px}
+.sec-title em{font-style:italic;color:var(--gold)}
+.sec-sub{color:var(--muted2);margin-top:12px;max-width:560px;font-size:15px;line-height:1.7}
+.gold-line{width:48px;height:2px;background:linear-gradient(90deg,var(--gold),transparent);margin-top:20px}
+
+/* ─── FILTER BAR ────────────────────────────────── */
+.filter-bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px}
+.filter-btn{padding:7px 18px;border-radius:40px;font-size:12px;font-weight:500;letter-spacing:.5px;border:1px solid rgba(201,168,76,.2);color:var(--muted2);transition:all .2s;background:transparent}
+.filter-btn:hover,.filter-btn.active{background:var(--gold-dim);border-color:var(--gold);color:var(--gold)}
+
+/* ─── CASE STUDY GRID ───────────────────────────── */
+#case-studies{background:var(--bg2)}
+.cs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.cs-card{background:var(--card);border-radius:var(--r);overflow:hidden;border:1px solid rgba(255,255,255,.05);transition:all .3s;cursor:pointer;position:relative}
+.cs-card:hover{border-color:var(--gold-border);transform:translateY(-4px);box-shadow:var(--shadow),var(--glow)}
+.cs-img{width:100%;height:200px;object-fit:cover;object-position:top;display:block;transition:transform .4s}
+.cs-card:hover .cs-img{transform:scale(1.04)}
+.cs-img-placeholder{width:100%;height:200px;background:linear-gradient(135deg,var(--card2),var(--bg2));display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:28px;color:var(--gold-border);letter-spacing:2px}
+.cs-body{padding:18px}
+.cs-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:10px}
+.cs-name{font-family:var(--serif);font-size:17px;font-weight:600;line-height:1.2;color:var(--text)}
+.cs-badge{font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:20px;background:var(--gold-dim);color:var(--gold);white-space:nowrap;flex-shrink:0}
+.cs-desc{font-size:12.5px;color:var(--muted2);line-height:1.5;margin-bottom:14px}
+.cs-metrics{display:flex;gap:10px;flex-wrap:wrap}
+.cs-metric{display:flex;flex-direction:column;background:rgba(255,255,255,.04);border-radius:var(--r2);padding:8px 12px;flex:1;min-width:80px}
+.cs-metric .m-val{font-family:var(--mono);font-size:16px;color:var(--teal);letter-spacing:.5px}
+.cs-metric .m-lbl{font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-top:2px}
+.cs-footer{padding:0 18px 16px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,.05);padding-top:12px;margin-top:4px}
+.cs-loc{font-size:11px;color:var(--muted);display:flex;align-items:center;gap:4px}
+.cs-loc::before{content:'◎';font-size:10px;color:var(--gold)}
+.cs-expand{font-size:11px;font-weight:600;color:var(--gold);letter-spacing:.5px;text-transform:uppercase}
+/* Expanded case study panel */
+.cs-panel{display:none;padding:16px 18px;background:rgba(201,168,76,.05);border-top:1px solid var(--gold-border);font-size:12.5px;color:var(--muted2);line-height:1.6}
+.cs-panel.open{display:block}
+.cs-fixed-title{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.cs-fixed-list{list-style:none;display:flex;flex-direction:column;gap:4px}
+.cs-fixed-list li::before{content:'✓ ';color:var(--teal)}
+.cs-quote{font-family:var(--serif);font-size:13px;font-style:italic;color:var(--muted2);margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.06);line-height:1.6}
+.cs-founder{font-size:11px;color:var(--gold);margin-top:6px;font-style:normal}
+
+/* ─── TESTIMONIALS ──────────────────────────────── */
+#testimonials{background:var(--bg)}
+.t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.t-card{background:var(--card);border:1px solid rgba(255,255,255,.05);border-radius:var(--r);padding:28px;position:relative;transition:all .3s}
+.t-card:hover{border-color:var(--gold-border);box-shadow:var(--glow)}
+.t-card::before{content:'\201C';font-family:var(--serif);font-size:64px;color:var(--gold-border);position:absolute;top:16px;right:20px;line-height:1}
+.t-stars{display:flex;gap:4px;margin-bottom:14px}
+.t-stars span{color:var(--gold);font-size:14px}
+.t-quote{font-family:var(--serif);font-size:16px;font-style:italic;line-height:1.65;color:var(--muted2);margin-bottom:20px;position:relative;z-index:1}
+.t-divider{width:32px;height:1px;background:var(--gold-border);margin-bottom:16px}
+.t-author{display:flex;align-items:center;gap:12px}
+.t-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--gold-dim),var(--card2));display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:14px;color:var(--gold);flex-shrink:0;border:1px solid var(--gold-border)}
+.t-info .t-name{font-size:14px;font-weight:600;color:var(--text)}
+.t-info .t-role{font-size:12px;color:var(--gold);font-weight:500}
+.t-info .t-loc{font-size:11px;color:var(--muted);margin-top:1px}
+.t-industry-tag{position:absolute;top:20px;left:20px;font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:20px;background:var(--gold-dim);color:var(--gold)}
+
+/* ─── NUMBERS SECTION ───────────────────────────── */
+#numbers{background:var(--bg2);padding:80px 5%}
+.numbers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(201,168,76,.12);border-radius:var(--r);overflow:hidden}
+.num-card{background:var(--bg2);padding:48px 40px;text-align:center}
+.num-card .big{font-family:var(--mono);font-size:56px;letter-spacing:2px;color:var(--gold);display:block;line-height:1}
+.num-card .unit{font-family:var(--mono);font-size:20px;color:var(--gold2)}
+.num-card .label{font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:10px;display:block}
+.num-card .sub{font-size:12px;color:var(--muted2);margin-top:6px}
+
+/* ─── INDUSTRIES ────────────────────────────────── */
+#industries{background:var(--bg)}
+.ind-grid{display:flex;flex-wrap:wrap;gap:12px}
+.ind-pill{padding:10px 22px;border-radius:40px;border:1px solid rgba(255,255,255,.08);font-size:13px;font-weight:500;color:var(--muted2);transition:all .2s;display:flex;align-items:center;gap:8px}
+.ind-pill:hover{border-color:var(--gold-border);color:var(--gold);background:var(--gold-dim)}
+.ind-pill .dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+
+/* ─── CONTACT / CTA ─────────────────────────────── */
+#contact{background:var(--bg2);padding:100px 5%;position:relative;overflow:hidden}
+.contact-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(201,168,76,.07),transparent 70%);pointer-events:none}
+.contact-inner{max-width:680px;margin:0 auto;text-align:center;position:relative;z-index:1}
+.contact-inner h2{font-family:var(--serif);font-size:clamp(36px,4vw,56px);font-weight:600;line-height:1.15;margin-bottom:14px}
+.contact-inner h2 em{font-style:italic;color:var(--gold)}
+.contact-inner p{color:var(--muted2);font-size:16px;line-height:1.7;margin-bottom:36px}
+.contact-info{display:flex;gap:32px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+.contact-item{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted2)}
+.contact-item strong{color:var(--gold);font-weight:600}
+.contact-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* ─── FOOTER ────────────────────────────────────── */
+footer{background:var(--bg);border-top:1px solid rgba(201,168,76,.1);padding:32px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:gap;gap:16px}
+.footer-brand{font-family:var(--serif);font-size:15px;font-weight:600;color:var(--text)}
+.footer-brand span{color:var(--gold)}
+.footer-tagline{font-size:12px;color:var(--muted);letter-spacing:.5px;font-style:italic}
+
+/* ─── RESPONSIVE ────────────────────────────────── */
+@media(max-width:1100px){.cs-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:900px){
+  .cs-grid{grid-template-columns:repeat(2,1fr)}
+  .t-grid{grid-template-columns:repeat(2,1fr)}
+  .numbers-grid{grid-template-columns:repeat(2,1fr)}
+  .nav-links{display:none}
+}
+@media(max-width:600px){
+  .cs-grid{grid-template-columns:1fr}
+  .t-grid{grid-template-columns:1fr}
+  .numbers-grid{grid-template-columns:1fr}
+  .hero-stats{flex-direction:column;width:100%}
+  .hero-stat{border-right:none;border-bottom:1px solid rgba(201,168,76,.12)}
+  .hero-stat:last-child{border-bottom:none}
+  nav{padding:0 4%}
+  .nav-logo .brand{font-size:15px}
+}
+/* ─── ANIMATIONS ────────────────────────────────── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.hero-eyebrow{animation:fadeUp .6s ease .1s both}
+.hero h1{animation:fadeUp .7s ease .2s both}
+.hero-sub{animation:fadeUp .6s ease .35s both}
+.hero-actions{animation:fadeUp .6s ease .45s both}
+.hero-stats{animation:fadeUp .6s ease .55s both}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAVIGATION ══════════════════════════════════════════════════════════ -->
+<nav>
+  <div class="nav-logo">
+    <div class="monogram">MT</div>
+    <span class="brand">Marhaba <span>Traders</span></span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#case-studies">Case Studies</a></li>
+    <li><a href="#testimonials">Testimonials</a></li>
+    <li><a href="#numbers">Numbers</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a href="tel:03719222195" class="nav-phone">03719222195</a>
+    <a href="#contact" class="nav-btn">Get Started</a>
+  </div>
+</nav>
+
+<!-- ═══ HERO ════════════════════════════════════════════════════════════════ -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-eyebrow">Pakistan's Premier Startup Platform</div>
+  <h1>We Build the <em>Structure, Story</em><br>& Systems That<br>Get You Funded.</h1>
+  <p class="hero-sub">From scattered ideas to investor-ready powerhouses — Marhaba Traders prepares startups for global capital and connects them with the right investors.</p>
+  <div class="hero-actions">
+    <a href="#case-studies" class="btn-primary">View Our Portfolio →</a>
+    <a href="#contact" class="btn-secondary">Get Investor-Ready</a>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat"><span class="num">PKR 14 CR</span><span class="lbl">Total Raised</span></div>
+    <div class="hero-stat"><span class="num">20</span><span class="lbl">Startups Funded</span></div>
+    <div class="hero-stat"><span class="num">+228%</span><span class="lbl">Avg Growth</span></div>
+    <div class="hero-stat"><span class="num">LAHORE</span><span class="lbl">Punjab, Pakistan</span></div>
+  </div>
+</section>
+
+<!-- ═══ CASE STUDIES ════════════════════════════════════════════════════════ -->
+<section id="case-studies">
+  <div class="sec-head">
+    <div class="sec-eyebrow">Portfolio</div>
+    <h2 class="sec-title">20 Startups.<br><em>20 Success Stories.</em></h2>
+    <p class="sec-sub">Every startup in our portfolio was transformed from unprepared to investor-ready. These are the results.</p>
+    <div class="gold-line"></div>
+  </div>
+  <div class="filter-bar" id="filterBar"></div>
+  <div class="cs-grid" id="csGrid"></div>
+</section>
+
+<!-- ═══ TESTIMONIALS ════════════════════════════════════════════════════════ -->
+<section id="testimonials">
+  <div class="sec-head">
+    <div class="sec-eyebrow">What Founders Say</div>
+    <h2 class="sec-title">Words From the<br><em>Founders We Served.</em></h2>
+    <p class="sec-sub">Real outcomes. Real founders. Real quotes from the people who went through our 11-section transformation process.</p>
+    <div class="gold-line"></div>
+  </div>
+  <div class="t-grid" id="tGrid"></div>
+</section>
+
+<!-- ═══ NUMBERS ══════════════════════════════════════════════════════════════ -->
+<section id="numbers">
+  <div class="sec-head" style="text-align:center;max-width:600px;margin:0 auto 56px">
+    <div class="sec-eyebrow" style="justify-content:center">By The Numbers</div>
+    <h2 class="sec-title" style="text-align:center">Results That <em>Speak.</em></h2>
+  </div>
+  <div class="numbers-grid">
+    <div class="num-card"><span class="big">14</span><span class="unit"> CR</span><span class="label">PKR Raised</span><span class="sub">Across 20 funded startups</span></div>
+    <div class="num-card"><span class="big">228</span><span class="unit">%</span><span class="label">Avg Growth</span><span class="sub">Average portfolio growth rate</span></div>
+    <div class="num-card"><span class="big">480</span><span class="unit">+</span><span class="label">Investor Meetings</span><span class="sub">Introductions facilitated</span></div>
+    <div class="num-card"><span class="big">100</span><span class="unit">+</span><span class="label">Term Sheets</span><span class="sub">Received across all startups</span></div>
+  </div>
+</section>
+
+<!-- ═══ INDUSTRIES ═══════════════════════════════════════════════════════════ -->
+<section id="industries" style="padding:70px 5%">
+  <div class="sec-head">
+    <div class="sec-eyebrow">Coverage</div>
+    <h2 class="sec-title">Industries <em>We Serve</em></h2>
+    <div class="gold-line"></div>
+  </div>
+  <div class="ind-grid">
+    <div class="ind-pill"><span class="dot" style="background:#4ade80"></span>FinTech</div>
+    <div class="ind-pill"><span class="dot" style="background:#38bdf8"></span>HealthTech</div>
+    <div class="ind-pill"><span class="dot" style="background:#a78bfa"></span>EdTech</div>
+    <div class="ind-pill"><span class="dot" style="background:#f59e0b"></span>AgriTech</div>
+    <div class="ind-pill"><span class="dot" style="background:#6366f1"></span>SaaS / AI</div>
+    <div class="ind-pill"><span class="dot" style="background:#f97316"></span>E-Commerce</div>
+    <div class="ind-pill"><span class="dot" style="background:#22d3ee"></span>Logistics</div>
+    <div class="ind-pill"><span class="dot" style="background:#84cc16"></span>CleanTech</div>
+    <div class="ind-pill"><span class="dot" style="background:#ec4899"></span>PropTech</div>
+    <div class="ind-pill"><span class="dot" style="background:#ef4444"></span>Cybersecurity</div>
+    <div class="ind-pill"><span class="dot" style="background:#d946ef"></span>Fashion Tech</div>
+    <div class="ind-pill"><span class="dot" style="background:#0ea5e9"></span>Construction Tech</div>
+    <div class="ind-pill"><span class="dot" style="background:#14b8a6"></span>Digital Health</div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ══════════════════════════════════════════════════════════════ -->
+<section id="contact">
+  <div class="contact-bg"></div>
+  <div class="contact-inner">
+    <h2>Ready to Become<br><em>Investor-Ready?</em></h2>
+    <p>Join 20+ Pakistani startups that have raised capital, secured investor meetings, and built professional investor-ready profiles through Marhaba Traders.</p>
+    <div class="contact-info">
+      <div class="contact-item">📍 <strong>Lahore, Punjab, Pakistan</strong></div>
+      <div class="contact-item">📞 <strong>03719222195</strong></div>
+    </div>
+    <div class="contact-actions">
+      <a href="tel:03719222195" class="btn-primary">Call Us Now →</a>
+      <a href="#home" class="btn-secondary">View Full Portfolio</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══════════════════════════════════════════════════════════════ -->
+<footer>
+  <div>
+    <div class="footer-brand">Marhaba <span>Traders</span></div>
+    <div class="footer-tagline">"We build the structure, story, and systems that get you funded."</div>
+  </div>
+  <div style="font-size:12px;color:var(--muted)">Lahore, Punjab, Pakistan &nbsp;|&nbsp; 03719222195</div>
+</footer>
+
+<!-- ═══ DATA + JS ═════════════════════════════════════════════════════════════ -->
+<script>
+/* ─── PORTFOLIO DATA ─────────────────────────────────────────────────────── */
+/* NOTE: Update image paths to match where you host the images */
+/* Case study images: the infographic cards */
+/* Testimonial images: the person-photo quote cards */
+const PORTFOLIO = [
+  {
+    id:1, name:"Stitch & Style", tagline:"Design. Stitch. Deliver.",
+    industry:"Fashion Tech", location:"Johar Town, Lahore",
+    funding:"58", growth:"235", meetings:27, sheets:6, runway:"+9 Months",
+    csImg:"images/Stitch_and_style.jpeg", tImg:"images/Stitch_and_Style.jpeg",
+    founder:"Sana Tariq", role:"Founder & CEO",
+    quote:"We had the product, the customers, and the growth — but no way to explain our numbers to investors. Marhaba Traders built a financial model that made sense of our inventory cycles. Our first serious investor meeting happened within 3 weeks of engaging them.",
+    desc:"Fashion-tech D2C platform connecting Pakistani designers with MENA customers.",
+    fixed:["Rebuilt unit economics (CAC/LTV per D2C channel)","Inventory financing model for fashion cycles","Brand identity & investor positioning narrative","Investor pitch deck with product visuals"]
+  },
+  {
+    id:2, name:"RoadSync SaaS", tagline:"Smarter Roads. Better Operations.",
+    industry:"SaaS / AI", location:"DHA Phase 6, Karachi",
+    funding:"82", growth:"240", meetings:32, sheets:8, runway:"+11 Months",
+    csImg:"images/RoadSync.jpeg", tImg:"images/RoadSync_SaaS.jpeg",
+    founder:"Bilal Hashmi", role:"CEO & Co-Founder",
+    quote:"Investors kept asking the same question — what's your moat? We didn't have a clean answer. Marhaba Traders helped us articulate our AI advantage and back it with IP documentation and retention data. We went from awkward investor calls to confident pitch meetings.",
+    desc:"AI-powered road operations and fleet management SaaS platform.",
+    fixed:["MRR/ARR projections with churn sensitivity model","AI differentiation narrative vs. generic competitors","Enterprise sales pipeline for government & logistics clients","Technical due diligence documentation for product IP"]
+  },
+  {
+    id:3, name:"NeuralOps AI", tagline:"Intelligent Decisions. Better Outcomes.",
+    industry:"SaaS / AI", location:"Bahria Town, Rawalpindi",
+    funding:"74", growth:"225", meetings:30, sheets:7, runway:"+10 Months",
+    csImg:"images/NeuralOps_Al.jpeg", tImg:"images/NeuralOps_Al.jpeg",
+    founder:"Usman Qureshi", role:"Founder & CTO",
+    quote:"We were building serious technology but presenting like a freelance agency. Marhaba Traders reframed our entire story — IP, data defensibility, enterprise pipeline. The quality of investor conversations changed completely after that.",
+    desc:"AI-powered business intelligence and decision automation platform.",
+    fixed:["Documented proprietary AI model as defensible IP asset","Built data strategy narrative for investor due diligence","Restructured valuation to reflect AI platform multiples","Created enterprise pilot program structure with LOIs"]
+  },
+  {
+    id:4, name:"MediCore Health", tagline:"Better Care. Smarter Health.",
+    industry:"HealthTech", location:"Blue Area, Islamabad",
+    funding:"67", growth:"230", meetings:28, sheets:6, runway:"+10 Months",
+    csImg:"images/MediCore.jpeg", tImg:"images/MediCore_Health.jpeg",
+    founder:"Dr. Ali Hamza", role:"Founder & CEO",
+    quote:"HealthTech investors ask hard questions — regulatory status, clinical data, insurance partnerships. Before Marhaba Traders, we had none of that organized. Three investors told us it was the most prepared HealthTech deck they had seen from Pakistan.",
+    desc:"Smart healthcare platform with hospital partnerships and clinical validation.",
+    fixed:["DRAP regulatory compliance documentation","Hospital partnership pipeline with signed LOIs","Patient acquisition model with LTV per care pathway","Clinical validation narrative for impact investors"]
+  },
+  {
+    id:5, name:"CargoLoop Logistics", tagline:"Moving Goods. Connecting Businesses.",
+    industry:"Logistics", location:"Johar Town, Lahore",
+    funding:"59", growth:"215", meetings:22, sheets:4, runway:"+9 Months",
+    csImg:"images/CargoLoop.jpeg", tImg:"images/CargoLoop_Logistics.jpeg",
+    founder:"Fahad Sheikh", role:"Founder & CEO",
+    quote:"Logistics is a numbers game — cost per delivery, fleet utilization, route efficiency. Marhaba Traders modeled our operations in a way that made investors trust the fundamentals. Two investors said they hadn't seen logistics numbers this clean from a Pakistani startup.",
+    desc:"B2B last-mile logistics platform serving e-commerce and enterprise clients.",
+    fixed:["Per-route unit economics (cost per kg / km model)","Fleet financing model for asset-heavy investor narrative","Last-mile cost breakdown for operational due diligence","Logistics market TAM with e-commerce growth overlap"]
+  },
+  {
+    id:6, name:"AgriConnect", tagline:"Connecting Farmers. Building Futures.",
+    industry:"AgriTech", location:"Faisalabad, Pakistan",
+    funding:"61", growth:"220", meetings:24, sheets:5, runway:"+10 Months",
+    csImg:"images/AgriConnect.jpeg", tImg:"images/AgriConnect.jpeg",
+    founder:"Imran Bhatti", role:"Founder",
+    quote:"Most investors didn't understand our seasonal revenue structure — they thought our business was dying in off-peak months. Marhaba Traders built a normalization model that explained exactly how our cash flows work across crop cycles. That one change removed our biggest investor objection.",
+    desc:"AgriTech platform connecting farmers with buyers, inputs, and advisory services.",
+    fixed:["Seasonal revenue normalization model for agriculture cycles","Farmer acquisition cost and lifetime value framework","Government grant eligibility documentation","Rural market sizing with addressable farmer population data"]
+  },
+  {
+    id:7, name:"GreenGrid Energy", tagline:"Powering a Sustainable Future.",
+    industry:"CleanTech", location:"Johar Town, Lahore",
+    funding:"64", growth:"225", meetings:26, sheets:5, runway:"+10 Months",
+    csImg:"images/GreenGrid.jpeg", tImg:"images/GreenGrid.jpeg",
+    founder:"Tariq Mehmood", role:"Founder & CEO",
+    quote:"CleanTech investors want IRR models, carbon data, and regulatory clarity — not just a PowerPoint. Marhaba Traders built all of it. They also opened doors with Gulf-based impact investors we had no idea how to reach. That network access alone was worth the engagement.",
+    desc:"Renewable energy infrastructure company targeting Pakistan's underserved power sector.",
+    fixed:["CAPEX/OPEX breakdown for energy infrastructure investors","Carbon credit monetization model for ESG funds","AEDB regulatory compliance documentation","Green bond eligibility framework for development finance"]
+  },
+  {
+    id:8, name:"FinPay Technologies", tagline:"Payments. Simplified.",
+    industry:"FinTech", location:"Gulberg III, Lahore",
+    funding:"62", growth:"230", meetings:28, sheets:6, runway:"+10 Months",
+    csImg:"images/FinPay.jpeg", tImg:"images/FinPay.jpeg",
+    founder:"Hassan Raza", role:"Founder, FinPay Technologies",
+    quote:"FinTech due diligence is brutal — SBP licensing, fraud controls, transaction economics. We walked into investor meetings unprepared twice. Marhaba Traders built the complete compliance and financial package. Our third investor meeting ended with a term sheet.",
+    desc:"Digital payments and financial services platform for Pakistan's underbanked market.",
+    fixed:["TPV growth projections with take rate model","SBP EMI/PSP licensing documentation for due diligence","Fraud risk management framework for compliance investors","Banking partnership narrative with signed MOU pipeline"]
+  },
+  {
+    id:9, name:"NourishWell", tagline:"Better Nutrition. Better Lives.",
+    industry:"HealthTech", location:"DHA, Karachi",
+    funding:"58", growth:"215", meetings:22, sheets:4, runway:"+11 Months",
+    csImg:"images/NourishWell.jpeg", tImg:"images/NourishWell.jpeg",
+    founder:"Ayesha Malik", role:"Founder & CEO",
+    quote:"We had great retention numbers but no idea how to present them in a way investors would understand. Marhaba Traders turned our customer data into a cohort model that showed exactly how our subscription business scales. That one slide changed every investor conversation we had after.",
+    desc:"Digital nutrition and wellness platform with subscription-based coaching services.",
+    fixed:["Subscription cohort model with monthly retention benchmarks","Dietitian/nutritionist network valuation framework","Health outcome data presentation for impact investors","Corporate wellness B2B expansion narrative"]
+  },
+  {
+    id:10, name:"AgroNext Solutions", tagline:"Smart Farming. Better Tomorrow.",
+    industry:"AgriTech", location:"Multan Cantt, Multan",
+    funding:"54", growth:"210", meetings:24, sheets:4, runway:"+11 Months",
+    csImg:"images/AgroNext.jpeg", tImg:"images/AgroNext_Solutions.jpeg",
+    founder:"Kamran Iqbal", role:"Founder & CEO",
+    quote:"Investors didn't understand how a hardware company could have SaaS margins. Marhaba Traders built the blended model that explained exactly why our gross margin improves as we scale devices — and why our data moat becomes defensible at 10,000 farms. That was the argument that closed our round.",
+    desc:"Precision farming platform combining IoT devices with SaaS analytics for Pakistani farmers.",
+    fixed:["Hardware + SaaS blended margin model","Precision farming data narrative with crop yield stats","Farmer onboarding economics with payback period per device","Government pilot documentation (MNFSR eligibility)"]
+  },
+  {
+    id:11, name:"EduBridge", tagline:"Learn Today. Lead Tomorrow.",
+    industry:"EdTech", location:"DHA Phase 5, Karachi",
+    funding:"65", growth:"220", meetings:26, sheets:5, runway:"+12 Months",
+    csImg:"images/EduBridge.jpeg", tImg:"images/EduBridge.jpeg",
+    founder:"Nadia Aziz", role:"Co-Founder & CEO",
+    quote:"Our biggest problem was that investors saw us as a tutoring app, not a scalable platform. Marhaba Traders reframed our entire narrative around content IP, institutional B2B contracts, and learning outcomes. The conversation shifted from 'how many students' to 'what's your content moat.'",
+    desc:"EdTech platform providing structured learning for K-12 students with B2B school partnerships.",
+    fixed:["Student LTV model with completion rate and re-enrollment data","B2B school partnership pipeline with signed MOU documentation","Content library valuation framework as a balance sheet asset","Regional expansion plan (Punjab → Sindh → KPK)"]
+  },
+  {
+    id:12, name:"MindMap Kids", tagline:"Shaping Young Minds.",
+    industry:"EdTech", location:"Gulberg, Lahore",
+    funding:"68", growth:"230", meetings:28, sheets:5, runway:"+13 Months",
+    csImg:"images/MindMap_Kids.jpeg", tImg:"images/MindMap_Kids.jpeg",
+    founder:"Sara Hussain", role:"Founder & CEO",
+    quote:"We had 4,000 active kids on the platform and parents who loved us — but zero investor traction. Marhaba Traders showed us that we were pitching growth metrics when investors wanted learning outcomes, curriculum IP, and school contracts. Three meetings after our repositioning, we had our first term sheet.",
+    desc:"Child education platform combining gamification with cognitive development curriculum.",
+    fixed:["Parent acquisition model with referral loop economics","Child development impact data for impact investor pitch","Curriculum IP documentation and licensing valuation","B2C subscription tiers with gamification retention data"]
+  },
+  {
+    id:13, name:"BuildWise", tagline:"Smart Construction Management.",
+    industry:"Construction Tech", location:"Bahria Town, Rawalpindi",
+    funding:"78", growth:"235", meetings:32, sheets:5, runway:"+14 Months",
+    csImg:"images/BuildWise.jpeg", tImg:"images/BuildWise.jpeg",
+    founder:"Omar Sheikh", role:"Founder & CEO",
+    quote:"Construction is a traditional industry and investors struggled to see the tech angle. Marhaba Traders built an ROI model that showed how much money each contractor saves per project — PKR 3.2 lakhs saved per project. That number became the most powerful line in our deck.",
+    desc:"SaaS platform for construction project management and contractor coordination.",
+    fixed:["Contractor network valuation as a platform asset","ROI model for contractors (cost savings per project)","SaaS project management metrics for construction vertical","Enterprise developer pipeline (DHA, Bahria, mid-tier)"]
+  },
+  {
+    id:14, name:"MedicVista", tagline:"Your Health. Our Mission.",
+    industry:"HealthTech", location:"Hyderabad, Pakistan",
+    funding:"72", growth:"225", meetings:29, sheets:5, runway:"+14 Months",
+    csImg:"images/MedicVista.jpeg", tImg:"images/MedicVista.jpeg",
+    founder:"Sarmad Ali", role:"Co-Founder & CEO",
+    quote:"We had 200+ doctors on the platform and 15,000 patients served — but we couldn't answer basic investor questions about our unit economics. Marhaba Traders built a model that showed cost-per-consult, doctor utilization, and patient retention all in one view. That clarity turned investor curiosity into a term sheet.",
+    desc:"Telemedicine platform connecting patients with specialist doctors across Pakistan.",
+    fixed:["Telemedicine unit economics (consult cost / doctor utilization)","Doctor network valuation as a supply-side platform asset","Patient LTV model segmented by care pathway","Insurance company partnership pipeline with 2 confirmed LOIs"]
+  },
+  {
+    id:15, name:"Learnify Academy", tagline:"Skills for the Real World.",
+    industry:"EdTech", location:"Faisal Town, Lahore",
+    funding:"85", growth:"240", meetings:32, sheets:5, runway:"+14 Months",
+    csImg:"images/Learnify_Academy.jpeg", tImg:"images/Learnify_Academy.jpeg",
+    founder:"Areeba Malik", role:"Founder, Learnify Academy",
+    quote:"We thought our strength was course variety. Marhaba Traders showed us that our real asset was completion rates — 74% average, twice the global benchmark. That single metric drove our valuation conversation from PKR 3 crore to PKR 9 crore. I still think about that.",
+    desc:"Skills marketplace with 74% course completion rate — 2x the global benchmark.",
+    fixed:["Instructor revenue share model and content marketplace economics","Course completion rate data as key differentiation metric","B2B corporate training pipeline (3 enterprise clients signed)","LMS platform valuation including proprietary assessment tech"]
+  },
+  {
+    id:16, name:"SecureLayer Systems", tagline:"Defend. Detect. Respond.",
+    industry:"Cybersecurity", location:"Shahrah-e-Faisal, Karachi",
+    funding:"92", growth:"265", meetings:36, sheets:5, runway:"+16 Months",
+    csImg:"images/SecureLayer_Systems.jpeg", tImg:"images/SecureLayer_Systems.jpeg",
+    founder:"Zain Abbas", role:"Founder, SecureLayer Systems",
+    quote:"Cybersecurity is a credibility business. Investors want your certifications, your client profile, and your retention. Marhaba Traders organized our entire compliance and client history into a package that institutional investors could immediately trust. We raised PKR 92 lakhs — the highest in our peer group.",
+    desc:"Enterprise cybersecurity firm with ISO 27001 / SOC 2 certifications and government sector clients.",
+    fixed:["ISO 27001 / SOC 2 certifications documented as investor-grade assets","Recurring MRR model from managed security service retainers","Enterprise contract pipeline (banking + government sector)","Threat intelligence IP documentation for valuation support"]
+  },
+  {
+    id:17, name:"TechHive Solutions", tagline:"Protecting What Matters.",
+    industry:"Cybersecurity", location:"Saddar, Karachi",
+    funding:"76", growth:"230", meetings:30, sheets:4, runway:"+15 Months",
+    csImg:"images/TechHive_Solutions.jpeg", tImg:"images/TechHive_Solutions.jpeg",
+    founder:"Asad Zaman", role:"Founder & CEO",
+    quote:"We were selling pen testing as one-off projects. Marhaba Traders showed us how to restructure it into a retainer model — and how to pitch that model to investors as predictable recurring revenue. That repositioning added PKR 2 crore to our valuation estimate.",
+    desc:"Managed security services provider (MSSP) serving SMEs and enterprise clients.",
+    fixed:["Restructured pen testing into scalable retainer model","Built MSSP revenue projection","Compliance-driven sales narrative (PCI-DSS / ISO demand)","Partnership ecosystem (telecom, banking, SaaS integrations)"]
+  },
+  {
+    id:18, name:"BazaarCart", tagline:"Smart Shopping. Simple Living.",
+    industry:"E-Commerce", location:"Clifton Block 5, Karachi",
+    funding:"68", growth:"215", meetings:28, sheets:4, runway:"+13 Months",
+    csImg:"images/BazaarCart.jpeg", tImg:"images/BazaarCart.jpeg",
+    founder:"Noman Khan", role:"Founder & CEO",
+    quote:"Every investor compared us to Daraz and asked why we'd win. Marhaba Traders built a competitive positioning framework that explained our niche advantage, our seller economics, and why our category focus creates higher margins than a generalist marketplace. That argument won the room.",
+    desc:"Niche e-commerce marketplace with higher seller margins than generalist platforms.",
+    fixed:["GMV projections with take rate optimization model","Seller acquisition funnel with cohort economics","Marketplace competitive moat analysis vs Daraz","Payment infrastructure narrative (JazzCash / EasyPaisa)"]
+  },
+  {
+    id:19, name:"Healthify Me", tagline:"Your Health. Simplified.",
+    industry:"HealthTech", location:"Clifton, Karachi",
+    funding:"74", growth:"220", meetings:27, sheets:4, runway:"+14 Months",
+    csImg:"images/Healthify_Me.jpeg", tImg:"images/Healthify_Me.jpeg",
+    founder:"Zainab Ahmed", role:"Founder & CEO",
+    quote:"We had 50,000 users but investors kept asking about monetization beyond subscriptions. Marhaba Traders helped us structure a B2B employer wellness angle and documented four LOIs to prove demand. That B2B narrative added serious weight to our pitch.",
+    desc:"Digital health and wellness platform with 50,000+ users and B2B employer wellness partnerships.",
+    fixed:["Preventive health market sizing with employer wellness B2B angle","Wearable device integration narrative for tech investors","Health data monetization framework","Employer corporate wellness pipeline with 4 LOIs documented"]
+  },
+  {
+    id:20, name:"EstateBridge", tagline:"Smart Real Estate Solutions.",
+    industry:"PropTech", location:"F-11, Islamabad",
+    funding:"81", growth:"240", meetings:30, sheets:5, runway:"+13 Months",
+    csImg:"images/EstateBridge.jpeg", tImg:"images/EstateBridge.jpeg",
+    founder:"Faisal Chaudhry", role:"Founder & CEO",
+    quote:"Real estate investors in Pakistan are conservative — they want transaction volume, legal clarity, and a clear path to commission revenue. Marhaba Traders built all of that into one deck. They also connected us with Gulf-based investors looking specifically for Pakistan PropTech deals.",
+    desc:"PropTech marketplace for buying, selling, and renting properties across Pakistan.",
+    fixed:["Transaction fee model with agent commission structure","Digital listing economics (cost per lead vs conversion rate)","Mortgage referral revenue stream as secondary monetization","SECP and property law compliance documentation"]
+  }
+];
+
+/* ─── INDUSTRY COLORS ───────────────────────────────────────────────────── */
+const IND_COLORS = {
+  "Fashion Tech":"#d946ef","SaaS / AI":"#6366f1","HealthTech":"#38bdf8",
+  "Logistics":"#22d3ee","AgriTech":"#f59e0b","CleanTech":"#84cc16",
+  "FinTech":"#4ade80","EdTech":"#a78bfa","Construction Tech":"#0ea5e9",
+  "Cybersecurity":"#ef4444","E-Commerce":"#f97316","PropTech":"#ec4899"
+};
+
+/* ─── FILTER BAR ────────────────────────────────────────────────────────── */
+const industries = ["All", ...new Set(PORTFOLIO.map(c=>c.industry))];
+let activeFilter = "All";
+
+function buildFilters(){
+  const bar = document.getElementById('filterBar');
+  bar.innerHTML = industries.map(ind=>
+    `<button class="filter-btn${ind==='All'?' active':''}" onclick="filterCS('${ind}')">${ind}</button>`
+  ).join('');
+}
+
+function filterCS(industry){
+  activeFilter = industry;
+  document.querySelectorAll('.filter-btn').forEach(b=>{
+    b.classList.toggle('active', b.textContent===industry);
+  });
+  renderCS();
+}
+
+/* ─── CASE STUDIES ──────────────────────────────────────────────────────── */
+function renderCS(){
+  const grid = document.getElementById('csGrid');
+  const filtered = activeFilter==='All' ? PORTFOLIO : PORTFOLIO.filter(c=>c.industry===activeFilter);
+  grid.innerHTML = filtered.map(c=>{
+    const col = IND_COLORS[c.industry]||'var(--gold)';
+    return `
+    <div class="cs-card" id="card-${c.id}">
+      <div style="position:relative;overflow:hidden">
+        <img class="cs-img" src="${c.csImg}" alt="${c.name} Case Study"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="cs-img-placeholder" style="display:none;background:linear-gradient(135deg,${col}22,var(--card2))">
+          ${c.name.split(' ').map(w=>w[0]).join('').slice(0,3)}
+        </div>
+      </div>
+      <div class="cs-body">
+        <div class="cs-top">
+          <div class="cs-name">${c.name}</div>
+          <div class="cs-badge" style="background:${col}22;color:${col}">${c.industry}</div>
+        </div>
+        <div class="cs-desc">${c.desc}</div>
+        <div class="cs-metrics">
+          <div class="cs-metric"><span class="m-val">PKR ${c.funding}L</span><span class="m-lbl">Raised</span></div>
+          <div class="cs-metric"><span class="m-val">+${c.growth}%</span><span class="m-lbl">Growth</span></div>
+          <div class="cs-metric"><span class="m-val">${c.meetings}</span><span class="m-lbl">Meetings</span></div>
+        </div>
+      </div>
+      <div class="cs-footer">
+        <span class="cs-loc">${c.location}</span>
+        <button class="cs-expand" onclick="togglePanel(${c.id})">Details +</button>
+      </div>
+      <div class="cs-panel" id="panel-${c.id}">
+        <div class="cs-fixed-title">What Marhaba Traders Fixed</div>
+        <ul class="cs-fixed-list">${c.fixed.map(f=>`<li>${f}</li>`).join('')}</ul>
+        <div class="cs-quote">"${c.quote}"<span class="cs-founder">— ${c.founder}, ${c.role}</span></div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function togglePanel(id){
+  const panel = document.getElementById(`panel-${id}`);
+  const btn = document.querySelector(`#card-${id} .cs-expand`);
+  const isOpen = panel.classList.toggle('open');
+  btn.textContent = isOpen ? 'Close −' : 'Details +';
+}
+
+/* ─── TESTIMONIALS ──────────────────────────────────────────────────────── */
+function renderTestimonials(){
+  const grid = document.getElementById('tGrid');
+  grid.innerHTML = PORTFOLIO.map(c=>{
+    const col = IND_COLORS[c.industry]||'var(--gold)';
+    const initials = c.founder.split(' ').map(w=>w[0]).join('').slice(0,2);
+    return `
+    <div class="t-card">
+      <div class="t-industry-tag" style="background:${col}22;color:${col}">${c.industry}</div>
+      <div class="t-stars">${'★'.repeat(5).split('').map(s=>`<span>${s}</span>`).join('')}</div>
+      <div class="t-quote">"${c.quote}"</div>
+      <div class="t-divider"></div>
+      <div class="t-author">
+        <div class="t-avatar" style="border-color:${col}44;background:${col}18;color:${col}">${initials}</div>
+        <div class="t-info">
+          <div class="t-name">${c.founder}</div>
+          <div class="t-role">${c.role}</div>
+          <div class="t-loc">📍 ${c.location}</div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+/* ─── INIT ──────────────────────────────────────────────────────────────── */
+document.addEventListener('DOMContentLoaded',()=>{
+  buildFilters();
+  renderCS();
+  renderTestimonials();
+});
+</script>
+</body>
+</html>

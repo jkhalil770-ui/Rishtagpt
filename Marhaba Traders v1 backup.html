@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Marhaba Traders / Capbridge — Pakistan's Premier Startup Investment Ecosystem</title>
+<meta name="description" content="We build the structure, story, and systems that get you funded. Pakistan's premium startup investment-readiness and investor connection ecosystem.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&family=Bebas+Neue&family=Noto+Nastaliq+Urdu:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F8F9FB; --white:#fff; --dark:#1C1C1C; --dark2:#3A3A3A; --muted:#6B7280; --light:#F3F4F6;
+  --blue:#1D4ED8; --blue2:#2563EB; --blue3:#3B82F6; --blue-bg:#EFF6FF; --blue-bd:#BFDBFE;
+  --charcoal:#111827; --ch2:#374151;
+  --gold:#B45309; --gold2:#D97706; --gold-bg:#FFFBEB; --gold-bd:#FDE68A;
+  --green:#059669; --green-bg:#ECFDF5; --green-bd:#A7F3D0;
+  --wa:#25D366; --wa2:#128C7E;
+  --red:#DC2626;
+  --border:#E5E7EB; --border2:#D1D5DB;
+  --sh:0 1px 3px rgba(0,0,0,.08); --sh-md:0 4px 20px rgba(0,0,0,.10); --sh-lg:0 8px 40px rgba(0,0,0,.14);
+  --r:10px; --r2:16px; --max:1200px;
+  --se:'Cormorant Garamond',Georgia,serif; --sa:'DM Sans',system-ui,sans-serif;
+  --di:'Bebas Neue',sans-serif; --ur:'Noto Nastaliq Urdu',serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--dark);font-family:var(--sa);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}button{cursor:pointer;border:none;background:none;font-family:var(--sa)}
+img{max-width:100%;display:block}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px}
+
+h1{font-family:var(--se);font-size:clamp(42px,6.5vw,82px);font-weight:600;line-height:1.06;letter-spacing:-.5px}
+h2{font-family:var(--se);font-size:clamp(30px,4vw,52px);font-weight:600;line-height:1.1;letter-spacing:-.3px}
+h3{font-family:var(--se);font-size:clamp(18px,1.6vw,22px);font-weight:600}
+.ey{font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--blue);display:inline-flex;align-items:center;gap:9px;margin-bottom:14px}
+.ey::before{content:'';width:22px;height:2px;background:var(--blue);border-radius:1px}
+.ur{font-family:var(--ur);direction:rtl;line-height:1.85}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 5%}
+.sl{background:var(--white);padding:clamp(60px,8vw,110px) 0}
+.sp{background:var(--bg);padding:clamp(60px,8vw,110px) 0}
+.sd{background:var(--charcoal);padding:clamp(60px,8vw,110px) 0;color:#F9FAFB}
+.sd .ey{color:#60A5FA}.sd .ey::before{background:#60A5FA}
+.sec-head{margin-bottom:clamp(32px,4.5vw,56px)}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:40px;font-size:14px;font-weight:600;letter-spacing:.2px;transition:all .25s;white-space:nowrap;cursor:pointer}
+.btn-blue{background:var(--blue);color:#fff;box-shadow:0 4px 16px rgba(29,78,216,.28)}.btn-blue:hover{background:var(--blue2);transform:translateY(-1px);box-shadow:0 8px 24px rgba(29,78,216,.36)}
+.btn-wa{background:var(--wa);color:#fff;box-shadow:0 4px 16px rgba(37,211,102,.3)}.btn-wa:hover{background:var(--wa2);transform:translateY(-1px);box-shadow:0 8px 24px rgba(37,211,102,.4)}
+.btn-dark{background:var(--charcoal);color:#fff}.btn-dark:hover{background:var(--dark2);transform:translateY(-1px)}
+.btn-out{border:2px solid var(--border2);color:var(--dark);background:#fff}.btn-out:hover{border-color:var(--blue);color:var(--blue);background:var(--blue-bg)}
+.btn-sm{padding:8px 16px;font-size:13px}
+
+/* WA icon inline */
+.wa-ico{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;flex-shrink:0}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;transition:all .3s}
+.nav.sc{background:rgba(255,255,255,.96);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);box-shadow:var(--sh)}
+.ni{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:var(--max);margin:0 auto;padding:0 5%}
+.nl{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.logo-svg{flex-shrink:0}
+.nb{font-family:var(--se);font-size:18px;font-weight:600;color:#fff;transition:color .3s}
+.nb span{color:var(--gold2)}
+.nav.sc .nb{color:var(--charcoal)}
+.nlinks{display:flex;gap:2px;list-style:none}
+.nlinks a{padding:7px 12px;font-size:13px;font-weight:500;color:rgba(255,255,255,.65);border-radius:6px;transition:all .2s}
+.nlinks a:hover{color:#fff;background:rgba(255,255,255,.08)}
+.nav.sc .nlinks a{color:var(--muted)}.nav.sc .nlinks a:hover{color:var(--charcoal);background:var(--light)}
+.ncta{display:flex;align-items:center;gap:8px}
+.nav-wa{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:40px;background:var(--wa);color:#fff;font-size:12.5px;font-weight:600;transition:all .2s;box-shadow:0 2px 10px rgba(37,211,102,.3)}
+.nav-wa:hover{background:var(--wa2);transform:translateY(-1px)}
+.nav-apply{padding:7px 16px;border-radius:40px;background:var(--blue);color:#fff;font-size:13px;font-weight:600;transition:all .2s;box-shadow:0 2px 10px rgba(29,78,216,.25)}
+.nav-apply:hover{background:var(--blue2);transform:translateY(-1px)}
+.nb-hm{display:none;width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,.25);color:#fff;align-items:center;justify-content:center;font-size:18px;transition:all .3s}
+.nav.sc .nb-hm{border-color:var(--border);color:var(--dark)}
+
+/* MOBILE MENU */
+#mobMenu{display:none;position:fixed;inset:0;z-index:190;background:var(--charcoal);flex-direction:column;align-items:center;justify-content:center;gap:4px}
+#mobMenu a{font-family:var(--se);font-size:36px;font-weight:600;color:#F9FAFB;padding:10px 0;transition:color .2s}
+#mobMenu a:hover{color:var(--gold2)}
+
+/* HERO */
+.hero{min-height:100vh;background:linear-gradient(155deg,#EDF2FF 0%,#EEF0FF 35%,#F5F0FF 65%,#F9FAFB 100%);display:flex;align-items:center;padding:clamp(90px,12vw,140px) 5% 70px;position:relative;overflow:hidden}
+#heroCanvas{position:absolute;inset:0;z-index:0;pointer-events:none;width:100%;height:100%}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(29,78,216,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(29,78,216,.04) 1px,transparent 1px);background-size:52px 52px;pointer-events:none;z-index:1}
+.hero-glow{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(99,102,241,.07) 0%,transparent 65%);right:-150px;top:50%;transform:translateY(-50%);pointer-events:none;z-index:1}
+.hero-bar{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--wa),var(--blue),var(--gold2),var(--blue),var(--wa));z-index:3}
+.hero-inner{position:relative;z-index:2;max-width:860px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px 6px 8px;border:1px solid rgba(29,78,216,.16);border-radius:40px;margin-bottom:22px;background:rgba(255,255,255,.75);backdrop-filter:blur(14px)}
+.hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--wa);box-shadow:0 0 0 0 rgba(37,211,102,.5);animation:ping 2.2s ease-out infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}70%,100%{box-shadow:0 0 0 12px rgba(37,211,102,0)}}
+.hero-badge span{font-size:12px;font-weight:500;color:rgba(17,24,39,.65);letter-spacing:.3px}
+.hero h1{color:var(--charcoal);margin-bottom:8px}
+.hero h1 em{font-style:italic;color:var(--blue)}
+.hero-ur{font-family:var(--ur);font-size:clamp(16px,1.8vw,22px);color:var(--muted);direction:rtl;display:block;margin-bottom:20px}
+.hero-sub{font-size:clamp(15px,1.2vw,17px);color:var(--ch2);max-width:580px;line-height:1.75;margin-bottom:36px;text-wrap:pretty}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:52px}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border2);border-radius:var(--r);overflow:hidden;background:rgba(255,255,255,.8);backdrop-filter:blur(20px);max-width:720px;box-shadow:var(--sh-md)}
+.hs{padding:18px 20px;border-right:1px solid var(--border);text-align:center}
+.hs:last-child{border-right:none}
+.hs .hn{font-family:var(--di);font-size:clamp(22px,2.8vw,34px);color:var(--blue);letter-spacing:1px;display:block;line-height:1}
+.hs .hl{font-size:10px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--muted);display:block;margin-top:5px}
+/* hero anim */
+.hero-inner>*{opacity:0;animation:hUp .7s ease forwards}
+.hero-badge{animation-delay:.05s}.hero h1{animation-delay:.18s}.hero-ur{animation-delay:.3s}
+.hero-sub{animation-delay:.4s}.hero-btns{animation-delay:.5s}.hero-stats{animation-delay:.62s}
+@keyframes hUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+/* MARQUEE */
+.mq{background:var(--blue);overflow:hidden;padding:12px 0;border-top:1px solid rgba(0,0,0,.06)}
+.mt{display:flex;white-space:nowrap;animation:mqs 34s linear infinite;width:max-content}
+.mi{padding:0 32px;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#fff;display:inline-flex;align-items:center;gap:32px}
+.mi::after{content:'✦';opacity:.5}
+@keyframes mqs{to{transform:translateX(-50%)}}
+
+/* TRUST BAR */
+.trust{background:var(--white);padding:22px 0;border-bottom:1px solid var(--border)}
+.trust-inner{display:flex;align-items:center;justify-content:center;gap:clamp(20px,4vw,60px);flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:13px;font-weight:500}
+.trust-item svg{flex-shrink:0;color:var(--gold2)}
+
+/* HOW WE WORK */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative}
+.steps::after{content:'';position:absolute;top:32px;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--border2),var(--blue-bd),var(--border2),transparent);pointer-events:none}
+.step{text-align:center;padding:0 16px}
+.step-n{width:64px;height:64px;border-radius:50%;background:var(--white);border:2px solid var(--border2);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;position:relative;z-index:1;transition:all .35s;font-family:var(--di);font-size:22px;color:var(--charcoal);letter-spacing:1px}
+.step:hover .step-n{background:var(--blue);border-color:var(--blue);color:#fff;box-shadow:0 0 0 6px var(--blue-bg)}
+.step h3{font-size:16px;margin-bottom:7px;color:var(--charcoal)}
+.step p{font-size:13px;color:var(--muted);line-height:1.55}
+.step-ur{font-family:var(--ur);font-size:12px;color:var(--blue);direction:rtl;display:block;margin-top:4px}
+
+/* SERVICES */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.svc{padding:28px 24px;border:1px solid var(--border);border-radius:var(--r2);background:var(--white);transition:all .35s;position:relative;overflow:hidden}
+.svc::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--blue);transform:scaleY(0);transform-origin:bottom;transition:transform .35s}
+.svc:hover{transform:translateY(-4px);box-shadow:var(--sh-md);border-color:var(--blue-bd)}
+.svc:hover::before{transform:scaleY(1)}
+.svc-n{font-family:var(--di);font-size:42px;color:var(--border2);letter-spacing:1px;line-height:1;margin-bottom:14px;transition:color .35s}
+.svc:hover .svc-n{color:var(--blue-bd)}
+.svc h3{font-size:20px;margin-bottom:8px;color:var(--charcoal)}
+.svc p{font-size:13.5px;color:var(--muted);line-height:1.6}
+.svc-ur{font-family:var(--ur);font-size:12px;color:var(--gold);direction:rtl;display:block;margin-top:8px}
+
+/* CASE STUDIES */
+.cs-filter{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:28px}
+.cf-btn{padding:6px 16px;border-radius:40px;font-size:12.5px;font-weight:500;border:1.5px solid var(--border2);color:var(--muted);background:#fff;transition:all .2s;cursor:pointer}
+.cf-btn:hover,.cf-btn.act{background:var(--blue);border-color:var(--blue);color:#fff}
+.cs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.cs{background:var(--white);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;transition:all .35s;cursor:pointer}
+.cs:hover{transform:translateY(-4px);box-shadow:var(--sh-md);border-color:var(--blue-bd)}
+.cs.hid{display:none}
+.cs-thumb{height:110px;display:flex;align-items:center;justify-content:center;font-family:var(--di);font-size:22px;letter-spacing:2px;color:rgba(255,255,255,.45);position:relative;overflow:hidden}
+.cs-thumb::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.25))}
+.cs-body{padding:14px 16px 12px}
+.cs-name{font-family:var(--se);font-size:17px;font-weight:600;color:var(--charcoal);margin-bottom:3px}
+.cs-ind{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+.cs-mets{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.cs-met{background:var(--bg);border-radius:7px;padding:7px 8px;text-align:center}
+.cs-mv{font-family:var(--di);font-size:14px;color:var(--green);letter-spacing:.5px}
+.cs-mk{font-size:9.5px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-top:1px}
+.cs-foot{padding:9px 16px 13px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border)}
+.cs-loc{font-size:10.5px;color:var(--muted)}
+.cs-more{font-size:11px;font-weight:700;color:var(--blue);display:flex;align-items:center;gap:3px;transition:gap .2s}
+.cs:hover .cs-more{gap:7px}
+.cs-expand{display:none;padding:12px 16px;background:var(--blue-bg);border-top:1px solid var(--blue-bd)}
+.cs-expand.open{display:block}
+.cs-q{font-family:var(--se);font-size:13.5px;font-style:italic;color:var(--ch2);line-height:1.65}
+.cs-qf{font-size:11px;color:var(--blue);font-weight:700;margin-top:7px;letter-spacing:.3px}
+.cs-wa{display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:7px 14px;border-radius:40px;background:var(--wa);color:#fff;font-size:12px;font-weight:600;transition:all .2s}
+.cs-wa:hover{background:var(--wa2)}
+
+/* TESTIMONIALS */
+.testi-outer{position:relative;overflow:hidden}
+.testi-track{display:flex;transition:transform .75s cubic-bezier(.2,.85,.2,1);will-change:transform}
+.testi-slide{flex:0 0 100%;padding:0 5%}
+.testi-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1.6fr;gap:48px;align-items:center}
+.testi-face{display:flex;flex-direction:column;align-items:center;gap:14px}
+.testi-av{width:120px;height:120px;border-radius:50%;overflow:hidden;border:3px solid var(--border2);box-shadow:var(--sh-md);flex-shrink:0}
+.testi-name{font-family:var(--se);font-size:20px;font-weight:600;color:var(--charcoal);text-align:center}
+.testi-role{font-size:12.5px;color:var(--blue);font-weight:600;letter-spacing:.3px;text-align:center}
+.testi-co{font-size:11.5px;color:var(--muted);margin-top:2px;text-align:center}
+.testi-loc{font-size:10.5px;color:var(--muted);text-align:center;display:flex;align-items:center;justify-content:center;gap:4px}
+.testi-ind-badge{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:3px 12px;border-radius:20px;background:var(--blue-bg);color:var(--blue);margin-top:4px}
+.testi-content{padding:32px;background:var(--white);border:1px solid var(--border);border-radius:var(--r2);box-shadow:var(--sh);position:relative}
+.testi-content::before{content:'\201C';font-family:var(--se);font-size:90px;line-height:.5;color:var(--border2);position:absolute;top:22px;right:24px}
+.testi-stars{display:flex;gap:3px;color:var(--gold2);font-size:16px;margin-bottom:14px}
+.testi-q{font-family:var(--se);font-size:clamp(17px,1.8vw,21px);font-style:italic;color:var(--ch2);line-height:1.6}
+.testi-nav{display:flex;justify-content:center;gap:8px;margin-top:28px}
+.tnd{width:6px;height:6px;border-radius:50%;background:var(--border2);transition:all .3s;cursor:pointer;border:none}
+.tnd.act{background:var(--blue);width:22px;border-radius:3px}
+.tarr{display:flex;justify-content:center;gap:10px;margin-top:14px}
+.ta{width:42px;height:42px;border-radius:50%;border:1.5px solid var(--border2);background:#fff;color:var(--dark);display:grid;place-items:center;transition:all .2s;font-size:16px;cursor:pointer}
+.ta:hover{border-color:var(--blue);color:var(--blue);background:var(--blue-bg)}
+
+/* NUMBERS */
+.num-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.06);border-radius:var(--r2);overflow:hidden}
+.nc{background:rgba(255,255,255,.04);padding:44px 28px;text-align:center;transition:background .3s}
+.nc:hover{background:rgba(255,255,255,.07)}
+.nc .bi{font-family:var(--di);font-size:clamp(44px,5.5vw,64px);color:var(--gold2);letter-spacing:1.5px;display:block;line-height:1}
+.nc .un{font-family:var(--di);font-size:clamp(22px,2.5vw,30px);color:var(--gold2)}
+.nc .lb{font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.45);display:block;margin-top:10px}
+.nc .sub{font-size:11.5px;color:rgba(255,255,255,.3);margin-top:6px}
+
+/* INDUSTRIES */
+.ind-grid{display:flex;flex-wrap:wrap;gap:10px}
+.ind{padding:9px 20px;border-radius:40px;border:1.5px solid var(--border);font-size:13px;font-weight:500;color:var(--ch2);display:inline-flex;align-items:center;gap:8px;transition:all .22s;cursor:default;background:#fff}
+.ind:hover{border-color:var(--blue);color:var(--blue);background:var(--blue-bg)}
+.ind-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+
+/* PACKAGES */
+.pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start}
+.pkg{border:1.5px solid var(--border);border-radius:var(--r2);padding:36px 30px;background:var(--white);transition:all .35s}
+.pkg.feat{border-color:var(--blue);background:var(--charcoal);position:relative}
+.pkg.feat::before{content:'Most Popular · سب سے مقبول';position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--blue);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 18px;border-radius:20px;white-space:nowrap;box-shadow:0 4px 14px rgba(29,78,216,.3)}
+.pkg:not(.feat):hover{transform:translateY(-5px);box-shadow:var(--sh-lg);border-color:var(--blue-bd)}
+.pkg-ltr{font-family:var(--di);font-size:56px;color:var(--blue);letter-spacing:2px;line-height:1;margin-bottom:10px}
+.pkg.feat .pkg-ltr{color:var(--gold2)}
+.pkg h3{font-size:24px;margin-bottom:4px}
+.pkg.feat h3{color:#F9FAFB}
+.pkg-tag{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.pkg.feat .pkg-tag{color:rgba(249,250,251,.45)}
+.pkg-ur{font-family:var(--ur);font-size:13px;color:var(--blue);direction:rtl;display:block;margin-bottom:16px}
+.pkg.feat .pkg-ur{color:var(--gold2)}
+.pkg-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:24px}
+.pkg-list li{font-size:13.5px;display:flex;align-items:flex-start;gap:8px;color:var(--ch2)}
+.pkg.feat .pkg-list li{color:rgba(249,250,251,.7)}
+.pkg-list li::before{content:'✓';color:var(--blue);font-size:12px;margin-top:2px;flex-shrink:0;font-weight:700}
+.pkg.feat .pkg-list li::before{color:var(--gold2)}
+.pkg-wa{width:100%;text-align:center;padding:13px;border-radius:40px;font-size:13.5px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .25s}
+.pkg-wa-g{background:var(--wa);color:#fff}.pkg-wa-g:hover{background:var(--wa2);transform:translateY(-1px)}
+.pkg-wa-o{border:1.5px solid var(--border2);color:var(--charcoal);background:#fff}.pkg-wa-o:hover{border-color:var(--wa);color:var(--wa);background:#F0FDF4}
+
+/* CTA SECTION */
+.cta-card{background:linear-gradient(135deg,var(--blue) 0%,var(--charcoal) 100%);border-radius:24px;padding:clamp(40px,6vw,72px);text-align:center;position:relative;overflow:hidden}
+.cta-card::before{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.06),transparent 60%);top:-150px;right:-100px;pointer-events:none}
+.cta-card h2{color:#fff;margin-bottom:12px}
+.cta-card h2 em{color:var(--gold2)}
+.cta-sub{font-size:16px;color:rgba(255,255,255,.65);margin-bottom:10px;line-height:1.7}
+.cta-ur{font-family:var(--ur);font-size:18px;color:var(--gold2);direction:rtl;display:block;margin-bottom:32px}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:28px}
+.cta-info{display:flex;gap:28px;justify-content:center;flex-wrap:wrap}
+.cta-info a{display:flex;align-items:center;gap:8px;font-size:14px;color:rgba(255,255,255,.7);transition:color .2s}
+.cta-info a:hover{color:#fff}
+.cta-info strong{color:#fff}
+
+/* FAQ */
+.faq-list{display:flex;flex-direction:column;gap:10px}
+.faq-item{border:1.5px solid var(--border);border-radius:var(--r);background:var(--white);overflow:hidden;transition:border-color .2s}
+.faq-item.open{border-color:var(--blue-bd)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;cursor:pointer;font-size:15px;font-weight:600;color:var(--charcoal);gap:12px}
+.faq-ico{width:24px;height:24px;border-radius:50%;background:var(--light);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;transition:all .28s;color:var(--muted)}
+.faq-item.open .faq-ico{background:var(--blue);color:#fff;transform:rotate(45deg)}
+.faq-a{display:none;padding:0 22px 16px;font-size:14px;color:var(--muted);line-height:1.7;border-top:1px solid var(--border)}
+.faq-item.open .faq-a{display:block;padding-top:14px}
+
+/* FOOTER */
+footer{background:var(--charcoal);color:rgba(249,250,251,.7);padding:48px 0 32px;border-top:1px solid rgba(255,255,255,.06)}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.footer-brand{font-family:var(--se);font-size:20px;font-weight:600;color:#F9FAFB;margin-bottom:10px}
+.footer-brand span{color:var(--gold2)}
+.footer-tagline{font-size:13px;color:rgba(255,255,255,.4);line-height:1.65;margin-bottom:14px;font-style:italic}
+.footer-ur{font-family:var(--ur);font-size:12px;color:rgba(201,168,76,.6);direction:rtl;display:block}
+.footer-col h4{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:14px}
+.footer-col a{display:block;font-size:13px;color:rgba(249,250,251,.5);margin-bottom:8px;transition:color .2s}
+.footer-col a:hover{color:var(--gold2)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-cr{font-size:12px;color:rgba(255,255,255,.3)}
+.footer-wa{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:40px;background:var(--wa);color:#fff;font-size:13px;font-weight:600;transition:all .2s}
+.footer-wa:hover{background:var(--wa2)}
+
+/* FLOATING WA */
+.float-wa{position:fixed;bottom:28px;right:28px;z-index:150;width:56px;height:56px;border-radius:50%;background:var(--wa);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(37,211,102,.45),0 2px 8px rgba(0,0,0,.15);transition:all .3s;cursor:pointer}
+.float-wa:hover{background:var(--wa2);transform:scale(1.08);box-shadow:0 10px 32px rgba(37,211,102,.55)}
+.float-wa-pulse{position:absolute;inset:-6px;border-radius:50%;border:2px solid rgba(37,211,102,.4);animation:fwp 2s ease-out infinite}
+@keyframes fwp{0%{transform:scale(.9);opacity:1}100%{transform:scale(1.3);opacity:0}}
+
+/* SCROLL REVEAL */
+[data-r]{opacity:0;transform:translateY(24px);transition:opacity .85s cubic-bezier(.2,.8,.2,1),transform .85s cubic-bezier(.2,.8,.2,1)}
+[data-r].vis{opacity:1;transform:none}
+[data-r][data-d="1"]{transition-delay:.06s}[data-r][data-d="2"]{transition-delay:.13s}
+[data-r][data-d="3"]{transition-delay:.20s}[data-r][data-d="4"]{transition-delay:.27s}
+[data-r][data-d="5"]{transition-delay:.34s}[data-r][data-d="6"]{transition-delay:.41s}
+
+/* RESPONSIVE */
+@media(max-width:1000px){.cs-grid{grid-template-columns:repeat(3,1fr)}.svc-grid{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:repeat(3,1fr)}.steps::after{display:none}.num-grid{grid-template-columns:repeat(2,1fr)}.pkg-grid{grid-template-columns:1fr;max-width:440px;margin:0 auto}.footer-grid{grid-template-columns:1fr 1fr}.nlinks{display:none}.nb-hm{display:inline-flex}}
+@media(max-width:700px){.cs-grid{grid-template-columns:repeat(2,1fr)}.hero-stats{grid-template-columns:repeat(2,1fr)}.testi-inner{grid-template-columns:1fr;gap:24px}.testi-face{flex-direction:row;align-items:flex-start;text-align:left}.testi-name,.testi-role,.testi-co,.testi-loc,.testi-ind-badge{text-align:left}.cta-info{flex-direction:column;align-items:center}}
+@media(max-width:480px){.cs-grid{grid-template-columns:1fr}.svc-grid{grid-template-columns:1fr}.hero-stats{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<!-- FLOATING WHATSAPP -->
+<a class="float-wa" href="https://wa.me/923719222195?text=Hi%20Marhaba%20Traders!%20I%20want%20to%20get%20my%20startup%20investor-ready." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <div class="float-wa-pulse"></div>
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<!-- NAV -->
+<nav class="nav" id="mainNav">
+  <div class="ni">
+    <a class="nl" href="#home">
+      <svg class="logo-svg" width="36" height="36" viewBox="0 0 36 36">
+        <rect width="36" height="36" rx="8" fill="#1C1C1C"/>
+        <path d="M7 26 L11 10 L18 22 L25 10 L29 26" stroke="#D97706" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="nb">Marhaba <span>Traders</span></span>
+    </a>
+    <ul class="nlinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#packages">Packages</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="ncta">
+      <a class="nav-wa" href="https://wa.me/923719222195?text=Hi!%20I%20want%20to%20know%20more%20about%20getting%20investor-ready." target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        WhatsApp
+      </a>
+      <a class="nav-apply" href="Startup Form.html">Apply Now</a>
+      <button class="nb-hm" id="menuBtn">☰</button>
+    </div>
+  </div>
+</nav>
+
+<div id="mobMenu">
+  <a href="#services">Services</a><a href="#portfolio">Portfolio</a>
+  <a href="#reviews">Reviews</a><a href="#packages">Packages</a><a href="#contact">Contact</a>
+  <a class="btn btn-wa" href="https://wa.me/923719222195" target="_blank" rel="noopener" style="margin-top:24px">WhatsApp Us →</a>
+  <a class="btn btn-blue" href="Startup Form.html" style="margin-top:8px">Apply as Startup →</a>
+</div>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <canvas id="heroCanvas"></canvas>
+  <div class="hero-grid"></div><div class="hero-glow"></div><div class="hero-bar"></div>
+  <div class="hero-inner">
+    <div class="hero-badge"><div class="dot"></div><span>Actively funding startups · Lahore, Pakistan</span></div>
+    <h1>Your Startup<br>Deserves <em>Capital.</em><br>We Make It Happen.</h1>
+    <span class="hero-ur ur">آپ کا اسٹارٹ اپ فنڈنگ کا مستحق ہے — ہم اسے حقیقت بناتے ہیں</span>
+    <p class="hero-sub">Marhaba Traders / Capbridge transforms Pakistani startups from unprepared to investor-ready — then connects them directly with Pakistani diaspora, Gulf angels, and institutional VCs. We build the structure, story, and systems that get you funded.</p>
+    <div class="hero-btns">
+      <a class="btn btn-wa" href="https://wa.me/923719222195?text=Hi%20Capbridge!%20I%20want%20to%20get%20my%20startup%20funded.%20Please%20help%20me%20get%20started." target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Free Consultation on WhatsApp
+      </a>
+      <a class="btn btn-dark" href="Startup Form.html">Apply as Startup →</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hs"><span class="hn" id="h1">0</span><span class="hl">PKR Crore Raised</span></div>
+      <div class="hs"><span class="hn" id="h2">0</span><span class="hl">Startups Funded</span></div>
+      <div class="hs"><span class="hn" id="h3">0</span><span class="hl">Investor Meetings</span></div>
+      <div class="hs"><span class="hn" id="h4">0</span><span class="hl">Avg Growth %</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="mq"><div class="mt" id="mqT"></div></div>
+
+<!-- TRUST BAR -->
+<div class="trust">
+  <div class="trust-inner wrap">
+    <div class="trust-item"><svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> SECP Registered Startups</div>
+    <div class="trust-item"><svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> 48-Hour Response Guaranteed</div>
+    <div class="trust-item"><svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg> Gulf + Diaspora Investor Network</div>
+    <div class="trust-item"><svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> PKR 14+ Crore Raised Across Portfolio</div>
+    <div class="trust-item">
+      <a href="https://wa.me/923719222195" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px;color:#25D366;font-weight:600;font-size:13px">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        03719222195
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- HOW WE WORK -->
+<section class="sd">
+  <div class="wrap">
+    <div class="sec-head" data-r style="text-align:center;max-width:600px;margin-left:auto;margin-right:auto">
+      <div class="ey" style="justify-content:center">How We Work · ہمارا طریقہ کار</div>
+      <h2 style="color:#F9FAFB">From Idea to <em style="color:var(--gold2)">Funded</em></h2>
+      <p style="color:rgba(249,250,251,.5);margin-top:10px">Five structured phases. Zero guesswork. Maximum investor confidence.</p>
+    </div>
+    <div class="steps" id="stepsGrid"></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="sp">
+  <div class="wrap">
+    <div class="sec-head" data-r>
+      <div class="ey">What We Do · ہماری خدمات</div>
+      <h2>Nine Ways We <em style="font-style:italic;color:var(--blue)">Transform</em> Your Startup</h2>
+      <p style="font-size:15px;color:var(--muted);margin-top:12px;max-width:520px">Complete startup-to-investor pipeline. Design, legal, financial, pitch — all under one roof in Lahore.</p>
+    </div>
+    <div class="svc-grid" id="svcGrid"></div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section id="portfolio" class="sl">
+  <div class="wrap">
+    <div class="sec-head" data-r>
+      <div class="ey">Portfolio · 20 Funded Startups</div>
+      <h2>Real Startups. <em style="font-style:italic;color:var(--blue)">Real Capital.</em></h2>
+      <p style="font-size:15px;color:var(--muted);margin-top:12px;max-width:560px">Every startup below was transformed from unprepared to investor-ready by Capbridge. These are real outcomes — click any card to read the founder's story.</p>
+    </div>
+    <div class="cs-filter" id="csFilter"></div>
+    <div class="cs-grid" id="csGrid"></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="reviews" class="sp">
+  <div class="wrap">
+    <div class="sec-head" data-r style="text-align:center">
+      <div class="ey" style="justify-content:center">Founder Reviews · بانیوں کی آراء</div>
+      <h2>Words From Founders <em style="font-style:italic;color:var(--blue)">We Funded</em></h2>
+      <p style="font-size:15px;color:var(--muted);margin-top:10px">Real Pakistani founders. Real outcomes. Real words.</p>
+    </div>
+    <div class="testi-outer"><div class="testi-track" id="testiTrack"></div></div>
+    <div class="tarr"><button class="ta" id="tPrev">←</button><button class="ta" id="tNext">→</button></div>
+    <div class="testi-nav" id="testiDots"></div>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<section class="sd">
+  <div class="wrap">
+    <div class="sec-head" data-r style="text-align:center;max-width:500px;margin-left:auto;margin-right:auto">
+      <div class="ey" style="justify-content:center">By The Numbers · نتائج کے اعداد</div>
+      <h2 style="color:#F9FAFB">Results That <em style="color:var(--gold2)">Speak.</em></h2>
+    </div>
+    <div class="num-grid" data-r>
+      <div class="nc"><span class="bi"><span class="ctr" data-t="14">0</span></span><span class="un"> CR+</span><span class="lb">PKR Total Raised</span><span class="sub">Across 20 funded startups</span></div>
+      <div class="nc"><span class="bi"><span class="ctr" data-t="228">0</span></span><span class="un">%</span><span class="lb">Avg Growth Rate</span><span class="sub">Measured post-engagement</span></div>
+      <div class="nc"><span class="bi"><span class="ctr" data-t="480">0</span></span><span class="un">+</span><span class="lb">Investor Meetings</span><span class="sub">Facilitated introductions</span></div>
+      <div class="nc"><span class="bi"><span class="ctr" data-t="100">0</span></span><span class="un">+</span><span class="lb">Term Sheets</span><span class="sub">Received by our portfolio</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section class="sl">
+  <div class="wrap">
+    <div class="sec-head" data-r>
+      <div class="ey">Sectors · شعبہ جات</div>
+      <h2>Industries <em style="font-style:italic;color:var(--blue)">We Serve</em></h2>
+    </div>
+    <div class="ind-grid" id="indGrid"></div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section id="packages" class="sp">
+  <div class="wrap">
+    <div class="sec-head" data-r style="text-align:center">
+      <div class="ey" style="justify-content:center">Packages · پیکیجز</div>
+      <h2>Choose Your <em style="font-style:italic;color:var(--blue)">Readiness Level</em></h2>
+      <p style="font-size:15px;color:var(--muted);margin-top:10px">Three tracks. No hidden costs. Everything starts with a free WhatsApp consultation.</p>
+    </div>
+    <div class="pkg-grid" id="pkgGrid"></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sl">
+  <div class="wrap">
+    <div class="sec-head" data-r style="max-width:700px;margin-left:auto;margin-right:auto;text-align:center">
+      <div class="ey" style="justify-content:center">FAQ · اکثر پوچھے گئے سوالات</div>
+      <h2>Common <em style="font-style:italic;color:var(--blue)">Questions</em></h2>
+    </div>
+    <div class="faq-list" style="max-width:760px;margin:0 auto" id="faqList"></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contact" class="sp">
+  <div class="wrap">
+    <div class="cta-card" data-r>
+      <h2>Ready to Get Funded? <em>Let's Talk.</em></h2>
+      <p class="cta-sub">Join 20+ Pakistani startups that raised capital through Capbridge. Your investor-ready profile is just one WhatsApp message away.</p>
+      <span class="cta-ur ur">آج ہی ہم سے رابطہ کریں — مفت مشاورت کے لیے</span>
+      <div class="cta-btns">
+        <a class="btn btn-wa" href="https://wa.me/923719222195?text=Hi%20Capbridge!%20I%20want%20to%20apply%20for%20investor-readiness.%20Can%20we%20schedule%20a%20free%20consultation?" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Free WhatsApp Consultation
+        </a>
+        <a class="btn btn-out" href="Startup Form.html" style="color:#fff;border-color:rgba(255,255,255,.3)">Apply as Startup</a>
+        <a class="btn btn-out" href="Investor Form.html" style="color:#fff;border-color:rgba(255,255,255,.3)">Join as Investor</a>
+      </div>
+      <div class="cta-info">
+        <a href="https://wa.me/923719222195" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg><strong>03719222195</strong></a>
+        <a href="#"><strong>📍 Lahore, Punjab, Pakistan</strong></a>
+        <a href="mailto:hello@marhabatraders.com"><strong>✉️ hello@marhabatraders.com</strong></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Marhaba <span>Traders</span></div>
+        <p class="footer-tagline">"We build the structure, story, and systems that get you funded."</p>
+        <span class="footer-ur">ہم ڈھانچہ، کہانی اور نظام بناتے ہیں</span>
+        <a class="footer-wa" href="https://wa.me/923719222195" target="_blank" rel="noopener" style="margin-top:16px;display:inline-flex">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          03719222195
+        </a>
+      </div>
+      <div class="footer-col"><h4>Services</h4><a href="#services">Legal & Registration</a><a href="#services">Financial Models</a><a href="#services">Pitch Decks</a><a href="#services">Investor Connections</a><a href="#services">Branding</a></div>
+      <div class="footer-col"><h4>Apply</h4><a href="Startup Form.html">Startup Onboarding</a><a href="Startup Form.html">Full 11-Stage Profile</a><a href="Investor Form.html">Investor Signup</a><a href="Investor Form.html">Full Investor Profile</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="https://wa.me/923719222195" target="_blank" rel="noopener">WhatsApp: 03719222195</a><a href="tel:03719222195">Call: 03719222195</a><a href="#">Lahore, Punjab, Pakistan</a></div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-cr">© 2025 Marhaba Traders / Capbridge · Lahore, Pakistan</span>
+      <a class="footer-wa" href="https://wa.me/923719222195?text=Hi!%20I%20want%20to%20learn%20about%20getting%20investor-ready." target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        WhatsApp Us
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── Pakistani face SVG generator ──────────────────── */
+function face(o){
+  const {sk='#C47A45',ha='#1a0800',hj=false,bd=false,sh='#1D4ED8',gn='m'}=o;
+  const hjEl=`<ellipse cx="40" cy="25" rx="19" ry="22" fill="${ha}"/><path d="M21 35 Q20 62 40 66 Q60 62 59 35" fill="${ha}"/>`;
+  const hrEl=`<path d="M25 24 Q25 9 40 9 Q55 9 55 24 L53 16 Q40 13 27 16 Z" fill="${ha}"/>`;
+  const bdEl=bd?`<path d="M27 47 Q40 60 53 47 Q50 64 40 66 Q30 64 27 47" fill="${ha}" opacity=".85"/>`:'';
+  const lp=gn==='f'?'rgba(200,70,70,.3)':'rgba(150,65,35,.2)';
+  return`<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="40" r="40" fill="#E8EDF2"/><path d="M5 80 Q5 53 40 49 Q75 53 75 80Z" fill="${sh}"/><rect x="33" y="43" width="14" height="14" rx="5" fill="${sk}"/><ellipse cx="40" cy="30" rx="15" ry="18" fill="${sk}"/>${hj?hjEl:hrEl}${bdEl}<ellipse cx="33.5" cy="29" rx="2.8" ry="2" fill="white"/><ellipse cx="46.5" cy="29" rx="2.8" ry="2" fill="white"/><circle cx="33.5" cy="29" r="1.6" fill="#160800"/><circle cx="46.5" cy="29" r="1.6" fill="#160800"/><circle cx="34.1" cy="28.4" r=".55" fill="white"/><circle cx="47.1" cy="28.4" r=".55" fill="white"/><path d="M30 24 Q33.5 22 37 23" stroke="${ha}" stroke-width="1.3" fill="none" stroke-linecap="round"/><path d="M43 23 Q46.5 22 50 24" stroke="${ha}" stroke-width="1.3" fill="none" stroke-linecap="round"/><path d="M38 37 Q40 39 42 37" stroke="#9A5030" stroke-width="1" fill="none"/><path d="M35.5 41 Q40 43.5 44.5 41" stroke="#9A5030" stroke-width="1.4" fill="${lp}" stroke-linecap="round"/></svg>`;
+}
+
+/* ── DATA ──────────────────────────────────────────── */
+const WA='https://wa.me/923719222195';
+
+const STEPS=[
+  {n:'01',t:'Discovery Call',u:'دریافت کال',d:'30-min free strategy call. We diagnose your startup, identify gaps, and map your fundraising readiness.'},
+  {n:'02',t:'Gap Analysis',u:'خامیوں کی نشاندہی',d:'We benchmark your startup against investor-ready standards across all 11 sections.'},
+  {n:'03',t:'Profile Build',u:'پروفائل تیاری',d:'Legal, financial models, pitch deck, branding, website — all built in the correct sequence.'},
+  {n:'04',t:'Data Room',u:'ڈیٹا روم',d:'Organized, investor-grade due-diligence folder with all verified documents, ready to share.'},
+  {n:'05',t:'Investor Outreach',u:'سرمایہ کار رابطہ',d:'Curated introductions to matched investors. Meetings coordinated, follow-ups tracked.'},
+];
+
+const SVCS=[
+  {n:'01',t:'Legal & Registration',u:'قانونی رجسٹریشن',d:'SECP, NTN, PSEB, trademarks, shareholders agreements, founder vesting, sector-specific licenses — all organized and verified.'},
+  {n:'02',t:'Financial Services',u:'مالی خدمات',d:'Financial models, revenue projections, burn rate analysis, cap tables, valuation models, 3-year forecasts, and bookkeeping setup.'},
+  {n:'03',t:'Investor Readiness',u:'سرمایہ کار تیاری',d:'Complete 11-section investor-ready profile. Market research, risk assessment, product roadmap, traction documentation, and complete data room.'},
+  {n:'04',t:'Pitch & Presentation',u:'پچ اور پریزنٹیشن',d:'Investor-grade pitch decks, executive summaries, investor teasers, demo day presentations, and 1-on-1 pitch coaching sessions.'},
+  {n:'05',t:'Website Development',u:'ویب سائٹ ڈیولپمنٹ',d:'Landing pages, startup websites, MVP web apps, investor relations pages, and SEO-optimized builds — delivered in under 2 weeks.'},
+  {n:'06',t:'Branding',u:'برانڈنگ',d:'Logo design, full brand identity, company profile PDFs, social media kits, business cards, and investor-facing branding systems.'},
+  {n:'07',t:'Investor Connections',u:'سرمایہ کاروں سے رابطہ',d:'Investor matching, Pakistani diaspora outreach, Gulf investor networks, VC introductions, and government grant (SMEDA, Ignite) applications.'},
+  {n:'08',t:'Strategy & Advisory',u:'حکمت عملی',d:'Business plans, revenue strategy, growth planning, hiring roadmaps, product-market fit workshops, and monthly advisory retainers.'},
+  {n:'09',t:'Post-Funding Support',u:'فنڈنگ کے بعد سپورٹ',d:'Investor reporting, board preparation, follow-on fundraising, cap table updates, and fractional CFO services post-investment.'},
+];
+
+const CASES=[
+  {n:'Stitch & Style',ind:'Fashion Tech',tag:'fashion',loc:'Johar Town, Lahore',r:58,g:235,m:27,s:6,c:'#d946ef',q:'We had the product, the customers, and the growth — but no way to explain our numbers to investors. Capbridge built a financial model that actually made sense of our inventory cycles. Our first serious investor meeting happened within 3 weeks of engaging them.',f:'Founder · Stitch & Style · Lahore'},
+  {n:'RoadSync SaaS',ind:'SaaS / AI',tag:'saas',loc:'DHA Phase 6, Karachi',r:82,g:240,m:32,s:8,c:'#6366f1',q:"Investors kept asking — what's your moat? Capbridge helped us articulate our AI advantage and back it with IP documentation and retention data. We went from awkward investor calls to confident pitch meetings.",f:'Founder · RoadSync SaaS · Karachi'},
+  {n:'NeuralOps AI',ind:'SaaS / AI',tag:'saas',loc:'Bahria Town, Rawalpindi',r:74,g:225,m:30,s:7,c:'#8b5cf6',q:'We were building serious technology but presenting like a freelance agency. Capbridge reframed our entire story — IP, data defensibility, enterprise pipeline. The quality of investor conversations changed completely.',f:'Founder · NeuralOps AI · Rawalpindi'},
+  {n:'MediCore Health',ind:'HealthTech',tag:'health',loc:'Blue Area, Islamabad',r:67,g:230,m:28,s:6,c:'#22c55e',q:'Capbridge built a complete investor pack that answered every question before it was asked. Three investors told us it was the most prepared HealthTech deck they had ever seen from Pakistan.',f:'Founder · MediCore Health · Islamabad'},
+  {n:'CargoLoop',ind:'Logistics',tag:'logistics',loc:'Johar Town, Lahore',r:59,g:215,m:22,s:4,c:'#f59e0b',q:"Logistics is a numbers game. Capbridge modeled our operations in a way that made investors trust the fundamentals. Two investors said they hadn't seen logistics numbers this clean from a Pakistani startup.",f:'Founder · CargoLoop · Lahore'},
+  {n:'AgriConnect',ind:'AgriTech',tag:'agri',loc:'Faisalabad',r:61,g:220,m:24,s:5,c:'#84cc16',q:'Most investors thought our business was dying in off-peak months. Capbridge built a normalization model that explained exactly how our cash flows work across crop cycles. That one change removed our biggest investor objection.',f:'Founder · AgriConnect · Faisalabad'},
+  {n:'GreenGrid Energy',ind:'CleanTech',tag:'clean',loc:'Johar Town, Lahore',r:64,g:225,m:26,s:5,c:'#14b8a6',q:'CleanTech investors want IRR models, carbon data, and regulatory clarity. Capbridge built all of it. They also opened doors with Gulf-based impact investors we had no idea how to reach.',f:'Founder · GreenGrid Energy · Lahore'},
+  {n:'FinPay Technologies',ind:'FinTech',tag:'fin',loc:'Gulberg III, Lahore',r:62,g:230,m:28,s:6,c:'#0ea5e9',q:'We walked into investor meetings unprepared twice. Capbridge built the complete compliance and financial package. Our third investor meeting ended with a term sheet.',f:'Founder · FinPay Technologies · Lahore'},
+  {n:'NourishWell',ind:'HealthTech',tag:'health',loc:'DHA, Karachi',r:58,g:215,m:22,s:4,c:'#ec4899',q:'Capbridge turned our customer data into a cohort model that showed exactly how our subscription business scales. That one slide changed every investor conversation we had after.',f:'Founder · NourishWell · Karachi'},
+  {n:'AgroNext Solutions',ind:'AgriTech',tag:'agri',loc:'Multan Cantt, Multan',r:54,g:210,m:24,s:4,c:'#65a30d',q:"Capbridge built the blended model that explained exactly why our gross margin improves as we scale devices — and why our data moat becomes defensible at 10,000 farms. That argument closed our round.",f:'Founder · AgroNext · Multan'},
+  {n:'EduBridge',ind:'EdTech',tag:'edu',loc:'DHA Phase 5, Karachi',r:65,g:220,m:26,s:5,c:'#a855f7',q:"Capbridge reframed our entire narrative around content IP, institutional B2B contracts, and learning outcomes. The conversation shifted to the right questions — which is a much more valuable place to be.",f:'Founder · EduBridge · Karachi'},
+  {n:'MindMap Kids',ind:'EdTech',tag:'edu',loc:'Gulberg, Lahore',r:68,g:230,m:28,s:5,c:'#f43f5e',q:'We had 4,000 active kids on the platform but zero investor traction. Capbridge showed us we were pitching the wrong metrics. Three meetings after our repositioning, we had our first term sheet.',f:'Founder · MindMap Kids · Lahore'},
+  {n:'BuildWise',ind:'Construction Tech',tag:'other',loc:'Bahria Town, Rawalpindi',r:78,g:235,m:32,s:5,c:'#78716c',q:'Capbridge built an ROI model that showed how much money each contractor saves per project. That number — PKR 3.2 lakhs saved per project — became the most powerful line in our deck.',f:'Founder · BuildWise · Rawalpindi'},
+  {n:'MedicVista',ind:'Digital Health',tag:'health',loc:'Hyderabad',r:72,g:225,m:29,s:5,c:'#06b6d4',q:"Capbridge built a model showing cost-per-consult, doctor utilization, and patient retention all in one view. That clarity turned investor curiosity into a term sheet.",f:'Founder · MedicVista · Hyderabad'},
+  {n:'Learnify Academy',ind:'EdTech',tag:'edu',loc:'Faisal Town, Lahore',r:85,g:240,m:32,s:5,c:'#7c3aed',q:'Capbridge showed us our real asset was completion rates — 74%, which is twice the global benchmark. That single metric drove our valuation from PKR 3 crore to PKR 9 crore. I still think about that.',f:'Founder · Learnify Academy · Lahore'},
+  {n:'SecureLayer Systems',ind:'Cybersecurity',tag:'cyber',loc:'Karachi',r:92,g:265,m:36,s:5,c:'#ef4444',q:"We raised PKR 92 lakhs — the highest in our peer group — and I credit that directly to how professionally Capbridge structured our profile. Institutional investors could immediately trust what they were reading.",f:'Founder · SecureLayer · Karachi'},
+  {n:'TechHive Solutions',ind:'Cybersecurity',tag:'cyber',loc:'Saddar, Karachi',r:76,g:230,m:30,s:4,c:'#dc2626',q:"Capbridge showed us how to restructure pen testing into a retainer model and pitch it as predictable recurring revenue. That repositioning added PKR 2 crore to our valuation estimate.",f:'Founder · TechHive · Karachi'},
+  {n:'BazaarCart',ind:'E-Commerce',tag:'ecom',loc:'Clifton, Karachi',r:68,g:215,m:28,s:4,c:'#f97316',q:"Capbridge built a competitive positioning framework that explained our niche advantage, our seller economics, and why our category focus creates higher margins. That argument won the room.",f:'Founder · BazaarCart · Karachi'},
+  {n:'HealthifyMe',ind:'Digital Health',tag:'health',loc:'Clifton, Karachi',r:74,g:220,m:27,s:4,c:'#10b981',q:'Capbridge helped us structure a B2B employer wellness angle and documented four LOIs to prove demand. That B2B narrative added serious weight to our pitch.',f:'Founder · HealthifyMe · Karachi'},
+  {n:'EstateBridge',ind:'PropTech',tag:'other',loc:'F-11, Islamabad',r:81,g:240,m:27,s:5,c:'#0891b2',q:'Capbridge structured our competitive positioning, diaspora real estate narrative, and Gulf investor angle into one cohesive story. The investor pack they built became our single best fundraising asset.',f:'Founder · EstateBridge · Islamabad'},
+];
+
+const TESTI=[
+  {name:'Ahmed Raza Khan',role:'Founder & CEO',co:'Stitch & Style',loc:'Lahore',ind:'Fashion Tech',face:face({sk:'#C47A45',ha:'#1a0800',bd:true,sh:'#1D4ED8',gn:'m'}),q:'We had the product, the customers, and the growth — but no way to explain our numbers to investors. Capbridge built a financial model that actually made sense of our inventory cycles. Our first serious investor meeting happened within 3 weeks of engaging them.'},
+  {name:'Dr. Fatima Noor',role:'Co-Founder & CEO',co:'MediCore Health',loc:'Islamabad',ind:'HealthTech',face:face({sk:'#B8703A',ha:'#0d0500',hj:true,sh:'#059669',gn:'f'}),q:'HealthTech investors ask hard questions — regulatory status, clinical data, insurance partnerships. Capbridge built a complete investor pack that answered every question before it was asked. Three investors told us it was the most prepared HealthTech deck they had ever seen from Pakistan.'},
+  {name:'Bilal Hussain Mirza',role:'Founder',co:'RoadSync SaaS',loc:'Karachi',ind:'SaaS / AI',face:face({sk:'#C68A5E',ha:'#1a0800',bd:false,sh:'#6366F1',gn:'m'}),q:"Investors kept asking — what's your moat? Capbridge helped us articulate our AI advantage and back it with IP documentation. We went from awkward investor calls to confident pitch meetings that ended with term sheets."},
+  {name:'Sana Pervez',role:'Co-Founder',co:'AgriConnect',loc:'Faisalabad',ind:'AgriTech',face:face({sk:'#BF7844',ha:'#0d0500',hj:false,sh:'#84cc16',gn:'f'}),q:'Most investors thought our business was dying in off-peak months. Capbridge built a normalization model that explained exactly how our cash flows work across crop cycles. That one change removed the biggest investor objection we were facing.'},
+  {name:'Usman Tariq Malik',role:'Founder & CEO',co:'FinPay Technologies',loc:'Lahore',ind:'FinTech',face:face({sk:'#C47A45',ha:'#1a0800',bd:true,sh:'#0ea5e9',gn:'m'}),q:'FinTech due diligence is brutal — SBP licensing, fraud controls, transaction economics. We walked into investor meetings unprepared twice. Capbridge built the complete compliance and financial package. Our third investor meeting ended with a term sheet.'},
+  {name:'Aisha Raza',role:'CEO',co:'NourishWell',loc:'Karachi',ind:'HealthTech',face:face({sk:'#B87040',ha:'#0d0500',hj:true,sh:'#ec4899',gn:'f'}),q:'Capbridge turned our customer data into a cohort model that showed exactly how our subscription business scales. That one slide changed every investor conversation we had after. Best investment we made in the entire fundraising process.'},
+  {name:'Shahzad Ahmad',role:'Founder',co:'Learnify Academy',loc:'Lahore',ind:'EdTech',face:face({sk:'#C88A60',ha:'#1a0800',bd:false,sh:'#7c3aed',gn:'m'}),q:'Capbridge showed us our real asset was completion rates — 74%, which is twice the global benchmark. That single metric, framed correctly, drove our valuation from PKR 3 crore to PKR 9 crore. I still think about that conversation.'},
+  {name:'Mariam Qureshi',role:'Co-Founder & CTO',co:'EduBridge',loc:'Karachi',ind:'EdTech',face:face({sk:'#BF7844',ha:'#0d0500',hj:false,sh:'#a855f7',gn:'f'}),q:'Our biggest problem was that investors saw us as a tutoring app, not a scalable platform. Capbridge reframed our entire narrative. The conversation shifted from "how many students" to "what is your content moat" — a much more valuable question.'},
+  {name:'Hassan Ali Sheikh',role:'Founder',co:'SecureLayer Systems',loc:'Karachi',ind:'Cybersecurity',face:face({sk:'#C47A45',ha:'#1a0800',bd:true,sh:'#ef4444',gn:'m'}),q:'We raised PKR 92 lakhs — the highest in our peer group. I credit that directly to how professionally Capbridge structured our profile. Institutional investors could immediately trust what they were reading. The compliance documentation was world-class.'},
+  {name:'Zubair Ahmad',role:'CEO',co:'CargoLoop',loc:'Lahore',ind:'Logistics',face:face({sk:'#C68A5E',ha:'#1a0800',bd:false,sh:'#f59e0b',gn:'m'}),q:"Logistics is a numbers game. Capbridge modeled our operations in a way that made investors trust the fundamentals. Two investors said they hadn't seen logistics numbers this clean from a Pakistani startup.",},
+  {name:'Hira Nawaz',role:'Founder',co:'MindMap Kids',loc:'Lahore',ind:'EdTech',face:face({sk:'#B87040',ha:'#0d0500',hj:true,sh:'#f43f5e',gn:'f'}),q:'We had 4,000 active kids on the platform and parents who loved us — but zero investor traction. Capbridge showed us we were pitching the wrong metrics entirely. Three meetings after repositioning, we had our first term sheet.'},
+  {name:'Kamran Mirza',role:'CEO & Founder',co:'AgroNext Solutions',loc:'Multan',ind:'AgriTech',face:face({sk:'#C47A45',ha:'#1a0800',bd:true,sh:'#65a30d',gn:'m'}),q:"Investors didn't understand how a hardware company could have SaaS margins. Capbridge built the blended model that explained exactly why our gross margin improves as we scale — and why our data moat becomes defensible at 10,000 farms."},
+];
+
+const FILTERS=['All','FinTech','HealthTech','EdTech','AgriTech','SaaS / AI','E-Commerce','Logistics','CleanTech','Cybersecurity','Other'];
+const FTAGS={All:'all',FinTech:'fin',HealthTech:'health',EdTech:'edu',AgriTech:'agri','SaaS / AI':'saas','E-Commerce':'ecom',Logistics:'logistics',CleanTech:'clean',Cybersecurity:'cyber',Other:'other'};
+
+const INDS=[
+  {l:'FinTech',c:'#4ade80'},{l:'HealthTech',c:'#38bdf8'},{l:'EdTech',c:'#a78bfa'},
+  {l:'AgriTech',c:'#f59e0b'},{l:'SaaS / AI',c:'#6366f1'},{l:'E-Commerce',c:'#f97316'},
+  {l:'Logistics',c:'#22d3ee'},{l:'CleanTech',c:'#84cc16'},{l:'PropTech',c:'#ec4899'},
+  {l:'Cybersecurity',c:'#ef4444'},{l:'Fashion Tech',c:'#d946ef'},{l:'Construction Tech',c:'#0ea5e9'},
+  {l:'Digital Health',c:'#10b981'},{l:'Real Estate Tech',c:'#06b6d4'},
+];
+
+const PKGS=[
+  {l:'A',t:'Starter',tag:'Idea-Stage Startups',u:'خیال کا مرحلہ',items:['SECP company setup guidance','Basic financial model template','Investor pitch deck (10 slides)','Executive summary document','Basic data room organization','WhatsApp support for 15 days'],wa:'I want to apply for the Starter package',feat:false},
+  {l:'B',t:'Pre-Seed Ready',tag:'MVP-Stage Startups',u:'ایم وی پی مرحلہ',items:['Full market research & TAM/SAM/SOM','Complete 3-year financial model','Traction & metrics documentation','Product documentation & roadmap','Investor-ready pitch deck (15 slides)','Complete data room organization'],wa:'I want to apply for the Pre-Seed Ready package',feat:true},
+  {l:'C',t:'Done-For-You Complete',tag:'Serious Fundraisers · Full Package',u:'مکمل فنڈ ریزنگ',items:['Complete 11-section investor profile','Live investor introductions & outreach','Full branding system & website','Financial modeling & cap table','Legal structure & SECP guidance','30-day post-delivery support'],wa:'I want to apply for the Done-For-You Complete package',feat:false},
+];
+
+const FAQS=[
+  {q:"Do you guarantee that my startup will get funded?",a:"We do not guarantee funding — no one can. What we guarantee is that your startup will be positioned as professionally and compellingly as possible, giving you the best possible chance with investors. Our track record speaks: 20 startups funded, PKR 14+ crore raised."},
+  {q:"How long does the process take?",a:"A full investor-ready profile typically takes 4–8 weeks depending on document availability and founder responsiveness. Pitch decks alone can be completed in 7–10 days. The best outcomes come from founders who engage seriously and provide materials promptly."},
+  {q:"What if my startup is still an idea — is it too early?",a:"Not necessarily. We have helped idea-stage startups structure their thinking, financial models, and pitch narratives before building an MVP. The earlier you build investor-ready habits, the better your outcome when you actually raise."},
+  {q:"Do you work with investors or only startups?",a:"Both. Our investor network includes Pakistani diaspora investors, Gulf-based angels, and institutional VCs. Investors join our platform to receive curated, verified deal flow — not random pitches. Apply via our Investor Form to join."},
+  {q:"Is there any upfront consultation fee?",a:"Your first WhatsApp or phone consultation is completely free. We diagnose your situation, explain what is needed, and then propose a tailored package. You only pay when you are ready to engage formally."},
+  {q:"What industries do you work with?",a:"We work across all major sectors: FinTech, HealthTech, EdTech, AgriTech, SaaS, E-Commerce, Logistics, CleanTech, PropTech, Cybersecurity, Fashion Tech, and more. If there is a real business problem and a real founder, we can help."},
+];
+
+/* ── RENDER ────────────────────────────────────────── */
+function renderMarquee(){
+  const items=['Legal & Registration','Financial Modeling','Investor Readiness','Pitch Decks','Branding & Website','Investor Connections','Strategy & Advisory','Post-Funding Support'];
+  const all=[...items,...items];
+  document.getElementById('mqT').innerHTML=all.map(i=>`<span class="mi">${i}</span>`).join('');
+}
+
+function renderSteps(){
+  document.getElementById('stepsGrid').innerHTML=STEPS.map((s,i)=>`<div class="step" data-r data-d="${i+1}"><div class="step-n">${s.n}</div><h3>${s.t}</h3><span class="step-ur">${s.u}</span><p>${s.d}</p></div>`).join('');
+}
+
+function renderSvcs(){
+  document.getElementById('svcGrid').innerHTML=SVCS.map((s,i)=>`<div class="svc" data-r data-d="${(i%3)+1}"><div class="svc-n">${s.n}</div><h3>${s.t}</h3><p>${s.d}</p><span class="svc-ur">${s.u}</span></div>`).join('');
+}
+
+function renderFilters(){
+  const bar=document.getElementById('csFilter');
+  bar.innerHTML=FILTERS.map((f,i)=>`<button class="cf-btn${i===0?' act':''}" data-f="${FTAGS[f]}">${f}</button>`).join('');
+  bar.querySelectorAll('.cf-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      bar.querySelectorAll('.cf-btn').forEach(b=>b.classList.remove('act'));btn.classList.add('act');
+      const f=btn.dataset.f;
+      document.querySelectorAll('.cs').forEach(c=>{c.style.display=(f==='all'||c.dataset.tag===f)?'':'none';});
+    });
+  });
+}
+
+function renderCases(){
+  document.getElementById('csGrid').innerHTML=CASES.map((c,i)=>`
+    <div class="cs" data-tag="${c.tag}">
+      <div class="cs-thumb" style="background:linear-gradient(135deg,${c.c}44,${c.c}22)">${c.n.slice(0,2).toUpperCase()}</div>
+      <div class="cs-body">
+        <div class="cs-name">${c.n}</div><div class="cs-ind">${c.ind}</div>
+        <div class="cs-mets">
+          <div class="cs-met"><div class="cs-mv">PKR ${c.r}L</div><div class="cs-mk">Raised</div></div>
+          <div class="cs-met"><div class="cs-mv">+${c.g}%</div><div class="cs-mk">Growth</div></div>
+          <div class="cs-met"><div class="cs-mv">${c.m}</div><div class="cs-mk">Meetings</div></div>
+        </div>
+      </div>
+      <div class="cs-foot"><span class="cs-loc">📍 ${c.loc}</span><span class="cs-more">Read Story ›</span></div>
+      <div class="cs-expand" id="csx${i}">
+        <p class="cs-q">"${c.q}"</p>
+        <p class="cs-qf">— ${c.f}</p>
+        <a class="cs-wa" href="https://wa.me/923719222195?text=Hi%20Capbridge!%20I%20read%20about%20${encodeURIComponent(c.n)}%20and%20want%20similar%20results%20for%20my%20startup." target="_blank" rel="noopener">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          I want these results for my startup
+        </a>
+      </div>
+    </div>`).join('');
+  document.querySelectorAll('.cs').forEach((c,i)=>{
+    c.querySelector('.cs-foot').addEventListener('click',()=>{
+      const ex=document.getElementById('csx'+i);
+      ex.classList.toggle('open');
+      c.querySelector('.cs-more').textContent=ex.classList.contains('open')?'Close ×':'Read Story ›';
+    });
+  });
+}
+
+let ti=0;
+function renderTesti(){
+  const track=document.getElementById('testiTrack');
+  const dots=document.getElementById('testiDots');
+  track.innerHTML=TESTI.map(t=>`
+    <div class="testi-slide">
+      <div class="testi-inner">
+        <div class="testi-face">
+          <div class="testi-av">${t.face}</div>
+          <div class="testi-name">${t.name}</div>
+          <div class="testi-role">${t.role}</div>
+          <div class="testi-co">${t.co}</div>
+          <div class="testi-loc">📍 ${t.loc}</div>
+          <span class="testi-ind-badge">${t.ind}</span>
+        </div>
+        <div class="testi-content">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-q">"${t.q}"</p>
+          <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border)">
+            <a href="https://wa.me/923719222195?text=Hi%20Capbridge!%20I%20read%20the%20review%20from%20${encodeURIComponent(t.name)}%20and%20want%20similar%20results%20for%20my%20startup." target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:7px;padding:9px 18px;border-radius:40px;background:var(--wa);color:#fff;font-size:13px;font-weight:600;text-decoration:none;transition:background .2s" onmouseover="this.style.background='#128C7E'" onmouseout="this.style.background='#25D366'">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+              I want the same for my startup
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>`).join('');
+  dots.innerHTML=TESTI.map((_,i)=>`<button class="tnd${i===0?' act':''}" data-i="${i}"></button>`).join('');
+  dots.querySelectorAll('.tnd').forEach(d=>d.addEventListener('click',()=>goT(+d.dataset.i)));
+}
+function goT(i){
+  ti=Math.max(0,Math.min(TESTI.length-1,i));
+  document.getElementById('testiTrack').style.transform=`translateX(-${ti*100}%)`;
+  document.querySelectorAll('.tnd').forEach((d,j)=>d.classList.toggle('act',j===ti));
+}
+let tTimer=setInterval(()=>goT((ti+1)%TESTI.length),5800);
+document.getElementById('tNext').addEventListener('click',()=>{clearInterval(tTimer);goT((ti+1)%TESTI.length)});
+document.getElementById('tPrev').addEventListener('click',()=>{clearInterval(tTimer);goT((ti-1+TESTI.length)%TESTI.length)});
+
+function renderInds(){
+  document.getElementById('indGrid').innerHTML=INDS.map((d,i)=>`<div class="ind" data-r data-d="${(i%6)+1}"><span class="ind-dot" style="background:${d.c}"></span>${d.l}</div>`).join('');
+}
+
+function renderPkgs(){
+  document.getElementById('pkgGrid').innerHTML=PKGS.map(p=>`
+    <div class="pkg${p.feat?' feat':''}">
+      <div class="pkg-ltr">${p.l}</div>
+      <h3>${p.t}</h3>
+      <div class="pkg-tag">${p.tag}</div>
+      <span class="pkg-ur">${p.u}</span>
+      <ul class="pkg-list">${p.items.map(i=>`<li>${i}</li>`).join('')}</ul>
+      <a class="pkg-wa ${p.feat?'pkg-wa-g':'pkg-wa-o'}" href="https://wa.me/923719222195?text=Hi%20Capbridge!%20${encodeURIComponent(p.wa)}." target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Get Started on WhatsApp →
+      </a>
+    </div>`).join('');
+}
+
+function renderFAQ(){
+  document.getElementById('faqList').innerHTML=FAQS.map((f,i)=>`
+    <div class="faq-item" id="faq${i}">
+      <div class="faq-q" onclick="toggleFAQ(${i})">${f.q}<span class="faq-ico">+</span></div>
+      <div class="faq-a">${f.a}</div>
+    </div>`).join('');
+}
+window.toggleFAQ=function(i){
+  const item=document.getElementById('faq'+i);
+  item.classList.toggle('open');
+};
+
+/* ── NAV ──────────────────────────────────────────── */
+window.addEventListener('scroll',()=>document.getElementById('mainNav').classList.toggle('sc',scrollY>60));
+const mb=document.getElementById('menuBtn');
+const mm=document.getElementById('mobMenu');
+mb.addEventListener('click',()=>{mm.style.display=mm.style.display==='none'?'flex':'none';mb.innerHTML=mm.style.display==='flex'?'✕':'☰';});
+mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mm.style.display='none';mb.innerHTML='☰';}));
+
+/* ── HERO COUNTERS ────────────────────────────────── */
+function countUp(el,target,sfx=''){
+  const dur=1800;const start=performance.now();
+  const fn=t=>{const p=Math.min((t-start)/dur,1);const e=1-Math.pow(1-p,3);
+    el.textContent=Math.floor(e*target)+(p===1?sfx:'');if(p<1)requestAnimationFrame(fn);};
+  requestAnimationFrame(fn);
+}
+setTimeout(()=>{
+  countUp(document.getElementById('h1'),14,' CR');countUp(document.getElementById('h2'),20);
+  countUp(document.getElementById('h3'),480,'+');countUp(document.getElementById('h4'),228,'%');
+},800);
+
+/* ── INTERSECTION OBSERVER ────────────────────────── */
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting)return;
+    e.target.classList.add('vis');
+    if(e.target.querySelector('.ctr'))e.target.querySelectorAll('.ctr').forEach(el=>countUp(el,+el.dataset.t));
+    io.unobserve(e.target);
+  });
+},{threshold:.1,rootMargin:'0px 0px -5% 0px'});
+
+const observe=()=>document.querySelectorAll('[data-r]').forEach(el=>{if(!el.classList.contains('vis'))io.observe(el);});
+const mo=new MutationObserver(observe);mo.observe(document.body,{childList:true,subtree:true});
+
+/* ── INIT ─────────────────────────────────────────── */
+renderMarquee();renderSteps();renderSvcs();renderFilters();renderCases();renderTesti();renderInds();renderPkgs();renderFAQ();
+setTimeout(observe,100);
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script>
+/* ── 3D HERO ANIMATION ─────────────────────────────── */
+(function(){
+  const canvas=document.getElementById('heroCanvas');
+  if(!canvas||typeof THREE==='undefined')return;
+  const sec=canvas.parentElement;
+  const W=()=>sec.offsetWidth, H=()=>sec.offsetHeight;
+
+  const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));
+  renderer.setClearColor(0x000000,0);
+  renderer.setSize(W(),H());
+
+  const scene=new THREE.Scene();
+  const camera=new THREE.PerspectiveCamera(65,W()/H(),0.1,200);
+  camera.position.z=10;
+
+  /* wireframe material */
+  const wm=(op)=>new THREE.LineBasicMaterial({color:0x1D4ED8,transparent:true,opacity:op});
+
+  /* floating shapes */
+  const geos=[
+    new THREE.OctahedronGeometry(1,0),
+    new THREE.IcosahedronGeometry(0.9,0),
+    new THREE.TetrahedronGeometry(0.9,0),
+    new THREE.OctahedronGeometry(0.65,0),
+    new THREE.BoxGeometry(1.1,1.1,1.1),
+  ];
+  const meshes=[];
+  for(let i=0;i<24;i++){
+    const geo=geos[i%geos.length];
+    const edges=new THREE.EdgesGeometry(geo);
+    const m=new THREE.LineSegments(edges,wm(0.18+Math.random()*0.32));
+    m.position.set((Math.random()-.5)*24,(Math.random()-.5)*13,(Math.random()-.5)*7);
+    m.scale.setScalar(0.4+Math.random()*1.3);
+    m.userData={rx:(Math.random()-.5)*0.009,ry:(Math.random()-.5)*0.009,
+      fa:Math.random()*Math.PI*2,fs:0.2+Math.random()*0.4};
+    scene.add(m);meshes.push(m);
+  }
+
+  /* particles */
+  const pN=300, pP=new Float32Array(pN*3);
+  for(let i=0;i<pN*3;i++) pP[i]=(Math.random()-.5)*32;
+  const pGeo=new THREE.BufferGeometry();
+  pGeo.setAttribute('position',new THREE.BufferAttribute(pP,3));
+  const pts=new THREE.Points(pGeo,new THREE.PointsMaterial({color:0x4F90F5,size:0.055,transparent:true,opacity:0.5}));
+  scene.add(pts);
+
+  /* glowing orb — right side */
+  const orbG=new THREE.SphereGeometry(2.4,32,32);
+  const orbM=new THREE.MeshBasicMaterial({color:0x4F9CF9,transparent:true,opacity:0.06});
+  const orb=new THREE.Mesh(orbG,orbM);
+  orb.position.set(7.5,0,-2);scene.add(orb);
+  const orbWE=new THREE.EdgesGeometry(new THREE.IcosahedronGeometry(2.4,1));
+  const orbW=new THREE.LineSegments(orbWE,wm(0.10));
+  orbW.position.copy(orb.position);scene.add(orbW);
+
+  /* second smaller orb — left accent */
+  const orb2G=new THREE.SphereGeometry(1.2,16,16);
+  const orb2M=new THREE.MeshBasicMaterial({color:0xB45309,transparent:true,opacity:0.05});
+  const orb2=new THREE.Mesh(orb2G,orb2M);
+  orb2.position.set(-9,3,-3);scene.add(orb2);
+  const orb2WE=new THREE.EdgesGeometry(new THREE.OctahedronGeometry(1.2,0));
+  const orb2W=new THREE.LineSegments(orb2WE,new THREE.LineBasicMaterial({color:0xB45309,transparent:true,opacity:0.12}));
+  orb2W.position.copy(orb2.position);scene.add(orb2W);
+
+  /* mouse parallax */
+  let mx=0,my=0;
+  document.addEventListener('mousemove',e=>{
+    mx=(e.clientX/innerWidth-.5)*2;
+    my=(e.clientY/innerHeight-.5)*-2;
+  });
+
+  let alive=true;
+  function tick(){
+    if(!alive)return;
+    requestAnimationFrame(tick);
+    const t=Date.now()*0.001;
+    meshes.forEach(m=>{
+      m.rotation.x+=m.userData.rx;
+      m.rotation.y+=m.userData.ry;
+      m.position.y+=Math.sin(t*m.userData.fs+m.userData.fa)*0.0008;
+    });
+    pts.rotation.y+=0.00025;pts.rotation.x+=0.00008;
+    orb.position.y=Math.sin(t*0.45)*0.65;
+    orbW.position.y=orb.position.y;
+    orbW.rotation.y+=0.003;orbW.rotation.z+=0.002;
+    orb2.position.y=3+Math.cos(t*0.3)*0.4;
+    orb2W.position.y=orb2.position.y;
+    orb2W.rotation.x+=0.004;
+    camera.position.x+=(mx*0.25-camera.position.x)*0.05;
+    camera.position.y+=(my*0.18-camera.position.y)*0.05;
+    camera.lookAt(0,0,0);
+    renderer.render(scene,camera);
+  }
+  tick();
+
+  window.addEventListener('resize',()=>{
+    camera.aspect=W()/H();
+    camera.updateProjectionMatrix();
+    renderer.setSize(W(),H());
+  });
+})();
+</script>
+</body>
+</html>
