@@ -4,14 +4,16 @@ import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const MESSAGES = [
-  "Aapki kahani likh rahe hain...",
-  "Alfaaz dhundh rahe hain...",
-  "AI soch raha hai...",
-  "Bas thodi der...",
+  "Understanding your personality...",
+  "Analyzing your preferences...",
+  "Finding the right words...",
+  "Crafting a beautiful introduction...",
+  "Finalizing your profile...",
 ];
 
 export default function GeneratingAnimation({ active, onFinished }) {
   const [msgIndex, setMsgIndex] = useState(0);
+  const [displayText, setDisplayText] = useState("");
   const [progress, setProgress] = useState(0);
   const canvasRef = useRef(null);
 
@@ -20,9 +22,28 @@ export default function GeneratingAnimation({ active, onFinished }) {
     if (!active) return;
     const interval = setInterval(() => {
       setMsgIndex((prev) => (prev + 1) % MESSAGES.length);
-    }, 2000);
+    }, 2600);
     return () => clearInterval(interval);
   }, [active]);
+
+  // Typewriter effect logic
+  useEffect(() => {
+    if (!active) {
+      setDisplayText("");
+      return;
+    }
+    setDisplayText("");
+    let i = 0;
+    const currentMsg = MESSAGES[msgIndex];
+    const typingTimer = setInterval(() => {
+      setDisplayText(currentMsg.substring(0, i + 1));
+      i++;
+      if (i >= currentMsg.length) {
+        clearInterval(typingTimer);
+      }
+    }, 35); // 35ms per character for fluid motion
+    return () => clearInterval(typingTimer);
+  }, [msgIndex, active]);
 
   // 2. Progress fill simulator (0 to 90% slowly, then 100% on complete)
   useEffect(() => {
@@ -33,7 +54,6 @@ export default function GeneratingAnimation({ active, onFinished }) {
     const timer = setInterval(() => {
       setProgress((prev) => {
         if (prev < 90) {
-          // Slow down as it approaches 90
           const increment = (90 - prev) * 0.08;
           return prev + Math.max(increment, 0.4);
         }
@@ -47,13 +67,12 @@ export default function GeneratingAnimation({ active, onFinished }) {
   // 3. Complete fill to 100% and trigger exit after ready
   useEffect(() => {
     if (active && progress >= 90) {
-      // Simulate API finished call after a standard delay
       const finishTimer = setTimeout(() => {
         setProgress(100);
         setTimeout(() => {
           if (onFinished) onFinished();
         }, 600);
-      }, 3500); // Allow sufficient time for the user to experience the cinematic transition
+      }, 3500);
       return () => clearTimeout(finishTimer);
     }
   }, [active, progress]);
@@ -73,13 +92,13 @@ export default function GeneratingAnimation({ active, onFinished }) {
     class Spark {
       constructor() {
         this.reset();
-        this.y = Math.random() * height; // Start at random height initially
+        this.y = Math.random() * height;
       }
       reset() {
         this.x = Math.random() * width;
         this.y = height + 10;
         this.size = Math.random() * 2 + 0.5;
-        this.speedY = Math.random() * 0.9 + 0.3; // Floating upward
+        this.speedY = Math.random() * 0.9 + 0.3;
         this.alpha = Math.random() * 0.5 + 0.15;
         this.fade = Math.random() * 0.005 + 0.002;
       }
@@ -98,7 +117,6 @@ export default function GeneratingAnimation({ active, onFinished }) {
       }
     }
 
-    // Spawn 30 particles
     for (let i = 0; i < 30; i++) {
       particles.push(new Spark());
     }
@@ -164,20 +182,12 @@ export default function GeneratingAnimation({ active, onFinished }) {
             </div>
           </div>
 
-          {/* Rotating Message Texts */}
-          <div className="relative z-10 h-10 flex items-center justify-center text-center">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={msgIndex}
-                initial={{ opacity: 0, y: 12, filter: "blur(2px)" }}
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                exit={{ opacity: 0, y: -12, filter: "blur(2px)" }}
-                transition={{ duration: 0.45, ease: "easeInOut" }}
-                className="font-display text-lg md:text-xl font-bold tracking-wide italic shimmer-text"
-              >
-                {MESSAGES[msgIndex]}
-              </motion.div>
-            </AnimatePresence>
+          {/* Rotating Message Texts with realistic typewriter simulation */}
+          <div className="relative z-10 h-10 flex items-center justify-center text-center px-4">
+            <div className="font-display text-lg md:text-xl font-bold tracking-wide italic shimmer-text min-h-[30px] flex items-center justify-center">
+              <span>{displayText}</span>
+              <span className="w-[3px] h-5 bg-gold ml-2 animate-ping shrink-0" />
+            </div>
           </div>
 
           <span className="relative z-10 text-[11px] text-text-muted uppercase tracking-[0.2em] font-semibold mt-2">

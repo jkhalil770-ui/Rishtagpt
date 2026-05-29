@@ -36,7 +36,7 @@ export default function ShareButtons({
 
   const handleReferralShare = () => {
     const inviteMsg =
-      "Maine apna rishta bio RishtaGPT se banwaya — bilkul free hai, AI likhta hai. Tu bhi bana: https://rishtagpt.online";
+      "Check out how AI transformed my basic biodata into a premium, dignified rishta bio. You can generate yours in seconds at: https://rishtagpt.vercel.app";
     const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(inviteMsg)}`;
     window.open(url, "_blank");
   };

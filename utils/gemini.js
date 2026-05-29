@@ -1,13 +1,13 @@
 import { buildPrompt } from "./generatePrompt";
 
-export async function generateBio({ data, style, lang, signal }) {
+export async function generateBio({ data, lang, signal }) {
   const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY;
   const model = "gemini-2.0-flash";
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
-  const prompt = buildPrompt(data, style, lang);
+  const prompt = buildPrompt(data, lang);
 
   const systemInstruction = 
-    "You are a professional Pakistani rishta bio writer. Write culturally warm, dignified, and emotionally resonant bios. Understand Pakistani family values, Islamic culture, and rishta traditions deeply. Never use generic phrases. Output ONLY the bio text — no headings, no labels, no extra text. Write naturally as if a respected family elder composed it.";
+    "You are a professional matrimonial matchmaking copywriter. Output a raw JSON object containing 6 distinct bio styles, scoring insights between 60 and 95, first-impression badges, personality traits, and before-and-after comparisons. Output ONLY the raw JSON string — no markdown code fences (like ```json), no extra labels, and no surrounding text.";
 
   const resp = await fetch(url, {
     method: "POST",
@@ -18,9 +18,10 @@ export async function generateBio({ data, style, lang, signal }) {
         parts: [{ text: systemInstruction }]
       },
       generationConfig: {
-        temperature: 0.75,
-        topP: 0.92,
-        maxOutputTokens: 600,
+        temperature: 0.78,
+        topP: 0.94,
+        maxOutputTokens: 1800,
+        responseMimeType: "application/json"
       },
       safetySettings: [
         { category: "HARM_CATEGORY_HARASSMENT",        threshold: "BLOCK_ONLY_HIGH" },
@@ -57,5 +58,13 @@ export async function generateBio({ data, style, lang, signal }) {
   }
 
   // Clean potential markdown code fences or headers added by Gemini
-  return text.replace(/^```[a-z]*\n?/i, "").replace(/```$/m, "").trim();
+  const cleanJsonText = text.replace(/^```[a-z]*\n?/i, "").replace(/```$/m, "").trim();
+  
+  try {
+    const parsed = JSON.parse(cleanJsonText);
+    return parsed;
+  } catch (parseError) {
+    console.error("JSON parsing failed. Raw response text was:", cleanJsonText);
+    throw new Error("Dhamaka! AI response parse karne mein masla hua. Thodi der baad dobara try karein.");
+  }
 }

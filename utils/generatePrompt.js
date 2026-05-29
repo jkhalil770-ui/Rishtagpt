@@ -4,35 +4,30 @@ export const STYLES = [
     label: "Traditional",
     sub: "Respectful · family-oriented",
     emoji: "🕌",
-    promptHint: "Write in a respectful, traditional Pakistani/Indian Muslim rishta tone. Use salaam, dua phrases, mention family values, parents' status, biradari naturally. Conservative but warm.",
   },
   {
     id: "modern",
     label: "Modern",
     sub: "Clean · contemporary",
     emoji: "✨",
-    promptHint: "Write in a clean, modern, balanced tone — confident and warm. Avoid overly traditional phrasing but keep Islamic references natural.",
-  },
-  {
-    id: "poetic",
-    label: "Poetic",
-    sub: "Eloquent · literary",
-    emoji: "🪶",
-    promptHint: "Write with literary elegance — use one short couplet or poetic phrase appropriate to the language (Urdu sher, Roman-Urdu kalam, or English lyrical). Keep it tasteful, not over the top.",
   },
   {
     id: "professional",
     label: "Professional",
     sub: "Career-forward · concise",
     emoji: "💼",
-    promptHint: "Write a concise, structured bio that leads with profession, achievements, and clear partner expectations. Bullet-style structure where possible. Confident.",
+  },
+  {
+    id: "poetic",
+    label: "Poetic",
+    sub: "Eloquent · literary",
+    emoji: "🪶",
   },
   {
     id: "detailed",
     label: "Detailed",
-    sub: "Comprehensive · thorough",
+    sub: "Thorough · comprehensive",
     emoji: "📜",
-    promptHint: "Write a thorough, well-organized bio with clear sections: Personal, Deen, Education & Career, Family, Personality, Partner Preference. Use small section headings.",
   },
 ];
 
@@ -42,15 +37,14 @@ export const LANGS = [
   { id: "en",    label: "English",     direction: "ltr", note: "Use clear, fluent English. Include common Islamic phrases (Assalam-u-Alaikum, InshaAllah, JazakAllah Khair) where natural." },
 ];
 
-export function buildPrompt(d, styleId, langId) {
-  const styleHint = STYLES.find(s => s.id === styleId)?.promptHint || "";
+export function buildPrompt(d, langId) {
   const langInfo  = LANGS.find(l => l.id === langId) || LANGS[0];
 
   const fam = d.famType === "conservative" ? "Conservative"
            : d.famType === "moderate"     ? "Moderate"
            : d.famType === "liberal"      ? "Liberal" : "—";
   const traits = (d.traits || []).join(", ") || "—";
-  const partner = `${d.partnerAge?.[0] ?? 22}–${d.partnerAge?.[1] ?? 30} years, ${d.locPref || "Same country"}`;
+  const partner = `${d.partnerAgeMax || 35} years max, ${d.locPref || "Same country"}`;
   const marital = d.marital || "Never married";
 
   const profile = [
@@ -83,34 +77,48 @@ export function buildPrompt(d, styleId, langId) {
   ].filter(Boolean).join("\n");
 
   return [
-    `You are writing a real rishta (Pakistani/Indian Muslim matrimonial) bio that a real family member would write — NOT an AI-generated essay.`,
+    `You are a professional matrimonial matchmaking copywriter.`,
+    `You must write a real rishta bio that a real family member or candidate would write — NOT an AI-generated essay.`,
+    `You must analyze the candidate's profile data and output a structured JSON object containing stylized bios and profile analysis metadata.`,
     ``,
-    `Language: ${langInfo.label}. ${langInfo.note}`,
+    `Language of output: ${langInfo.label}. ${langInfo.note}`,
     ``,
-    `IMPORTANT — same factual content across all languages:`,
-    `This bio MUST contain the EXACT same facts/details/structure as the bio for the same person in other languages.`,
-    `Only the LANGUAGE changes. The information, order, tone, and length stay the same.`,
-    `Do NOT add facts in one language that aren't in another.`,
-    ``,
-    `STYLE: ${styleHint}`,
-    ``,
-    `PROFILE:`,
+    `PROFILE DATA:`,
     profile,
     ``,
-    `STRICT RULES — follow exactly:`,
-    `1. LENGTH: 120–180 words. Keep it tight but complete. Do NOT write long essay-style paragraphs.`,
-    `2. SOUND HUMAN: Write the way a real person would naturally introduce themselves to a family — simple, warm, direct sentences. Avoid stiff, formal, AI-sounding phrasing.`,
-    `3. SHORT PARAGRAPHS: 2–4 short paragraphs only. Each paragraph 2–3 sentences max. Separate paragraphs with a blank line.`,
-    `4. NO FILLER: No flowery clichés, no over-explaining, no repeating facts. One fact, one mention.`,
-    `5. Open with a brief salaam (1 line). Close with a short respectful line (e.g. JazakAllah Khair / shukriya / thank you).`,
-    `6. First person — the candidate is speaking.`,
-    `7. Do NOT invent facts. If a field is "—" or "(unspecified)", just skip it silently — do NOT write "not specified" or "—" in the bio.`,
-    `8. Output ONLY the bio body. No preamble, no commentary, no markdown fences, no headings unless the style explicitly requires them.`,
+    `STRICT JSON FORMAT REQUIRED:`,
+    `You MUST respond with a raw JSON object matching the following structure EXACTLY. Do not wrap the JSON in markdown code blocks or add any other text. Output ONLY the raw JSON string.`,
+    `{`,
+    `  "headline": "A short, elegant, contemporary profile headline for the candidate (max 10 words, e.g. 'Faith, Family, and Ambition in Balance' or 'Simple Values, Clear Goals').",`,
+    `  "firstImpressions": [An array of 4 to 6 concise, elegant first-impression trait strings based on their background, e.g. 'Well-Spoken', 'Dignified', 'Grounded', 'Ambitious', 'Polite'],`,
+    `  "traits": [An array of 3 to 5 uppercase personality snapshot trait strings matching the personality of the candidate, e.g. 'CALM', 'RESPONSIBLE', 'FAMILY ORIENTED', 'AMBITION DRIVEN', 'PATIENT'],`,
+    `  "scores": {`,
+    `    "familyValues": An integer from 60 to 95 reflecting their family values alignment based on data,`,
+    `    "communicationStyle": An integer from 60 to 95 reflecting their communication/social capability,`,
+    `    "professionalStability": An integer from 60 to 95 reflecting their career path & income status,`,
+    `    "lifestyleBalance": An integer from 60 to 95 reflecting their lifestyle and hobbies harmony,`,
+    `    "religiousCommitment": An integer from 60 to 95 reflecting their namaz/Quran/Deen commitment,`,
+    `    "responsibility": An integer from 60 to 95 reflecting their age/maturity/social status`,
+    `  },`,
+    `  "beforeAfter": {`,
+    `    "before": [An array of exactly 3 short bullet points summarizing the raw, unpolished factual inputs provided by the user in the form],`,
+    `    "after": [An array of exactly 3 matching short bullet points highlighting the sophisticated, dignified wording and emotional presentation upgrades performed by the AI]`,
+    `  },`,
+    `  "traditional": "A warm, respectful traditional bio in 1st person (120-150 words). Uses Assalam-u-Alaikum, dua phrases, naturally mentions family values, parents' status, biradari.",`,
+    `  "modern": "A clean, modern, balanced bio in 1st person (120-150 words). Confident and warm. Avoids overly traditional phrasing but keeps Islamic references natural.",`,
+    `  "professional": "A structured, career-led bio in 1st person (120-150 words). Bullet-style highlights where possible. Professional, goal-oriented, and confident.",`,
+    `  "poetic": "An eloquent, literary bio in 1st person (120-150 words). Incorporates a small tasteful couplet or poetic phrase in the language (sher, kalam, or lyrical line).",`,
+    `  "detailed": "A thorough, comprehensive, well-structured bio in 1st person (120-150 words) organized with section highlights for Deen, Career, and Partner expectations.",`,
+    `  "familyApproval": "An ultra-traditional, formal, highly respectful and conservative bio written in 1st person (120-150 words) that immediately appeals to traditional family elders, grandparents, and parents."`,
+    `}`,
     ``,
-    langId === "urdu"
-      ? `Language detail: Write in proper Urdu (Nastaliq vocabulary). RTL. Use natural conversational Urdu — NOT heavy literary Urdu. No English words mixed in unless commonly used (e.g. profession names).`
-      : langId === "roman"
-      ? `Language detail: Use Roman Urdu the way Pakistanis actually type on WhatsApp — "Alhamdulillah", "InshaAllah", "Mashallah", "ghar", "walidain". Simple and readable.`
-      : `Language detail: Clear, natural English. Keep Islamic phrases (Assalam-u-Alaikum, Alhamdulillah, InshaAllah) where natural — don't force them.`,
+    `STRICT BIO RULES — follow exactly for all 6 bios:`,
+    `1. LENGTH: Each of the 6 bio fields MUST be 120–150 words. Keep it tight but complete.`,
+    `2. SOUND HUMAN: Write the way a real person would naturally introduce themselves — simple, warm, direct sentences. Avoid stiff, formal, AI-sounding phrasing.`,
+    `3. SHORT PARAGRAPHS: 2–3 short paragraphs only. Each paragraph 2–3 sentences max. Separate paragraphs with \\n\\n.`,
+    `4. NO FILLER: No flowery clichés, no repeating facts.`,
+    `5. Open with a brief respectful salaam. Close with a short respectful line (e.g. JazakAllah Khair / shukriya).`,
+    `6. First person speaking (I / me).`,
+    `7. Do NOT invent facts. If a field is "—" or unspecified, skip it silently.`,
   ].join("\n");
 }
