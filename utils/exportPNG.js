@@ -137,7 +137,7 @@ export async function exportBioPNG({ bio, lang, data, photo, headline, traits, f
           Written by Artificial Intelligence
         </div>
         <div style="font-size:14px;color:#8A8FA8;letter-spacing:0.08em;">
-          Elevate your rishta bio at <span style="color:#F5F0E8;font-weight:600;">RishtaGPT.vercel.app</span>
+          Elevate your rishta bio at <span style="color:#F5F0E8;font-weight:600;">rishtagpt.online</span>
         </div>
       </div>
     </div>

@@ -36,7 +36,7 @@ export default function ShareButtons({
 
   const handleReferralShare = () => {
     const inviteMsg =
-      "Check out how AI transformed my basic biodata into a premium, dignified rishta bio. You can generate yours in seconds at: https://rishtagpt.vercel.app";
+      "Check out how AI transformed my basic biodata into a premium, dignified rishta bio. You can generate yours in seconds at: https://rishtagpt.online";
     const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(inviteMsg)}`;
     window.open(url, "_blank");
   };
