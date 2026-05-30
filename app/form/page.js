@@ -92,15 +92,32 @@ export default function FormPage() {
   const [isCaptchaVerified, setIsCaptchaVerified] = useState(false);
   const [showCaptcha, setShowCaptcha] = useState(false);
 
-  // Load cached data from localStorage on mount
+  // Load cached data from localStorage on mount & parse query params on client-side
   useEffect(() => {
     try {
+      let current = { ...DEFAULT_FORM_DATA };
       const cached = localStorage.getItem("rg_form_v2");
       if (cached) {
-        setFormData(JSON.parse(cached));
+        current = { ...current, ...JSON.parse(cached) };
       }
+      
+      // Parse client-side URL parameters securely
+      if (typeof window !== "undefined") {
+        const params = new URLSearchParams(window.location.search);
+        const professionParam = params.get("profession");
+        const genderParam = params.get("gender");
+        
+        if (professionParam) {
+          current.profession = professionParam;
+        }
+        if (genderParam === "boy" || genderParam === "girl") {
+          current.gender = genderParam;
+        }
+      }
+
+      setFormData(current);
     } catch (e) {
-      console.error("Local storage load error:", e);
+      console.error("Local storage or query param load error:", e);
     }
   }, []);
 
