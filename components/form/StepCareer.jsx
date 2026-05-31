@@ -124,11 +124,11 @@ export default function StepCareer({ data, setData, errors }) {
             </button>
           )}
         </div>
-        <div className="px-2 py-4 bg-white/[0.02] border border-white/5 rounded-2xl">
+        <div className="px-3 py-4 bg-white/[0.02] border border-white/5 rounded-2xl">
           <input
             type="range"
             min="0"
-            max="15"
+            max="8"
             step="1"
             value={data.income || 0}
             onChange={(e) => handleFieldChange("income", Number(e.target.value))}
@@ -138,15 +138,15 @@ export default function StepCareer({ data, setData, errors }) {
             }}
           />
           <div className="flex items-center justify-between mt-3 text-[11px] text-text-muted font-semibold">
-            <span>Rs. 0</span>
+            <span>Rs. 25K</span>
             <span className="text-[14px] font-bold text-gold-light num">
               {data.income === 0
                 ? "Prefer not to mention"
-                : data.income >= 15
-                ? "Rs. 1,500,000+ PKR/mo"
-                : `Rs. ${(data.income * 100).toLocaleString()},000 PKR/mo`}
+                : data.income >= 8
+                ? "Rs. 200,000+ PKR/mo"
+                : `Rs. ${(data.income * 25).toLocaleString()},000 PKR/mo`}
             </span>
-            <span>Rs. 15L+</span>
+            <span>Rs. 2Lac+</span>
           </div>
         </div>
       </div>

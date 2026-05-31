@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Check } from "lucide-react";
 
-export default function CustomSelect({ value, onChange, options, placeholder = "— Select —", error, disabled }) {
+export default function CustomSelect({ value, onChange, options, placeholder = "— Select —", error, disabled, openUpward }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleSelect = (val) => {
@@ -57,11 +57,13 @@ export default function CustomSelect({ value, onChange, options, placeholder = "
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: openUpward ? -10 : 10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 10 }}
+            exit={{ opacity: 0, y: openUpward ? -10 : 10 }}
             transition={{ duration: 0.18, ease: "easeOut" }}
-            className="absolute left-0 right-0 mt-2 z-40 max-h-60 overflow-y-auto rounded-2xl border border-white/10 bg-[#0C1226]/95 backdrop-blur-xl p-2 shadow-2xl"
+            className={`absolute left-0 right-0 z-40 max-h-60 overflow-y-auto rounded-2xl border border-white/10 bg-[#0C1226]/95 backdrop-blur-xl p-2 shadow-2xl ${
+              openUpward ? "bottom-full mb-2" : "mt-2"
+            }`}
             style={{
               scrollbarWidth: "thin",
               scrollbarColor: "#C9A84C transparent",

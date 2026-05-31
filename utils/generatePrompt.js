@@ -64,7 +64,11 @@ export function buildPrompt(d, langId) {
     `Institution: ${d.institution || "—"}`,
     `Profession: ${d.profession || "—"}`,
     `Employment: ${d.employment || "—"}`,
-    `Income hint: ${d.income ? `Rs. ${(d.income * 100).toLocaleString()},000/month` : "(prefer not to say)"}`,
+    `Income hint: ${
+      !d.income || d.income === 0 ? "(prefer not to say)"
+      : d.income >= 8 ? "Rs. 200,000+/month"
+      : `Rs. ${(d.income * 25).toLocaleString()},000/month`
+    }`,
     `Father: ${d.fatherStatus || "—"}${d.fatherProf ? `, ${d.fatherProf}` : ""}`,
     `Mother: ${d.motherStatus || "—"}${d.motherProf ? `, ${d.motherProf}` : ""}`,
     `Siblings: ${d.brothers || 0} brother(s), ${d.sisters || 0} sister(s)`,

@@ -268,6 +268,7 @@ export default function StepPersonal({ data, setData, errors }) {
           onChange={(val) => handleTextChange("complexion", val)}
           options={COMPLEXIONS}
           placeholder="Prefer not to mention"
+          openUpward={true}
         />
       </div>
     </div>

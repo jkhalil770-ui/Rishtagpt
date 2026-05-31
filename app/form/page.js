@@ -191,7 +191,7 @@ export default function FormPage() {
   return (
     <>
       <Header />
-      <main className="relative min-h-screen gradient-mesh pt-24 pb-20 px-4 md:px-6 flex flex-col items-center">
+      <main className="relative min-h-screen gradient-mesh pt-24 pb-36 px-4 md:px-6 flex flex-col items-center">
         <div className="islamic-bg" />
 
         <div className="w-full max-w-2xl flex flex-col items-stretch mt-4 md:mt-8">

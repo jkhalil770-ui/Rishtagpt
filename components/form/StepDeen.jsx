@@ -185,6 +185,7 @@ export default function StepDeen({ data, setData, errors }) {
           options={DEEN_PREFS}
           placeholder="— Select Partner Preference —"
           error={errors.partnerDeen}
+          openUpward={true}
         />
         {errors.partnerDeen && (
           <span className="text-[11.5px] text-rose font-semibold mt-1.5 block">
