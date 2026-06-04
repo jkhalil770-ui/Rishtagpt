@@ -88,6 +88,14 @@ export default function Header() {
             </button>
           )}
 
+          {/* Compatibility Check */}
+          <Link
+            href="/compatibility"
+            className="hidden xs:inline-block text-[11px] font-bold text-text-muted hover:text-gold no-underline transition-colors uppercase tracking-wider cursor-pointer mr-3"
+          >
+            Compatibility
+          </Link>
+
           {/* Shuru CTA */}
           <Link
             href="/form"
