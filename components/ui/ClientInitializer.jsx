@@ -20,8 +20,8 @@ export default function ClientInitializer() {
     if (window.innerWidth > 768) {
       import("lenis").then(({ default: Lenis }) => {
         const lenis = new Lenis({
-          duration: 1.2,
-          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          duration: 0.85,
+          easing: (t) => 1 - Math.pow(1 - t, 4), // snappier, responsive and lightweight
           orientation: "vertical",
           gestureOrientation: "vertical",
           smoothWheel: true,

@@ -1,70 +1,116 @@
-import { buildPrompt } from "./generatePrompt";
+// Client-side in-memory cache to save repeated page navigation API calls
+const clientBioCache = new Map();
+const SESSION_CACHE_PREFIX = "rishtagpt_bio_cache_";
 
-export async function generateBio({ data, lang, signal }) {
-  const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY;
-  const model = "gemini-2.0-flash";
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
-  const prompt = buildPrompt(data, lang);
+// Tracks active browser-side promises to prevent StrictMode double-generation duplicate calls
+const activeClientPromises = new Map();
 
-  const systemInstruction = 
-    "You are a professional matrimonial matchmaking copywriter. Output a raw JSON object containing 6 distinct bio styles, scoring insights between 60 and 95, first-impression badges, personality traits, and before-and-after comparisons. Output ONLY the raw JSON string — no markdown code fences (like ```json), no extra labels, and no surrounding text.";
-
-  const resp = await fetch(url, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      contents: [{ parts: [{ text: prompt }] }],
-      systemInstruction: {
-        parts: [{ text: systemInstruction }]
-      },
-      generationConfig: {
-        temperature: 0.78,
-        topP: 0.94,
-        maxOutputTokens: 1800,
-        responseMimeType: "application/json"
-      },
-      safetySettings: [
-        { category: "HARM_CATEGORY_HARASSMENT",        threshold: "BLOCK_ONLY_HIGH" },
-        { category: "HARM_CATEGORY_HATE_SPEECH",       threshold: "BLOCK_ONLY_HIGH" },
-        { category: "HARM_CATEGORY_SEXUALLY_EXPLICIT", threshold: "BLOCK_ONLY_HIGH" },
-        { category: "HARM_CATEGORY_DANGEROUS_CONTENT", threshold: "BLOCK_ONLY_HIGH" },
-      ],
-    }),
-    signal,
-  });
-
-  if (!resp.ok) {
-    const errText = await resp.text();
-    if (resp.status === 429) {
-      throw new Error(
-        "Abhi free Gemini AI ka quota khatam ho gaya hai (busy time). " +
-        "Thodi der baad dobara try karein, ya apni Gemini API key add karein. " +
-        "Ek minute ruk ke 'Try again' dabayein."
-      );
-    }
-    if (resp.status === 403) {
-      throw new Error("Gemini API key invalid hai ya restrict ki hui hai. .env.local mein key check karein.");
-    }
-    if (resp.status >= 500) {
-      throw new Error("Gemini server abhi busy hai. Thodi der baad 'Try again' dabayein.");
-    }
-    throw new Error(`Gemini API error ${resp.status}: ${errText.slice(0, 200)}`);
+// Helper to look up cache from sessionStorage or in-memory map
+function getCachedResult(cacheKey) {
+  if (clientBioCache.has(cacheKey)) {
+    return clientBioCache.get(cacheKey);
   }
-
-  const json = await resp.json();
-  const text = json?.candidates?.[0]?.content?.parts?.[0]?.text;
-  if (!text) {
-    throw new Error("Empty response from Gemini");
-  }
-
-  // Clean potential markdown code fences or headers added by Gemini
-  const cleanJsonText = text.replace(/^```[a-z]*\n?/i, "").replace(/```$/m, "").trim();
   
-  try {
-    const parsed = JSON.parse(cleanJsonText);
-    return parsed;
-  } catch (parseError) {
-    console.error("JSON parsing failed. Raw response text was:", cleanJsonText);
-    throw new Error("Dhamaka! AI response parse karne mein masla hua. Thodi der baad dobara try karein.");
+  if (typeof window !== "undefined" && window.sessionStorage) {
+    try {
+      const stored = window.sessionStorage.getItem(SESSION_CACHE_PREFIX + cacheKey);
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        clientBioCache.set(cacheKey, parsed);
+        return parsed;
+      }
+    } catch (e) {
+      console.warn("[Client Cache] Error reading sessionStorage:", e);
+    }
   }
+  return null;
+}
+
+// Helper to write to both caches
+function setCachedResult(cacheKey, data) {
+  clientBioCache.set(cacheKey, data);
+  if (typeof window !== "undefined" && window.sessionStorage) {
+    try {
+      window.sessionStorage.setItem(SESSION_CACHE_PREFIX + cacheKey, JSON.stringify(data));
+    } catch (e) {
+      console.warn("[Client Cache] Error writing to sessionStorage:", e);
+    }
+  }
+}
+
+/**
+ * Client-facing generation request.
+ * Invokes the secure server-side /api/generate gateway instead of making direct browser Gemini calls.
+ */
+export async function generateBio({ data, lang, onStatusChange }) {
+  const cacheKey = `${JSON.stringify(data)}_${lang}`;
+
+  // 1. Caching Layer check
+  const cached = getCachedResult(cacheKey);
+  if (cached) {
+    console.log(`%c[Client AI Manager] Cache Hit for lang: ${lang}. Returning cached result instantly.`, "color: #00bcd4; font-weight: bold;");
+    onStatusChange?.("success");
+    return cached;
+  }
+
+  // 2. Prevent concurrent duplicate calls (Deduplication)
+  if (activeClientPromises.has(cacheKey)) {
+    console.log(`[Client AI Manager] Reusing active pending request for lang: ${lang}`);
+    onStatusChange?.("queued");
+    return activeClientPromises.get(cacheKey);
+  }
+
+  // Define client execution promise
+  const promise = (async () => {
+    const reqId = `cli_${Math.random().toString(36).substring(2, 11)}`;
+    const startTime = Date.now();
+
+    console.log(`[Client AI Manager] ${reqId} | Dispatching request to Server API Gateway /api/generate | Lang: ${lang}`);
+    onStatusChange?.("generating");
+
+    try {
+      // Dispatch POST request to our secure Next.js API route
+      const resp = await fetch("/api/generate", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ data, lang }),
+      });
+
+      const duration = Date.now() - startTime;
+
+      if (!resp.ok) {
+        let errorMsg = "AI could not generate bio. Please try again.";
+        try {
+          const errJson = await resp.json();
+          if (errJson?.error) {
+            errorMsg = errJson.error;
+          }
+        } catch (_) {}
+        throw new Error(errorMsg);
+      }
+
+      const parsedJson = await resp.json();
+      
+      // Cache success payload
+      setCachedResult(cacheKey, parsedJson);
+      
+      console.log(`%c[Client AI Manager] ${reqId} | SUCCESS | Duration: ${duration}ms`, "color: #4CAF50; font-weight: bold;");
+      onStatusChange?.("success");
+      return parsedJson;
+
+    } catch (err) {
+      const duration = Date.now() - startTime;
+      console.warn(`%c[Client AI Manager] ${reqId} | FAILED | Duration: ${duration}ms | Reason: ${err.message}`, "color: #FF5722; font-weight: bold;");
+      
+      onStatusChange?.("failed", err.message);
+      throw err;
+    } finally {
+      activeClientPromises.delete(cacheKey);
+    }
+  })();
+
+  activeClientPromises.set(cacheKey, promise);
+  return promise;
 }

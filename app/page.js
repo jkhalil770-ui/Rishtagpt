@@ -104,9 +104,8 @@ export default function Home() {
                 <X size={12} />
               </button>
 
-              {/* Icon */}
-              <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-[#070b16]/70 border border-gold/30 text-gold shrink-0 overflow-hidden p-1">
-                <img src="/assets/logo.png" alt="RishtaGPT Logo" className="w-full h-full object-contain" />
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-[#070b16]/70 border border-gold/30 text-gold shrink-0 overflow-hidden p-0 isolate transform-gpu">
+                <img src="/assets/logo.png?v=3.2" alt="RishtaGPT Logo" className="w-full h-full object-cover rounded-xl" />
               </div>
 
               <div className="flex-1 min-w-0 pr-4">

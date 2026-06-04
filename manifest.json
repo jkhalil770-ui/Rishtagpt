@@ -1,7 +1,7 @@
 {
   "name": "RishtaGPT — AI Rishta Bio Generator",
   "short_name": "RishtaGPT",
-  "description": "Generate dignified, culturally-grounded rishta bios in Urdu, Roman Urdu, and English powered by Gemini AI.",
+  "description": "Premium AI-powered matrimonial bio generator for Pakistani & Indian Muslim families.",
   "start_url": "./RishtaGPT.html",
   "display": "standalone",
   "background_color": "#0A0F1E",

@@ -24,7 +24,7 @@ const notoUrdu = Noto_Nastaliq_Urdu({
 
 export const metadata = {
   title: "RishtaGPT — AI Rishta Bio Generator",
-  description: "AI se apna rishta bio banao — Urdu, Roman Urdu, English mein. Free, fast, beautiful. Built for Pakistani & Indian families.",
+  description: "RishtaGPT — GPT-4o powered AI se apna rishta bio banao. اب اردو، رومن اردو اور انگلش میں نہایت پروقار رشتہ بائیو ڈیٹا سیکنڈز میں تیار کریں۔ 100% Free & Secure.",
   keywords: ["rishta bio", "biodata", "marriage biodata", "AI biodata", "Pakistani rishta", "matrimonial biodata"],
   metadataBase: new URL("https://rishtagpt.online"),
   alternates: {
@@ -33,7 +33,7 @@ export const metadata = {
   openGraph: {
     type: "website",
     title: "RishtaGPT — AI Rishta Bio Generator",
-    description: "AI se apna rishta bio banao — Urdu, Roman Urdu, English mein. Free, fast, beautiful. Built for Pakistani & Indian families.",
+    description: "RishtaGPT — GPT-4o powered AI se apna rishta bio banao. اب اردو، رومن اردو اور انگلش میں نہایت پروقار رشتہ بائیو ڈیٹا سیکنڈز میں تیار کریں۔ 100% Free & Secure.",
     images: ["/og-image.png"],
     url: "https://rishtagpt.online",
     siteName: "RishtaGPT",
@@ -41,7 +41,7 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "RishtaGPT — AI Rishta Bio Generator",
-    description: "AI se apna rishta bio banao — Urdu, Roman Urdu, English mein. Free, fast, beautiful. Built for Pakistani & Indian families.",
+    description: "RishtaGPT — GPT-4o powered AI se apna rishta bio banao. اب اردو، رومن اردو اور انگلش میں نہایت پروقار رشتہ بائیو ڈیٹا سیکنڈز میں تیار کریں۔ 100% Free & Secure.",
     images: ["/og-image.png"],
   },
   manifest: "/manifest.json",

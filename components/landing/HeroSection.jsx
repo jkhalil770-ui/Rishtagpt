@@ -90,8 +90,8 @@ export default function HeroSection() {
           </svg>
 
           {/* R brand logo at the center of concentric rings */}
-          <div className="w-10 h-10 md:w-11 md:h-11 flex items-center justify-center bg-[#070b16]/90 rounded-full border border-gold/45 shadow-[0_0_20px_rgba(201,168,76,0.3)] overflow-hidden p-1.5 relative z-10 transition-transform duration-300 hover:scale-105">
-            <img src="/assets/logo.png" alt="RishtaGPT Logo" className="w-full h-full object-contain" />
+          <div className="w-16 h-16 md:w-18 md:h-18 flex items-center justify-center bg-[#070b16]/90 rounded-full border border-gold/45 shadow-[0_0_25px_rgba(201,168,76,0.35)] overflow-hidden p-0 relative z-10 transition-transform duration-300 hover:scale-105 isolate transform-gpu">
+            <img src="/assets/logo.png?v=3.2" alt="RishtaGPT Logo" className="w-full h-full object-cover rounded-full" />
           </div>
         </motion.div>
 

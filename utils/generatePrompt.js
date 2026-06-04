@@ -32,9 +32,24 @@ export const STYLES = [
 ];
 
 export const LANGS = [
-  { id: "urdu",  label: "Urdu Script", direction: "rtl", note: "Use formal Urdu script (Nastaliq style). Use proper Urdu vocabulary, not transliterated English." },
-  { id: "roman", label: "Roman Urdu",  direction: "ltr", note: "Use Roman Urdu — Urdu words written in English alphabet. Mix in common English words where natural (e.g. 'profession', 'family')." },
-  { id: "en",    label: "English",     direction: "ltr", note: "Use clear, fluent English. Include common Islamic phrases (Assalam-u-Alaikum, InshaAllah, JazakAllah Khair) where natural." },
+  { 
+    id: "urdu",  
+    label: "Urdu Script", 
+    direction: "rtl", 
+    note: "Use highly dignified, polite, and elegant literary Urdu script (Nastaliq style). Use rich Urdu vocabulary, not raw English words written in Urdu script (e.g. use 'Sho'ba' instead of 'Profession', 'Taleem' instead of 'Education'). Use respectful honorifics like 'Alhamdulillah', 'MashaAllah', 'Aap', and end with a beautiful, heartfelt dua. Make it sound deeply cultured, family-grounded, and emotionally rich." 
+  },
+  { 
+    id: "roman", 
+    label: "Roman Urdu",  
+    direction: "ltr", 
+    note: "Use natural, fluent Roman Urdu (Urdu written in English letters) just like highly educated families speak. Use proper spelling (e.g. 'shadi', 'khandan', 'namaz', 'Deen', 'MashaAllah', 'Alhamdulillah', 'InshaAllah'). Mix in professional and formal English words elegantly (like 'career-oriented', 'balanced lifestyle', 'family values', 'respect') to sound polished and modern, but keep the core emotional tone warm, personal, and highly respectful." 
+  },
+  { 
+    id: "en",    
+    label: "English",     
+    direction: "ltr", 
+    note: "Use flawless, sophisticated, and contemporary global English. Incorporate a warm, positive, and deeply respectful tone. Integrate common Islamic phrases (like 'Assalamu Alaikum', 'InshaAllah', 'Alhamdulillah', 'JazakAllah Khair') with seamless elegance. Ensure it portrays a brilliant blend of professional ambition, high family values, and grounded religious beliefs." 
+  },
 ];
 
 export function buildPrompt(d, langId) {
@@ -108,21 +123,22 @@ export function buildPrompt(d, langId) {
     `    "before": [An array of exactly 3 short bullet points summarizing the raw, unpolished factual inputs provided by the user in the form],`,
     `    "after": [An array of exactly 3 matching short bullet points highlighting the sophisticated, dignified wording and emotional presentation upgrades performed by the AI]`,
     `  },`,
-    `  "traditional": "A warm, respectful traditional bio in 1st person (120-150 words). Uses Assalam-u-Alaikum, dua phrases, naturally mentions family values, parents' status, biradari.",`,
-    `  "modern": "A clean, modern, balanced bio in 1st person (120-150 words). Confident and warm. Avoids overly traditional phrasing but keeps Islamic references natural.",`,
-    `  "professional": "A structured, career-led bio in 1st person (120-150 words). Bullet-style highlights where possible. Professional, goal-oriented, and confident.",`,
-    `  "poetic": "An eloquent, literary bio in 1st person (120-150 words). Incorporates a small tasteful couplet or poetic phrase in the language (sher, kalam, or lyrical line).",`,
-    `  "detailed": "A thorough, comprehensive, well-structured bio in 1st person (120-150 words) organized with section highlights for Deen, Career, and Partner expectations.",`,
-    `  "familyApproval": "An ultra-traditional, formal, highly respectful and conservative bio written in 1st person (120-150 words) that immediately appeals to traditional family elders, grandparents, and parents."`,
+    `  "traditional": "A warm, respectful traditional bio in 1st person. Uses Assalam-u-Alaikum, dua phrases, naturally mentions family values, parents' status, biradari. Deeply grounded in cultural respect.",`,
+    `  "modern": "A clean, modern, balanced bio in 1st person. Confident, modern, and warm. Avoids overly traditional phrasing but keeps Islamic references natural and speaks of a contemporary lifestyle.",`,
+    `  "professional": "A structured, career-led bio in 1st person. Bullet-style highlights where possible. Professional, goal-oriented, confident, showcasing intellect and ambition.",`,
+    `  "poetic": "An eloquent, literary bio in 1st person. Incorporates a small tasteful couplet or poetic phrase in the language (sher, kalam, or lyrical line) that touches the heart and matches the character.",`,
+    `  "detailed": "A thorough, comprehensive, well-structured bio in 1st person organized with clear section highlights for Deen, Career, and Partner expectations.",`,
+    `  "familyApproval": "An ultra-traditional, formal, highly respectful and conservative bio written in 1st person that immediately appeals to traditional family elders, grandparents, and parents, highlighting family sharafat and obedience."`,
     `}`,
     ``,
     `STRICT BIO RULES — follow exactly for all 6 bios:`,
-    `1. LENGTH: Each of the 6 bio fields MUST be 120–150 words. Keep it tight but complete.`,
-    `2. SOUND HUMAN: Write the way a real person would naturally introduce themselves — simple, warm, direct sentences. Avoid stiff, formal, AI-sounding phrasing.`,
-    `3. SHORT PARAGRAPHS: 2–3 short paragraphs only. Each paragraph 2–3 sentences max. Separate paragraphs with \\n\\n.`,
-    `4. NO FILLER: No flowery clichés, no repeating facts.`,
-    `5. Open with a brief respectful salaam. Close with a short respectful line (e.g. JazakAllah Khair / shukriya).`,
-    `6. First person speaking (I / me).`,
-    `7. Do NOT invent facts. If a field is "—" or unspecified, skip it silently.`,
+    `1. LENGTH & STRUCTURE: Each of the 6 bio fields MUST be 120–150 words total and structured in EXACTLY 3 short paragraphs (separated with \\n\\n):`,
+    `   - Paragraph 1 (Self & Deen): Warm opening salaam. Elegant introduction of name, height, character, religious values (namaz/Quran), and personality.`,
+    `   - Paragraph 2 (Career & Ambition): A polished reflection of education, degree, institution, professional achievements, and work goals.`,
+    `   - Paragraph 3 (Family Background & Partner Expectation): Respectful details about parents, family setup, what kind of life partner is desired, closing with a beautiful, heartfelt dua/shukriya.`,
+    `2. SOUND HUMAN: Write the way a real, sophisticated person would naturally introduce themselves — simple, warm, direct, and emotionally mature sentences. Avoid stiff, robotic, AI-sounding phrasing.`,
+    `3. NO FILLER: No flowery clichés, no repeating facts.`,
+    `4. First person speaking (I / me).`,
+    `5. Do NOT invent facts. If a field is "—" or unspecified, skip it silently.`,
   ].join("\n");
 }

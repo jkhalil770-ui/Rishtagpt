@@ -11,7 +11,7 @@ const MESSAGES = [
   "Finalizing your profile...",
 ];
 
-export default function GeneratingAnimation({ active, onFinished }) {
+export default function GeneratingAnimation({ active, onFinished, queueStatus, ready = false }) {
   const [msgIndex, setMsgIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [progress, setProgress] = useState(0);
@@ -64,18 +64,16 @@ export default function GeneratingAnimation({ active, onFinished }) {
     return () => clearInterval(timer);
   }, [active]);
 
-  // 3. Complete fill to 100% and trigger exit after ready
+  // 3. Complete fill to 100% and trigger exit after ready becomes true
   useEffect(() => {
-    if (active && progress >= 90) {
+    if (active && ready) {
+      setProgress(100);
       const finishTimer = setTimeout(() => {
-        setProgress(100);
-        setTimeout(() => {
-          if (onFinished) onFinished();
-        }, 600);
-      }, 3500);
+        if (onFinished) onFinished();
+      }, 600);
       return () => clearTimeout(finishTimer);
     }
-  }, [active, progress]);
+  }, [active, ready, onFinished]);
 
   // 4. Background Upward Floating Particles
   useEffect(() => {
@@ -177,15 +175,15 @@ export default function GeneratingAnimation({ active, onFinished }) {
             <div className="absolute inset-8 rounded-full bg-gold/20 blur-xl" />
 
             {/* Center Crescent Logo replaced with actual brand logo */}
-            <div className="relative z-20 w-16 h-16 flex items-center justify-center bg-[#070b16]/80 rounded-full border border-gold/40 shadow-[0_0_30px_rgba(201,168,76,0.35)] overflow-hidden p-2 animate-pulse">
-              <img src="/assets/logo.png" alt="RishtaGPT Logo" className="w-full h-full object-contain" />
+            <div className="relative z-20 w-16 h-16 flex items-center justify-center bg-[#070b16]/80 rounded-full border border-gold/40 shadow-[0_0_30px_rgba(201,168,76,0.35)] overflow-hidden p-0 animate-pulse isolate transform-gpu">
+              <img src="/assets/logo.png?v=3.2" alt="RishtaGPT Logo" className="w-full h-full object-cover rounded-full" />
             </div>
           </div>
 
           {/* Rotating Message Texts with realistic typewriter simulation */}
           <div className="relative z-10 h-10 flex items-center justify-center text-center px-4">
             <div className="font-display text-lg md:text-xl font-bold tracking-wide italic shimmer-text min-h-[30px] flex items-center justify-center">
-              <span>{displayText}</span>
+              <span>{queueStatus === "queued" || (progress >= 90 && !ready) ? "AI aapki bio tayyar kar rahi hai..." : displayText}</span>
               <span className="w-[3px] h-5 bg-gold ml-2 animate-ping shrink-0" />
             </div>
           </div>

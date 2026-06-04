@@ -67,8 +67,8 @@ export default function Header() {
     <header className="fixed top-0 inset-x-0 z-40 bg-gradient-to-b from-bg-primary/95 to-bg-primary/0 backdrop-blur-md px-4 md:px-8 py-4 flex items-center justify-between border-b border-white/[0.03]">
       <Link href="/" className="flex items-center gap-2.5 no-underline cursor-pointer group">
         {/* Crescent Star Small Logo replaced with actual brand logo */}
-        <div className="w-9 h-9 rounded-xl flex items-center justify-center bg-[#070b16]/70 border border-gold/30 text-gold transition-all duration-300 group-hover:border-gold/50 group-hover:scale-105 overflow-hidden p-1">
-          <img src="/assets/logo.png" alt="RishtaGPT Logo" className="w-full h-full object-contain" />
+        <div className="w-9 h-9 rounded-xl flex items-center justify-center bg-[#070b16]/70 border border-gold/30 text-gold transition-all duration-300 group-hover:border-gold/50 group-hover:scale-105 overflow-hidden p-0 isolate transform-gpu">
+          <img src="/assets/logo.png?v=3.2" alt="RishtaGPT Logo" className="w-full h-full object-cover rounded-xl" />
         </div>
         <span className="font-display font-semibold text-[20px] tracking-tight bg-gradient-to-r from-text-primary to-gold-light bg-clip-text text-transparent">
           RishtaGPT

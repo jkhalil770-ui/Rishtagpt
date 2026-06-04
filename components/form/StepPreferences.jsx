@@ -57,7 +57,9 @@ export default function StepPreferences({ data, setData, errors }) {
         handleFieldChange("langs", langs.filter((l) => l !== langId));
       }
     } else {
-      handleFieldChange("langs", [...langs, langId]);
+      if (langs.length < 2) {
+        handleFieldChange("langs", [...langs, langId]);
+      }
     }
   };
 
@@ -207,7 +209,7 @@ export default function StepPreferences({ data, setData, errors }) {
       {/* 6. Language Output Multiselect Checkbox Toggles */}
       <div>
         <label className="text-xs uppercase tracking-widest font-bold text-text-muted block mb-2">
-          Language Output <span className="text-text-muted/65 font-medium">(Select at least one)</span>
+          Language Output <span className="text-text-muted/65 font-medium">(Select up to 2 · {selectedLangs.length}/2)</span>
         </label>
         <div className="flex flex-col gap-2.5">
           {LANGUAGES.map((lang) => {

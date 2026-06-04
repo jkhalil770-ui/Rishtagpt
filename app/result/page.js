@@ -22,6 +22,7 @@ export default function ResultPage() {
   const [loading, setLoading] = useState(true);
   const [showTransition, setShowTransition] = useState(true);
   const [error, setError] = useState("");
+  const [queueStatus, setQueueStatus] = useState("");
 
   // Firebase auth state
   const [user, setUser] = useState(null);
@@ -69,9 +70,12 @@ export default function ResultPage() {
     return () => unsubscribe();
   }, []);
 
-  // 3. Concurrently fetch Gemini bios JSON payloads for each selected language
+  const hasFetchedRef = useRef(false);
+
+  // 3. Sequentially fetch bios payloads for each selected language to prevent concurrent rate limit collisions
   useEffect(() => {
-    if (!data) return;
+    if (!data || hasFetchedRef.current) return;
+    hasFetchedRef.current = true;
 
     const fetchAllBios = async () => {
       setLoading(true);
@@ -81,16 +85,20 @@ export default function ResultPage() {
       const generatedResults = {};
 
       try {
-        // Fetch separate language queries concurrently in parallel
-        await Promise.all(
-          langQueries.map(async (langId) => {
-            const parsedJson = await generateBio({
-              data,
-              lang: langId,
-            });
-            generatedResults[langId] = parsedJson;
-          })
-        );
+        // Run sequential queries with a small gap to respect free rate-limits
+        for (const langId of langQueries) {
+          console.log(`[UI] Launching sequential generation for language: ${langId}`);
+          const parsedJson = await generateBio({
+            data,
+            lang: langId,
+            onStatusChange: (status) => {
+              if (status === "queued" || status === "generating" || status === "success") {
+                setQueueStatus(status);
+              }
+            }
+          });
+          generatedResults[langId] = parsedJson;
+        }
 
         setBios(generatedResults);
 
@@ -99,8 +107,10 @@ export default function ResultPage() {
           await logGeneration(auth.currentUser.uid);
         }
       } catch (err) {
-        console.error("Gemini Concurrency Generation Error:", err);
-        setError(err.message || "Bio generate karne mein masla hua. Thodi der baad try karein.");
+        console.error("AI Generation Error:", err);
+        setError(err.message || "AI aapki bio tayyar nahi kar saka. Thodi der baad 'Try Again' par click karein.");
+        // Reset ref so they can retry on failure
+        hasFetchedRef.current = false;
       } finally {
         setLoading(false);
       }
@@ -461,6 +471,8 @@ export default function ResultPage() {
       <GeneratingAnimation
         active={showTransition}
         onFinished={handleFinishedTransition}
+        queueStatus={queueStatus}
+        ready={!loading}
       />
 
       <Footer />
