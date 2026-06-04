@@ -27,6 +27,55 @@ const DEFAULT_PROFILE = {
   familyValues: ""
 };
 
+const QUICK_OPTIONS = {
+  profession: [
+    "Software Engineer",
+    "Doctor (MBBS)",
+    "Business Owner",
+    "Chartered Accountant",
+    "Teacher"
+  ],
+  religiousOutlook: [
+    "Sunni, prays 5 times",
+    "Sunni, moderate Namaz",
+    "Shia, prays 5 times",
+    "Deobandi, prays 5 times"
+  ],
+  lifestyle: [
+    "Career-oriented & quiet",
+    "Artistic & outgoing",
+    "Simple living & family-oriented",
+    "Loves travel & outgoing"
+  ],
+  familyValues: [
+    "Nuclear family, modern outlook",
+    "Traditional joint family",
+    "Educated family, moderate outlook",
+    "Conservative family values"
+  ]
+};
+
+const renderQuickOptions = (field, setProfile) => {
+  const options = QUICK_OPTIONS[field];
+  if (!options) return null;
+  return (
+    <div className="flex flex-wrap gap-1.5 mt-2 overflow-x-auto pb-1 max-w-full" style={{ scrollbarWidth: "none" }}>
+      {options.map((opt) => (
+        <button
+          key={opt}
+          type="button"
+          onClick={() => {
+            setProfile(prev => ({ ...prev, [field]: opt }));
+          }}
+          className="px-2.5 py-1 rounded-lg border border-white/5 bg-white/[0.02] hover:bg-gold-dim hover:border-gold/30 text-text-muted hover:text-gold text-[10px] font-bold tracking-wide transition-all cursor-pointer whitespace-nowrap"
+        >
+          {opt}
+        </button>
+      ))}
+    </div>
+  );
+};
+
 export default function CompatibilityPage() {
   const router = useRouter();
   
@@ -327,6 +376,7 @@ export default function CompatibilityPage() {
                               focusA.profession ? "border-gold shadow-gold-glow scale-[1.01]" : "border-white/10"
                             }`}
                           />
+                          {renderQuickOptions("profession", setProfileA)}
                         </div>
 
                         {/* Religious Outlook */}
@@ -343,6 +393,7 @@ export default function CompatibilityPage() {
                               focusA.religion ? "border-gold shadow-gold-glow scale-[1.01]" : "border-white/10"
                             }`}
                           />
+                          {renderQuickOptions("religiousOutlook", setProfileA)}
                         </div>
 
                         {/* Lifestyle & Hobbies */}
@@ -359,6 +410,7 @@ export default function CompatibilityPage() {
                               focusA.lifestyle ? "border-gold shadow-gold-glow scale-[1.01]" : "border-white/10"
                             }`}
                           />
+                          {renderQuickOptions("lifestyle", setProfileA)}
                         </div>
 
                         {/* Family Values */}
@@ -375,6 +427,7 @@ export default function CompatibilityPage() {
                               focusA.family ? "border-gold shadow-gold-glow scale-[1.01]" : "border-white/10"
                             }`}
                           />
+                          {renderQuickOptions("familyValues", setProfileA)}
                         </div>
                       </div>
                     </GlassCard>
@@ -439,6 +492,7 @@ export default function CompatibilityPage() {
                               focusB.profession ? "border-gold shadow-gold-glow scale-[1.01]" : "border-white/10"
                             }`}
                           />
+                          {renderQuickOptions("profession", setProfileB)}
                         </div>
 
                         {/* Religious Outlook */}
@@ -455,6 +509,7 @@ export default function CompatibilityPage() {
                               focusB.religion ? "border-gold shadow-gold-glow scale-[1.01]" : "border-white/10"
                             }`}
                           />
+                          {renderQuickOptions("religiousOutlook", setProfileB)}
                         </div>
 
                         {/* Lifestyle & Hobbies */}
@@ -471,6 +526,7 @@ export default function CompatibilityPage() {
                               focusB.lifestyle ? "border-gold shadow-gold-glow scale-[1.01]" : "border-white/10"
                             }`}
                           />
+                          {renderQuickOptions("lifestyle", setProfileB)}
                         </div>
 
                         {/* Family Values */}
@@ -487,6 +543,7 @@ export default function CompatibilityPage() {
                               focusB.family ? "border-gold shadow-gold-glow scale-[1.01]" : "border-white/10"
                             }`}
                           />
+                          {renderQuickOptions("familyValues", setProfileB)}
                         </div>
                       </div>
                     </GlassCard>

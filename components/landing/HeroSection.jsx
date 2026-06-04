@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { ChevronDown, Sparkles, Globe, MessageSquare } from "lucide-react";
+import { ChevronDown, Sparkles, Globe, MessageSquare, Heart } from "lucide-react";
 import Link from "next/link";
 import GoldButton from "../ui/GoldButton";
 
@@ -133,22 +133,22 @@ export default function HeroSection() {
         {/* Action Button CTA */}
         <motion.div
           variants={itemVars}
-          className="mb-10 w-full flex justify-center"
-          animate={{
-            boxShadow: [
-              "0 0 20px rgba(201,168,76,0.15)",
-              "0 0 35px rgba(201,168,76,0.35)",
-              "0 0 20px rgba(201,168,76,0.15)",
-            ],
-          }}
-          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-          style={{ borderRadius: "999px", width: "max-content" }}
+          className="mb-10 w-full flex flex-col sm:flex-row items-center justify-center gap-4 px-4"
         >
-          <Link href="/form" className="no-underline">
-            <GoldButton className="px-10 py-5 text-[17px] flex items-baseline gap-2">
-              Shuru Karein
-              <span className="text-[13px] ml-1">→</span>
+          {/* Create Bio Button */}
+          <Link href="/form" className="no-underline w-full sm:w-auto">
+            <GoldButton className="px-10 py-4.5 text-[16px] w-full flex items-center justify-center gap-1.5 shadow-gold-glow">
+              <Sparkles size={16} />
+              <span>Create Bio</span>
             </GoldButton>
+          </Link>
+
+          {/* Compatibility Check Button */}
+          <Link href="/compatibility" className="no-underline w-full sm:w-auto">
+            <button className="px-10 py-4.5 text-[16px] text-gold hover:text-gold-light border border-gold/45 hover:border-gold rounded-full bg-gold-dim/40 hover:bg-gold-dim transition-all duration-300 w-full font-bold flex items-center justify-center gap-2 cursor-pointer">
+              <Heart size={15} className="fill-gold" />
+              <span>Compatibility Check</span>
+            </button>
           </Link>
         </motion.div>
 
