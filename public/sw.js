@@ -1,8 +1,9 @@
-const CACHE_NAME = "rishtagpt-next-cache-v1";
+const CACHE_NAME = "rishtagpt-next-cache-v4";
 const ASSETS = [
   "/",
   "/manifest.json",
-  "/assets/logo.png"
+  "/assets/logo.png?v=4",
+  "/assets/favicon.svg?v=4"
 ];
 
 self.addEventListener("install", (e) => {

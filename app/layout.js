@@ -46,9 +46,20 @@ export const metadata = {
   },
   manifest: "/manifest.json",
   icons: {
-    icon: "/assets/favicon.svg",
+    icon: [
+      { url: "/assets/favicon.svg", type: "image/svg+xml" },
+      { url: "/assets/logo.png?v=4", sizes: "192x192", type: "image/png" },
+      { url: "/assets/logo.png?v=4", sizes: "512x512", type: "image/png" },
+    ],
     shortcut: "/assets/favicon.svg",
-    apple: "/assets/logo.png",
+    apple: [
+      { url: "/assets/logo.png?v=4", sizes: "180x180", type: "image/png" },
+      { url: "/assets/logo.png?v=4", sizes: "152x152", type: "image/png" },
+      { url: "/assets/logo.png?v=4", sizes: "120x120", type: "image/png" },
+    ],
+    other: [
+      { rel: "apple-touch-icon-precomposed", url: "/assets/logo.png?v=4" },
+    ],
   },
 };
 
@@ -59,8 +70,13 @@ export default function RootLayout({ children }) {
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content="RishtaGPT" />
-        <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
-        <link rel="apple-touch-icon" href="/assets/logo.png" />
+        <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=4" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/assets/logo.png?v=4" />
+        <link rel="icon" type="image/png" sizes="512x512" href="/assets/logo.png?v=4" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo.png?v=4" />
+        <link rel="apple-touch-icon" sizes="152x152" href="/assets/logo.png?v=4" />
+        <link rel="apple-touch-icon" sizes="120x120" href="/assets/logo.png?v=4" />
+        <link rel="apple-touch-icon-precomposed" href="/assets/logo.png?v=4" />
       </head>
       <body
         className={`${playfair.variable} ${dmSans.variable} ${notoUrdu.variable} font-sans bg-bg-primary text-text-primary min-h-screen relative overflow-x-hidden`}
